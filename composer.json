@@ -1,11 +1,12 @@
 {
-  "name": "Tym17",
+  "name": "tym17",
   "description": "MailPerformance module for Magento 2",
   "require": {
     "magento/project-community-edition": "*"
   },
   "type": "magento2-module",
   "version": "0.1.0",
+  "minimum-stability": "dev",
   "License": [
     "AFL-3.0"
   ],
@@ -17,7 +18,7 @@
     "map": [
       [
         "*",
-        "Tym17/MailPerformance"
+        "tym17/MailPerformance"
       ]
     ]
   }
