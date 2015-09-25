@@ -6,9 +6,7 @@
   "homepage": "https://github.com/Tym17/MPerf-Magento2",
   "version": "0.1.0",
   "minimum-stability": "dev",
-  "License": [
-    "AFL-3.0"
-  ],
+  "License": "AFL-3.0",
   "authors": [
     {
       "name": "Tym17"
