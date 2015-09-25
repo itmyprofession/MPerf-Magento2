@@ -1,0 +1,24 @@
+{
+  "name": "Tym17",
+  "description": "MailPerformance module for Magento 2",
+  "require": {
+    "magento/project-community-edition": "*"
+  },
+  "type": "magento2-module",
+  "version": "0.1.0",
+  "License": [
+    "AFL-3.0"
+  ],
+  "require": {
+    "php": "~5.5.0|~5.6.0",
+    "magento/magento-composer-installer": "*"
+  },
+  "extra": {
+    "map": [
+      [
+        "*",
+        "Tym17/MailPerformance"
+      ]
+    ]
+  }
+}
