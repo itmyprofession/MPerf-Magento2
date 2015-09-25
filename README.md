@@ -1,4 +1,6 @@
 # MailPerformance
 création du plugin MailPerformance
 
-### FR >> LISEZMOI.md
+[Packagist link](https://packagist.org/packages/tym17/mail-performance)
+
+##### FR >> LISEZMOI.md
