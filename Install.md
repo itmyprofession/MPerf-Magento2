@@ -3,6 +3,7 @@
 * [Manual Install](##Manual Install)
 * [Git Install](##Git Install)
 * [Setup](##setup)
+* [Maintainance](##Maintainance)
 
 ## Composer Install
 
@@ -24,12 +25,19 @@
       ...
       'Magento_CatalogWidget' => 1,
       'Magento_Wishlist' => 1,
-      +'Tym17_MailPerformance' => 1,
+  +    'Tym17_MailPerformance' => 1,
       ),
   );
   ```
-3. Navigate in your Magento 2 backend to *System/Cache Management* and flush Magento Cache
+3. Run `php -f bin/magento setup:upgrade` from your Magento root folder
 
-   * You might need to run `php -f bin/magento setup:upgrade` from your Magento root folder
+4. Navigate in your Magento 2 backend to *System/Cache Management* and flush Magento Cache
 
-4. Navigate in your Magento 2 backend to *Store/Configuration/Advanced/Advanced* and check if you can see MailPerformance
+5. Navigate in your Magento 2 backend to *Store/Configuration/Advanced/Advanced* and check if you can see MailPerformance
+
+## Maintainance
+
+ To update the MailPerformance module, navigate to your Magento 2 root folder and execute the following command:
+ ```shell
+ composer update
+ ```
