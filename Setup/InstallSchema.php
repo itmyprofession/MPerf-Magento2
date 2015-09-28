@@ -29,7 +29,7 @@ class InstallSchema implements InstallSchemaInterface
         )->addColumn(
             'id_magento',
             \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
-            11,
+            null,
             array('identity' => true, 'nullable' => false, 'primary' => true),
             'magento ID'
         )->addColumn(

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/App/etc/routes.xsd">
     <router id="admin">
-        <route id="admin" frontName="mailperformance">
+        <route id="mailperformance" frontName="mailperformance">
             <module name="Tym17_MailPerformance" before="Magento_Adminhtml" />
         </route>
     </router>
