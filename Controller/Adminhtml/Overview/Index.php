@@ -1,5 +1,5 @@
 <?php
-namespace Tym17\MailPerformance\Adminhtml\Settings;
+namespace Tym17\MailPerformance\Adminhtml\Overview;
 
 class Index extends \MAgento\Backend\App\Action
 {
