@@ -5,18 +5,15 @@
 * notif abo Mperf expire
 
 ## Archi Admin panel
-* System > Other settings > MPerf Dashboard
+* Marketing > MailPerformance > Dashboard
   * Confirm login
   * > Link autres MPerf pages
-* Stores > Other Settings > MPerf Settings
-  * > event binding
-  * > customer management
-  * > cart abandonment
+* Marketing > MailPerformance > Event binding
+* Marketing > MailPerformance > Customer management
+* Marketing > MailPerformance > Cart abandonment
 * Content > Elements > MPerf Forms
   * Dash MPerf Forms
   * > create form
-* Report > MPerf reports
-  * Stats & reports
 
 ### Liens utiles
 * http://thedeveloperworldisyours.com/php/create-magento-2-composer-module/
