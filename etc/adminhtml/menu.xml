@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
     <menu>
-        <add id="Tym17_MailPerformance::Admin" title="MailPerformance settings" module="Tym17_MailPerformance" sortOrder="500" parent="Magento_Backend::stores_settings"/>
+        <add id="Tym17_MailPerformance::Admin" title="MailPerformance settings" module="Tym17_MailPerformance" sortOrder="500" parent="Magento_Backend::stores_settings" action="MailPerformance/admin" resource="Tym17_MailPerformance::admin"/>
     </menu>
 </config>
