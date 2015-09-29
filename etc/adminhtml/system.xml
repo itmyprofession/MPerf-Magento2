@@ -6,7 +6,7 @@
         </tab>
         <section id="mailperformance" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
             <class>separator-top</class>
-            <label>MailPerformance Configuration</label>
+            <label>Configuration</label>
             <tab>mailperformance</tab>
             <resource>Tym17_MailPerformance::config</resource>
             <group id="auth" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
@@ -15,13 +15,13 @@
                     <label>Auto-Login key</label>
                 </field>
             </group>
-            <group id="cfg" translate="label" type="text" sortOder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+            <group id="cfg" translate="label" type="text" sortOder="20" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Feature configuration</label>
-                <field id="auto-add-subscriber" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="auto-add-subscriber" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Automatically add subsriber on subscription</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="cart-abandon" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="cart-abandon" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Activate cart abondonment</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
