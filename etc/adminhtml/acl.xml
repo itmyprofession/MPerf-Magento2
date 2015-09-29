@@ -6,7 +6,7 @@
                 <resource id="Magento_Adminhtml::stores">
                     <resource id="Magento_Adminhtml::stores_settings">
                         <resource id="Magento_Adminhtml::config">
-                            <resource id="Tym17_MailPerformance::test_config" title="Hello World Section" />
+                            <resource id="Tym17_MailPerformance::config" title="Hello World Section" />
                         </resource>
                     </resource>
                 </resource>

@@ -1,9 +1,8 @@
 # Magento's MailPerformance Module
 ## Possible Todo-list
 
-* Install via composer comme les plugins/dépendances magento
 * Add Admin notification on Admin board after correct installation
-* config.xml
+* notif abo Mperf expire
 
 ### Liens utiles
 * http://thedeveloperworldisyours.com/php/create-magento-2-composer-module/
