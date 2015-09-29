@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
     <menu>
         <add id="Tym17_MailPerformance::dashboard" title="MailPerformance Dashboard" module="Tym17_MailPerformance" sortOrder="500" parent="Magento_Backend::system_other_settings" action="MailPerformance/Dashboard" resource="Tym17_MailPerformance::dashboard"/>
-        <add id="Tym17_MailPerformance::settings" title="MailPerformance Settings" module="Tym17_MailPerformance" sortOrder="500" parent="Magento_Backend::store_other_settings" action="MailPerformance/Settings" resource="Tym17_MailPerformance::settings"/>
+        <add id="Tym17_MailPerformance::settings" title="MailPerformance Settings" module="Tym17_MailPerformance" sortOrder="500" parent="Magento_Backend::system_other_settings" action="MailPerformance/Settings" resource="Tym17_MailPerformance::settings"/>
         <add id="Tym17_MailPerformance::forms" title="MailPerformance Forms" module="Tym17_MailPerformance" sortOrder="500" parent="Magento_Backend::content_elements" action="MailPerformance/Forms" resource="Tym17_MailPerformance::forms"/>
     </menu>
 </config>
