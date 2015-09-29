@@ -34,7 +34,7 @@ class InstallSchema implements InstallSchemaInterface
             'magento ID'
         )->addColumn(
             'id_mailperf',
-            \Magento\Framework\DB\Ddl\Table::TYPE_VARCHAR,
+            'varchar',
             8,
             array('nullable' => false),
             'mperf id'
