@@ -15,6 +15,8 @@
 * Content > Elements > MPerf Forms
   * Dash MPerf Forms
   * > create form
+* Report > MPerf reports
+  * Stats & reports
 
 ### Liens utiles
 * http://thedeveloperworldisyours.com/php/create-magento-2-composer-module/
