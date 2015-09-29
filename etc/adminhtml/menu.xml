@@ -2,7 +2,7 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
     <menu>
         <add id="Tym17_MailPerformance::marketing" title="MailPerformance" module="Tym17_MailPerformance" sortOrder="500" parent="Magento_Backend::marketing" resource="Tym17_MailPerformance::marketing"/>
-        <add id="Tym17_MailPerformance::dashboard" title="" module="Tym17_MailPerformance" sortOrder="100" parent="Tym17_MailPerformance::marketing" action="MailPerformance/Dashboard" resource="Tym17_MailPerformance::dashboard"/>
+        <add id="Tym17_MailPerformance::dashboard" title="Dashboard" module="Tym17_MailPerformance" sortOrder="100" parent="Tym17_MailPerformance::marketing" action="MailPerformance/Dashboard" resource="Tym17_MailPerformance::dashboard"/>
         <add id="Tym17_MailPerformance::eventBinding" title="Event Binding" module="Tym17_MailPerformance" sortOrder="200" parent="Tym17_MailPerformance::marketing" action="MailPerformance/EventsBinding" resource="Tym17_MailPerformance::eventBinding"/>
         <add id="Tym17_MailPerformance::customerManagement" title="Customer management" module="Tym17_MailPerformance" sortOrder="300" parent="Tym17_MailPerformance::marketing" action="MailPerformance/CustomerManagement" resource="Tym17_MailPerformance::customerManagement"/>
         <add id="Tym17_MailPerformance::cartAbandonment" title="Cart abandonment" module="Tym17_MailPerformance" sortOrder="400" parent="Tym17_MailPerformance::marketing" action="MailPerformance/CartAbandonment" resource="Tym17_MailPerformance::cartAbandonment"/>
