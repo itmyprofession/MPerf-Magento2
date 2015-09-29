@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/system_file.xsd">
     <system>
-        <tab id="mailperformance" translate="label" sortOrder="120">
+        <tab id="mailperformance" translate="label" sortOrder="200">
             <label>MailPerformance</label>
         </tab>
         <section id="mailperformance" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
@@ -10,9 +10,20 @@
             <tab>mailperformance</tab>
             <resource>Tym17_MailPerformance::config</resource>
             <group id="auth" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
-                <label>MailPerformance Authentification Options</label>
+                <label>Authentification</label>
                 <field id="autologinkey" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Auto-Login key</label>
+                </field>
+            </group>
+            <group id="cfg" translate="label" type="text" sortOder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Feature configuration</label>
+                <field id="auto-add-subscriber" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Automatically add subsriber on subscription</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="cart-abandon" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Activate cart abondonment</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
         </section>
