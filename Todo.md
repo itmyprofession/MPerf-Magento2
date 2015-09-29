@@ -4,6 +4,18 @@
 * Add Admin notification on Admin board after correct installation
 * notif abo Mperf expire
 
+## Archi Admin panel
+* System > Other settings > MPerf Dashboard
+  * Confirm login
+  * > Link autres MPerf pages
+* Stores > Other Settings > MPerf Settings
+  * > event binding
+  * > customer management
+  * > cart abandonment
+* Content > Elements > MPerf Forms
+  * Dash MPerf Forms
+  * > create form
+
 ### Liens utiles
 * http://thedeveloperworldisyours.com/php/create-magento-2-composer-module/
 * http://www.human-element.com/magento-non-cms-pages-creating-pages-via-frontend-routers/
