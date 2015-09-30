@@ -26,5 +26,9 @@
 * https://sohelrana09.wordpress.com/2014/03/14/custom-magento2-system-configuration/ -- Add configuration/table
 * http://alankent.me/2015/01/10/a-minimal-magento-2-extension-guest-post/
 * http://alanstorm.com/php_composer_magento_tutorial
+* http://www.pierrefay.fr/creer-vue-module-magento2-1170 -- Adminhtml
+* https://www.ashsmith.io/magento2/module-from-scratch-part-5-adminhtml/ -- Adminhtml
 
 Error ==> var/report
+
+check block overview
