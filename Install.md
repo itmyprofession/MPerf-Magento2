@@ -7,6 +7,8 @@
 
 ## Composer Install
 
+### RECOMENDED
+
 1. Go to the root folder of your Magento 2 installation and type
 
    ```shell
@@ -33,6 +35,8 @@
 5. Navigate in your Magento 2 backend to *Store/Configuration/Advanced/Advanced* and check if you can see MailPerformance
 
 ## Manual Install
+
+### NOT RECOMENDED
 
 0. Download this repository
 

@@ -1,10 +1,10 @@
 <?php
-namespace Tym17\MailPerformance\Adminhtml\Overview;
+namespace Tym17\MailPerformance\Controller\Adminhtml\Overview;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
 
-class Index extends \MAgento\Backend\App\Action
+class Index extends \Magento\Backend\App\Action
 {
     /**
      * @var PageFactory
@@ -30,15 +30,15 @@ class Index extends \MAgento\Backend\App\Action
     */
     public function execute()
     {
+
         /*$this->_view->loadLayout();
         $this->_view->renderLayout();
         /** @var \MAgento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Tym17_MailPerformance::overview');
         $resultPage->addBreadcrumb(__('CMS'), __('CMS'));
-        $resultPage->addBreadcrumb(__('MailPerformance Overview'), __('MailPerformance Overview'));
-        $resultPage->getConfig()->getTitle()->prepend(__('MailPerformance Overview'));
-
+        $resultPage->addBreadcrumb(__('Overview'), __('Overview'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Overview'));
         return $resultPage;
     }
 }

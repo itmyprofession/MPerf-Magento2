@@ -28,6 +28,9 @@
 * http://alanstorm.com/php_composer_magento_tutorial
 * http://www.pierrefay.fr/creer-vue-module-magento2-1170 -- Adminhtml
 * https://www.ashsmith.io/magento2/module-from-scratch-part-5-adminhtml/ -- Adminhtml
+* http://www.mage-world.com/blog/grid-and-form-in-magento-2-admin-panel-part-1.html
+* http://www.mage-world.com/blog/how-to-create-the-configuration-via-backend-for-a-custom-module.html
+* http://www.clounce.com/magento/a-very-basic-magento-2-module-with-parameterized-template -- LAYOUT MAGIC
 
 Error ==> var/report
 
