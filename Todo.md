@@ -4,18 +4,10 @@
 * Add Admin notification on Admin board after correct installation
 * notif abo Mperf expire
 
-## Archi Admin panel
-* Marketing > MailPerformance > Dashboard
-  * Confirm login
-  * > Link autres MPerf pages
-* Marketing > MailPerformance > Event binding
-* Marketing > MailPerformance > Customer management
-* Marketing > MailPerformance > Cart abandonment
-* Content > Elements > MPerf Forms
-  * Dash MPerf Forms
-  * > create form
 
 ### Liens utiles
+* http://www.w3schools.com/tags/tag_div.asp
+
 * http://thedeveloperworldisyours.com/php/create-magento-2-composer-module/
 * http://www.human-element.com/magento-non-cms-pages-creating-pages-via-frontend-routers/
 * https://github.com/magento/magento2-samples
@@ -31,6 +23,7 @@
 * http://www.mage-world.com/blog/grid-and-form-in-magento-2-admin-panel-part-1.html
 * http://www.mage-world.com/blog/how-to-create-the-configuration-via-backend-for-a-custom-module.html
 * http://www.clounce.com/magento/a-very-basic-magento-2-module-with-parameterized-template -- LAYOUT MAGIC
+* http://devdocs.magento.com/guides/v2.0/ui-library/ui-definition.html -- UI Definition
 
 Error ==> var/report
 
