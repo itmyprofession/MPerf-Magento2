@@ -1,12 +1,58 @@
-<h1> Authentification </h1>
-<p> You are logged in as:
-    <p> ACC_NAME<br>
-        ACC_CUSTOMER_INFO<br>
-        ACC_CUSTOMER_MAIL
-    </p>
-    <p>Your account expires on:<br>
-        ACC_EXPIRATION
-    </p>
-</p>
-<h1> Feature status </h1>
-<p> Customer Management </p>
+<div class="row">
+    <div class="col-m-5 col-m-push-7">
+        <div class="admin__page-section-title">
+            <span class="title"> Feature status </span>
+        </div>
+        <table class="admin__table-secondary">
+            <tbody>
+                <tr>
+                    <th>Cart abandonment</th>
+                    <td>
+                        <span class="grid-severity-notice">
+                            <span>Enabled</span>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Automatically Add subscriber on subscription</th>
+                    <td>
+                        <span class="grid-severity-critical">
+                            <span>Disabled</span>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-m-6 col-m-pull-5">
+        <div class="admin__page-section-title">
+            <span class="title"> Account Information</span>
+        </div>
+        <p> You are logged in as:</p>
+        <table class="admin__table-secondary">
+            <tbody>
+                <tr>
+                    <th>Account Name</th>
+                    <td><strong>ACC_NAME</strong></td>
+                </tr>
+                <tr>
+                    <th>Name</th>
+                    <td>ACC_CUSTOMER_INFO</td>
+                </tr>
+                <tr>
+                    <th>Mail</th>
+                    <td>ACC_CUSTOMER_MAIL</td>
+                </tr>
+                <tr>
+                    <th>Expires on</th>
+                    <td>ACC_EXPIRATION</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-m-3 col-m-push-3">
+
+        <button class="action-primary" type="button">Click!</button>
+    </div>
+</div>
