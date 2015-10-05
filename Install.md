@@ -18,21 +18,23 @@
 
 2. Run `php -f bin/magento setup:upgrade` from your Magento root folder
 
-3. Navigate in your Magento 2 backend to *System/Cache Management* and flush Magento Cache
+3. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
 
-4. Navigate in your Magento 2 backend to *Store/Configuration/Advanced/Advanced* and check if you can see MailPerformance
+4. Navigate in your Magento 2 backend to `Store/Configuration/Advanced/Advanced` and check if you can see MailPerformance
 
 ## Git Install
 
-1. Clone this repository in your Magento 2 root folder
+### NOT RECOMENDED
 
-2. Run the script `GitInstall.sh` located in Setup folder of this repository
+1. Clone this repository
+
+2. Copy and paste the content of it to `{Magento}/app/code/Tym17/MailPerformance`
 
 3. Run `php -f bin/magento setup:upgrade` from your Magento root folder
 
-4. Navigate in your Magento 2 backend to *System/Cache Management* and flush Magento Cache
+4. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
 
-5. Navigate in your Magento 2 backend to *Store/Configuration/Advanced/Advanced* and check if you can see MailPerformance
+5. Navigate in your Magento 2 backend to `Store/Configuration/Advanced/Advanced` and check if you can see MailPerformance
 
 ## Manual Install
 
@@ -40,24 +42,34 @@
 
 0. Download this repository
 
-1. Navigate from your root folder to *app/code*
+1. Navigate from your root folder to `app/code`
 
-2. Create 2 directory following this scheme: *Tym17/MailPerformance*
+2. Create 2 directory following this scheme: `Tym17/MailPerformance`
 
    ```shell
    mkdir Tym17 && cd Tym17
    mkdir MailPerformance
    ```
 
-3. Using your favorite FTP client/methods transfert the content of this repository inside the freshly created *MailPerformance* directory
+3. Using your favorite FTP client/methods transfert the content of this repository inside the freshly created `MailPerformance` directory
 
 4. Run `php -f bin/magento setup:upgrade` from your Magento root folder
+
+5. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
+
+6. Navigate in your Magento 2 backend to `Store/Configuration/Advanced/Advanced` and check if you can see MailPerformance
+
 
 ## Maintainance
 
 ### Using composer
+
  To update the MailPerformance module, navigate to your Magento 2 root folder and execute the following command:
  ```shell
  composer update
  php -f bin/magento setup:upgrade
  ```
+
+### Using an other method
+
+Delete and follow again the installation of the module.

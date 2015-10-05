@@ -30,9 +30,6 @@ class Index extends \Magento\Backend\App\Action
     */
     public function execute()
     {
-
-        /*$this->_view->loadLayout();
-        $this->_view->renderLayout();
         /** @var \MAgento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Tym17_MailPerformance::overview');
@@ -40,6 +37,7 @@ class Index extends \Magento\Backend\App\Action
         $resultPage->addBreadcrumb(__('MailPerformance'), __('MailPerformance'));
         $resultPage->addBreadcrumb(__('Overview'), __('Overview'));
         $resultPage->getConfig()->getTitle()->prepend(__('MailPerformance Overview'));
+        $resultPage->getLayout()->getBlock('Overview')->setXkey('test');
         return $resultPage;
     }
 }
