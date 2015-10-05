@@ -28,6 +28,11 @@
 * http://magehelper.blogspot.fr/2015/06/get-system-config-values-in-magento-2.html
 * http://blog.salesids.com/fr/observer-un-evenement-dans-magento-2/ -- observer
 
+* http://magento.stackexchange.com/questions/12308/magento-call-a-function-of-model-in-controller
+* http://magento-quickies.alanstorm.com/post/66167788899/magento-2-replacements-for-getmodel-and
+* https://www.ashsmith.io/magento2/module-from-scratch-part-4-the-frontend/
+
+
 Error ==> var/report
 
 check block overview
