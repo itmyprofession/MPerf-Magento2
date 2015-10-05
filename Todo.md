@@ -24,7 +24,9 @@
 * http://www.mage-world.com/blog/how-to-create-the-configuration-via-backend-for-a-custom-module.html
 * http://www.clounce.com/magento/a-very-basic-magento-2-module-with-parameterized-template -- LAYOUT MAGIC
 * http://devdocs.magento.com/guides/v2.0/ui-library/ui-definition.html -- UI Definition
-* http://blog.salesids.com/fr/ajouter-un-parametre-de-configuration-dans-le-back-office-de-magento-2/
+* http://blog.salesids.com/fr/ajouter-un-parametre-de-configuration-dans-le-back-office-de-magento-2/ -- Config Magic
+* http://magehelper.blogspot.fr/2015/06/get-system-config-values-in-magento-2.html
+* http://blog.salesids.com/fr/observer-un-evenement-dans-magento-2/ -- observer
 
 Error ==> var/report
 

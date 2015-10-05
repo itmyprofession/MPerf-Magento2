@@ -26,7 +26,7 @@
 
 ### NOT RECOMENDED
 
-1. Clone this repository
+1. Clone this repository `git clone https://github.com/Tym17/MPerf-Magento2`
 
 2. Copy and paste the content of it to `{Magento}/app/code/Tym17/MailPerformance`
 

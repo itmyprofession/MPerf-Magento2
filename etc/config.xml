@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Store/etc/config.xsd">
+    <default>
+        <mailperformance>
+            <auth>
+                <xkey>YOURXKEYHERE</xkey>
+            </auth>
+            <cfg>
+                <auto_add_subscriber>0</auto_add_subscriber>
+                <cart_abandon>0</cart_abandon>
+            </cfg>
+        </mailperformance>
+    </default>
+</config>
