@@ -17,6 +17,13 @@
                 <resource id="Magento_Backend::content">
                     <resource id="Tym17_MailPerformance::forms" title="MailPerformance Forms" sortOrder="20"/>
                 </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Tym17_MailPerformance::config" title="MailPerformance" />
+                        </resource>
+                    </resource>
+                </resource>
             </resource>
         </resources>
     </acl>
