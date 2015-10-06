@@ -14,7 +14,7 @@
 * http://alankent.me/2014/08/03/creating-a-magento-2-composer-module/
 * https://www.ashsmith.io/magento2/module-from-scratch-module-part-1-setup/
 * http://magenticians.com/magento-2-backend-launcher-composer-compatibility-code-update
-* http://magenticians.com/building-magento-2-backend-launcher -- Coolstuff
+* http://magenticians.com/building-magento-2-backend-launcher -- Coolstuff -- Assets/CSS
 * https://sohelrana09.wordpress.com/2014/03/14/custom-magento2-system-configuration/ -- Add configuration/table
 * http://alankent.me/2015/01/10/a-minimal-magento-2-extension-guest-post/
 * http://alanstorm.com/php_composer_magento_tutorial
