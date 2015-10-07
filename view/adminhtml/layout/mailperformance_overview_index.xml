@@ -2,7 +2,7 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Magento\Framework\View\Element\Template" name="Overview" template="Tym17_MailPerformance::marketing/overview.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Overview" name="Overview" template="Tym17_MailPerformance::marketing/overview.phtml" />
         </referenceContainer>
     </body>
 </page>

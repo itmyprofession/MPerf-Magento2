@@ -4,6 +4,9 @@
 * Add Admin notification on Admin board after correct installation
 * notif abo Mperf expire
 
+### DEBUG
+
+* https://firebearstudio.com/blog/how-to-debug-magento-2.html
 
 ### Liens utiles
 * http://www.w3schools.com/tags/tag_div.asp
@@ -14,6 +17,7 @@
 * http://alankent.me/2014/08/03/creating-a-magento-2-composer-module/
 * https://www.ashsmith.io/magento2/module-from-scratch-module-part-1-setup/
 * http://magenticians.com/magento-2-backend-launcher-composer-compatibility-code-update
+* http://www.mage-world.com/blog/adding-new-menu-item-in-magento-2-custom-module.html -- add custom icon admin panel
 * http://magenticians.com/building-magento-2-backend-launcher -- Coolstuff -- Assets/CSS
 * https://sohelrana09.wordpress.com/2014/03/14/custom-magento2-system-configuration/ -- Add configuration/table
 * http://alankent.me/2015/01/10/a-minimal-magento-2-extension-guest-post/
@@ -32,7 +36,9 @@
 * http://magento-quickies.alanstorm.com/post/66167788899/magento-2-replacements-for-getmodel-and
 * https://www.ashsmith.io/magento2/module-from-scratch-part-4-the-frontend/
 
-
 Error ==> var/report
-
+json_encode()
+htmlspecialchars()
 check block overview
+
+admin notif cron
