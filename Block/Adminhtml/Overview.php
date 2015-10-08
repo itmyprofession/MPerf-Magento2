@@ -16,4 +16,8 @@ class Overview extends Template
         parent::__construct($context, $data);
     }
 
+    public function hellotest()
+    {
+        return 'kikou';
+    }
 }
