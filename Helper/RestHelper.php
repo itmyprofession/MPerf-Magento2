@@ -5,7 +5,6 @@ use Magento\Framework\App as App;
 
 class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
 {
-
     const REST_GET = 'GET';
     const REST_PUT = 'PUT';
     const REST_POST = 'POST';
@@ -67,7 +66,7 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
         /* if POST/PUT request, retrieve data response */
         if ($dataJson != null)
         {
-            array_push($resultArray, 'info' => curl_getinfo($request));
+            $resultArray['info'] = curl_getinfo($request);
         }
 
         return $resultArray;
