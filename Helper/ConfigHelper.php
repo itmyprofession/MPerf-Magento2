@@ -18,4 +18,13 @@ class ConfigHelper extends \Magento\Framework\App\Helper\AbstractHelper
     {
         return $this->scopeConfig->getValue('mailperformance/auth/xkey');
     }
+
+    /**
+     * @return string
+     */
+    public function getALKey()
+    {
+        $xkey = $this->getXKey();
+        return substr($xkey, 7);
+    }
 }
