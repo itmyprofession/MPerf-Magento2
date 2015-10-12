@@ -39,6 +39,23 @@ class Overview extends Template
 
     public function getActions()
     {
-        return 'hello';
+        $result = $this->_restHelper->get('http://backoffice.mailperformance.dev/actions/');
+        var_dump($result);
+        $post_content = array(
+            'method' => array(
+                'name' => 'authenticateFromAutoLoginKey',
+                'version' => 1
+            ),
+            'parameters' => array(
+                'alKey' => substr($this->_config->getXKey(), 7)
+            ),
+            'debug' => array(
+                'forceSync' => true
+            )
+        );
+        $result = $this->_restHelper->post('http://backoffice.mailperformance.dev/api/auth', json_encode($post_content));
+        $result = $result['result'];
+        var_dump($result);
+        return $result;
     }
 }

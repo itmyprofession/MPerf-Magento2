@@ -23,6 +23,7 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
 
     /**
      * @param string
+     * @return curl request
      */
     protected function init($url)
     {
@@ -33,9 +34,9 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
     }
 
     /**
-     * @param string
-     * @param string
-     * @param string
+     * @param  string
+     * @param  string
+     * @param  string
      * @return array
      */
     protected function act($kind, $url, $dataJson)
@@ -51,29 +52,38 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
         if ($dataJson != null)
         {
             curl_setopt($request, CURLOPT_POSTFIELDS, $dataJson);
-            array_push($headerArray, 'Content-Length: ' . strlen($dataJson));
+            $headerArray[] = 'Content-Length: ' . strlen($dataJson);
         }
 
         /* filling header with Xkey and options */
         curl_setopt($request, CURLOPT_HTTPHEADER, $headerArray);
 
-        /* Executing request */
+        /* Executing request and retrieveing infos about the request */
         $result = curl_exec($request);
+        $info = curl_getinfo($request);
 
         /* Prepairing return variables */
-        $resultArray = array('request' => $request, 'result' => $result);
+        $resultArray = array('result' => $result, 'info' => $info);
 
-        /* if POST/PUT request, retrieve data response */
-        if ($dataJson != null)
-        {
-            $resultArray['info'] = curl_getinfo($request);
-        }
-
+        curl_close($request);
         return $resultArray;
     }
 
+    /**
+     * @param  string
+     * @return array
+     */
     public function get($url)
     {
-        return 'hello';//$this->act(self::REST_GET, $url, null);
+        return $this->act(self::REST_GET, $url, null);
+    }
+
+    /**
+     * @param string
+     * @return array
+     */
+    public function post($url, $dataJson)
+    {
+        return $this->act(self::REST_POST, $url, $dataJson);
     }
 }
