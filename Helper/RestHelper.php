@@ -79,11 +79,13 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
     }
 
     /**
-     * @param string
+     * @param  string
+     * @param  array
      * @return array
      */
-    public function post($url, $dataJson)
+    public function post($url, $data)
     {
+        $dataJson = json_encode($data);
         return $this->act(self::REST_POST, $url, $dataJson);
     }
 }

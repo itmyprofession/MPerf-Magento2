@@ -53,7 +53,7 @@ class Overview extends Template
                 'forceSync' => true
             )
         );
-        $result = $this->_restHelper->post('http://backoffice.mailperformance.dev/api/auth', json_encode($post_content));
+        $result = $this->_restHelper->post('http://backoffice.mailperformance.dev/api/auth', $post_content);
         $result = $result['result'];
         var_dump($result);
         return $result;
