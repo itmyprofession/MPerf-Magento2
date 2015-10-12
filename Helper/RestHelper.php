@@ -34,6 +34,30 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
     }
 
     /**
+     * @return array
+     */
+    public function legacyInit()
+    {
+        /* == Legacy login parameters == */
+        /* You might occasionally see "status :" "failure" but don't worry,
+        ** if you check the Json output you'll see it is because you are
+        ** trying to login multiples times */
+        $post_content = array(
+            'method' => array(
+                'name' => 'authenticateFromAutoLoginKey',
+                'version' => 1
+            ),
+            'parameters' => array(
+                'alKey' => substr($this->_xkey, 7)
+            ),
+            'debug' => array(
+                'forceSync' => true
+            )
+        );
+        return $this->post('http://backoffice.mailperformance.dev/api/auth', $post_content);
+    }
+
+    /**
      * @param  string
      * @param  string
      * @param  string
@@ -88,6 +112,17 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $dataJson = json_encode($data);
         return $this->act(self::REST_POST, $url, $dataJson);
+    }
+
+    /**
+     * @param  string
+     * @param  array
+     * @return array
+     */
+    public function put($url, $data)
+    {
+        $dataJson = json_encode($data);
+        return $this->act(self::REST_PUT, $url, $dataJson);
     }
 
     /**
