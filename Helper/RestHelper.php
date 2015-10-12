@@ -63,6 +63,7 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
         $info = curl_getinfo($request);
 
         /* Prepairing return variables */
+        var_dump($result);
         $resultArray = array('result' => $result, 'info' => $info);
 
         curl_close($request);
@@ -87,5 +88,16 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
     {
         $dataJson = json_encode($data);
         return $this->act(self::REST_POST, $url, $dataJson);
+    }
+
+    /**
+     * @param  string
+     * @return array
+     */
+    public function convertFromJson($json)
+    {
+        /* clean the json string to make a valid json */
+        $json = preg_replace('/new\ Date\(([0-9]+)\)/', '$1', $json);
+        return json_decode($json, true);
     }
 }
