@@ -54,6 +54,7 @@ class Overview extends Template
         );
         $result = $this->_restHelper->post('http://backoffice.mailperformance.dev/api/auth', $post_content);
         $result = $result['result'];
+        var_dump($result);
         return 'lel';//$result;
     }
 }

@@ -63,7 +63,7 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
         $info = curl_getinfo($request);
 
         /* Prepairing return variables */
-        var_dump($result);
+        $result = $this->convertFromJson($result);
         $resultArray = array('result' => $result, 'info' => $info);
 
         curl_close($request);
