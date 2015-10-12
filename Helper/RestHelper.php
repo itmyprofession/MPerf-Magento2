@@ -10,8 +10,6 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
     const REST_PUT = 'PUT';
     const REST_POST = 'POST';
 
-    protected $_request;
-
     /**
      * @var string
      */
@@ -27,24 +25,56 @@ class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
     /**
      * @param string
      */
-    private function init($url)
+    protected function init($url)
     {
         $init = curl_init();
         curl_setopt($init, CURLOPT_URL, $url);
         curl_setopt($init, CURLOPT_RETURNTRANSFER, true);
-        $this->_request = $init;
-        $this->_url = $url;
+        return $init;
     }
 
-    private function act($kind, $datajson = null)
+    /**
+     * @param string
+     * @param string
+     * @param string
+     * @return array
+     */
+    protected function act($kind, $url, $dataJson)
     {
-        //core function
+        /* Prepairing request and it's header */
+        $request = $this->init($url);
+        $headerArray = array(
+            'X-Key: ' . $this->_xkey,
+            'Content-Type: application/json');
+        curl_setopt($request, CURLOPT_CUSTOMREQUEST, $kind);
+
+        /* if POST/PUT request, add Json parameters */
+        if ($dataJson != null)
+        {
+            curl_setopt($request, CURLOPT_POSTFIELDS, $dataJson);
+            array_push($headerArray, 'Content-Length: ' . strlen($dataJson));
+        }
+
+        /* filling header with Xkey and options */
+        curl_setopt($request, CURLOPT_HTTPHEADER, $headerArray);
+
+        /* Executing request */
+        $result = curl_exec($request);
+
+        /* Prepairing return variables */
+        $resultArray = array('request' => $request, 'result' => $result);
+
+        /* if POST/PUT request, retrieve data response */
+        if ($dataJson != null)
+        {
+            array_push($resultArray, 'info' => curl_getinfo($request));
+        }
+
+        return $resultArray;
     }
 
-    public function get/put/post($url/$json)
+    public function get($url)
     {
-        //init
-        //act();
-        //return;
+        return 'hello';//$this->act(self::REST_GET, $url, null);
     }
 }
