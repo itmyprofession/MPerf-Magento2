@@ -2,10 +2,10 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Overview\TabContent" name="overview_content" template="Tym17_MailPerformance::settings/overview/content.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Overview" name="Overview" template="Tym17_MailPerformance::settings/overview.phtml" />
         </referenceContainer>
         <referenceContainer name="left">
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Overview\Tab" name="overview_tab" template="Tym17_MailPerformance::settings/overview/tab.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Overview" name="Overviews" template="Tym17_MailPerformance::settings/overview.phtml" />
         </referenceContainer>
     </body>
 </page>

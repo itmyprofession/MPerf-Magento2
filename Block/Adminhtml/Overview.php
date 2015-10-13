@@ -1,11 +1,11 @@
 <?php
-namespace Tym17\MailPerformance\Block\Adminhtml\Overview;
+namespace Tym17\MailPerformance\Block\Adminhtml;
 
 use Magento\Backend\Block\Template;
 use Tym17\MailPerformance\Helper\ConfigHelper;
 use Tym17\MailPerformance\Helper\RestHelper;
 
-class TabContent extends Template
+class Overview extends Template
 {
     /**
      * @var \Tym17\MailPerformance\Helper\ConfigHelper
