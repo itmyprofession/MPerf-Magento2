@@ -45,8 +45,6 @@ class Index extends \Magento\Backend\App\Action
         $resultPage->addBreadcrumb(__('MailPerformance'), __('MailPerformance'));
         $resultPage->addBreadcrumb(__('Overview'), __('Overview'));
         $resultPage->getConfig()->getTitle()->prepend(__('MailPerformance Overview'));
-        $xkey = $this->scopeConfig->getValue('mailperformance/auth/xkey');
-        $resultPage->getLayout()->getBlock('Overview')->setXkey($xkey);
 
         return $resultPage;
     }
