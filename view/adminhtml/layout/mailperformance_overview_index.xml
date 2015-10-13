@@ -2,10 +2,26 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Custom\TabContent" name="tab_un" template="Tym17_MailPerformance::custom/tabContent.phtml" />
             <block class="Tym17\MailPerformance\Block\Adminhtml\Custom\TabContent" name="overview_content" template="Tym17_MailPerformance::custom/tabContent.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Custom\TabContent" name="overview_contest" template="Tym17_MailPerformance::custom/tabContent.phtml" />
         </referenceContainer>
         <referenceContainer name="left">
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Custom\Tab" name="overview_tab" template="Tym17_MailPerformance::custom/tab.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Custom\Tab" name="overview_tab" template="Tym17_MailPerformance::custom/tab.phtml">
+                
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">Overview</argument>
+                    <argument name="content" xsi:type="string">overview_content</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">tab</argument>
+                    <argument name="content" xsi:type="string">tab_un</argument>
+                </action>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">test</argument>
+                    <argument name="content" xsi:type="string">overview_contest</argument>
+                </action>
+            </block>
         </referenceContainer>
     </body>
 </page>
