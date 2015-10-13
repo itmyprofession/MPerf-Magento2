@@ -1,5 +1,5 @@
 <?php
-namespace Tym17\MailPerformance\Block\Adminhtml\Custom;
+namespace Tym17\MailPerformance\Block\Adminhtml\Overview;
 
 use Magento\Backend\Block\Template;
 
