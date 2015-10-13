@@ -1,58 +1,8 @@
-<div class="row">
-    <div class="col-m-5 col-m-push-7">
-        <div class="admin__page-section-title">
-            <span class="title"> Feature status </span>
-        </div>
-        <table class="admin__table-secondary">
-            <tbody>
-                <tr>
-                    <th>Cart abandonment</th>
-                    <td>
-                        <span class="grid-severity-notice">
-                            <span>Enabled</span>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <th>Automatically Add subscriber on subscription</th>
-                    <td>
-                        <span class="grid-severity-critical">
-                            <span>Disabled</span>
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<div id="page:main-container" class="page-columns">
+    <div id="container" class="main-col">
+        <p>main</p>
     </div>
-    <div class="col-m-6 col-m-pull-5">
-        <div class="admin__page-section-title">
-            <span class="title"> Account Information</span>
-        </div>
-        <p> You are logged in as:</p>
-        <table class="admin__table-secondary">
-            <tbody>
-                <tr>
-                    <th>Account Name</th>
-                    <td><strong>ACC_NAME</strong></td>
-                </tr>
-                <tr>
-                    <th>Auto Login Key</th>
-                    <td><?php echo $block->showXKey(); ?></td>
-                </tr>
-                <tr>
-                    <th>Name</th>
-                    <td>hello</td>
-                </tr>
-                <tr>
-                    <th>Mail</th>
-                    <td>ACC_CUSTOMER_MAIL</td>
-                </tr>
-                <tr>
-                    <th>Expires on</th>
-                    <td>ACC_EXPIRATION</td>
-                </tr>
-            </tbody>
-        </table>
-        <p>Actions : <?php echo $block->getActions(); ?></p>
+    <div id="page:left" class="side-col">
+        <p>side</p>
     </div>
 </div>
