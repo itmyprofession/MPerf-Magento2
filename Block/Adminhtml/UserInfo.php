@@ -5,7 +5,7 @@ use Magento\Backend\Block\Template;
 use Tym17\MailPerformance\Helper\ConfigHelper;
 use Tym17\MailPerformance\Helper\RestHelper;
 
-class Overview extends Template
+class UserInfo extends Template
 {
     /**
      * @var \Tym17\MailPerformance\Helper\ConfigHelper

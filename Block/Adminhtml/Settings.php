@@ -2,47 +2,37 @@
 namespace Tym17\MailPerformance\Block\Adminhtml;
 
 use Magento\Backend\Block\Template;
-use Tym17\MailPerformance\Helper\ConfigHelper;
-use Tym17\MailPerformance\Helper\RestHelper;
 
-class Settings extends Template
+class Settings extends \Magento\Backend\Block\Widget\Form\Generic
 {
     /**
-     * @var \Tym17\MailPerformance\Helper\ConfigHelper
+     * @param \Magento\Backend\Block\Template\Context $context
+     * @param \Magento\Framework\Registry $registry
+     * @param \Magento\Framework\Data\FormFactory $formFactory
+     * @param array $data
      */
-    protected $_config;
-
-    /**
-     * @var \Tym17\MailPerformance\Helper\RestHelper
-     */
-    protected $_restHelper;
-
-    /**
-    * @param Context $context
-    * @param array $data
-    */
     public function __construct(
-        Template\Context $context,
-        ConfigHelper $config,
-        RestHelper $rest,
+        \Magento\Backend\Block\Template\Context $context,
+        \Magento\Framework\Registry $registry,
+        \Magento\Framework\Data\FormFactory $formFactory,
         array $data = []
     ) {
-        parent::__construct($context, $data);
-        $this->_config = $config;
-        $this->_restHelper = $rest;
+        parent::__construct($context, $registry, $formFactory, $data);
     }
 
-    public function showXKey()
+    protected function _prepareForm()
     {
-        return $this->_config->getXKey();
-    }
+        $form = $this->_formFactory->create();
 
-    public function getActions()
-    {
-        $result = $this->_restHelper->get('http://backoffice.mailperformance.dev/actions/');
-        //var_dump($result);
-        $result = $this->_restHelper->legacyInit();
-        var_dump($result);
-        return 'lel';//$result;
+        $fieldset = $form->addFieldset('settings_form', ['legend' => __('Settings')]);
+
+        $fieldset->addField('setting_name', 'note', ['label' => __('setnaem'), 'text' => 'setting_name']);
+
+        $form->setMethod('post');
+        $form->setUseContainer(true);
+        $form->setId('edit_form');
+        $form->setAction($this->getUrl('testurl'));
+
+        $this->setForm($form);
     }
 }
