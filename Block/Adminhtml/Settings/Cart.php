@@ -25,14 +25,14 @@ class Cart extends \Magento\Backend\Block\Widget\Form\Generic
         $form = $this->_formFactory->create();
 
         /* Cart Abandonment Configuration */
-        $cartAbandonment = $form->addFieldset('settings_cart', ['legend' => __('Cart Abandonment')]);
+        $fieldset = $form->addFieldset('settings_cart', ['legend' => __('Cart Abandonment')]);
 
-        $cartAbandonment->addField('samplee', 'note', ['label' => __('setnaem'), 'text' => 'saamople']);
+        $fieldset->addField('samplee', 'note', ['label' => __('setnaem'), 'text' => 'saamople']);
 
         /* form finalisation */
         $form->setMethod('post');
         $form->setUseContainer(true);
-        $form->setId('edit_form');
+        $form->setId('cart');
         $form->setAction($this->getUrl('testurl'));
 
         $this->setForm($form);

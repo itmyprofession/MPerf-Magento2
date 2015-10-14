@@ -25,14 +25,14 @@ class Customer extends \Magento\Backend\Block\Widget\Form\Generic
         $form = $this->_formFactory->create();
 
         /* Customer Management Configuration */
-        $customerManagement = $form->addFieldset('settings_customers', ['legend' => __('Customer Management')]);
+        $fieldset = $form->addFieldset('settings_customers', ['legend' => __('Customer Management')]);
 
-        $customerManagement->addField('sample', 'note', ['label' => __('setnaem'), 'text' => 'saample']);
+        $fieldset->addField('sample', 'note', ['label' => __('setnaem'), 'text' => 'saample']);
 
         /* form finalisation */
         $form->setMethod('post');
         $form->setUseContainer(true);
-        $form->setId('edit_form');
+        $form->setId('customer');
         $form->setAction($this->getUrl('testurl'));
 
         $this->setForm($form);
