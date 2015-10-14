@@ -8,8 +8,8 @@
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_other_settings">
-                        <resource id="Tym17_MailPerformance::marketing" title="MailPerformance">
-                            <resource id="Tym17_MailPerformance::overview" title="Overview" sortOrder="50">
+                        <resource id="Tym17_MailPerformance::mailperformance" title="MailPerformance">
+                            <resource id="Tym17_MailPerformance::settings" title="Settings" sortOrder="50">
                                 <resource id="Tym17_MailPerformance::Acl_AccountInfo" title="Account information" sortOrder="20">
                                     <resource id="Tym17_MailPerformance::Acl_AccName" title="Name" sortOrder="10"/>
                                     <resource id="Tym17_MailPerformance::Acl_AccOwner" title="Owner name" sortOrder="20"/>

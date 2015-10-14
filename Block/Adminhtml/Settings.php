@@ -24,10 +24,22 @@ class Settings extends \Magento\Backend\Block\Widget\Form\Generic
     {
         $form = $this->_formFactory->create();
 
-        $fieldset = $form->addFieldset('settings_form', ['legend' => __('Settings')]);
+        /* EventBindings Configuration */
+        $eventBinding = $form->addFieldset('settings_events', ['legend' => __('Event Binding')]);
 
-        $fieldset->addField('setting_name', 'note', ['label' => __('setnaem'), 'text' => 'setting_name']);
+        $eventBinding->addField('setting_name', 'note', ['label' => __('setnaem'), 'text' => 'setting_name']);
 
+        /* Customer Management Configuration */
+        $customerManagement = $form->addFieldset('settings_customers', ['legend' => __('Customer Management')]);
+
+        $customerManagement->addField('sample', 'note', ['label' => __('setnaem'), 'text' => 'saample']);
+
+        /* Cart Abandonment Configuration */
+        $cartAbandonment = $form->addFieldset('settings_cart', ['legend' => __('Cart Abandonment')]);
+
+        $cartAbandonment->addField('samplee', 'note', ['label' => __('setnaem'), 'text' => 'saamople']);
+
+        /* form finalisation */
         $form->setMethod('post');
         $form->setUseContainer(true);
         $form->setId('edit_form');
