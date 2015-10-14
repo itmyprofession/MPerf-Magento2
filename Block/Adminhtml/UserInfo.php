@@ -2,8 +2,7 @@
 namespace Tym17\MailPerformance\Block\Adminhtml;
 
 use Magento\Backend\Block\Template;
-use Tym17\MailPerformance\Helper\ConfigHelper;
-use Tym17\MailPerformance\Helper\RestHelper;
+use Tym17\MailPerformance\Helper;
 
 class UserInfo extends Template
 {
@@ -23,8 +22,8 @@ class UserInfo extends Template
     */
     public function __construct(
         Template\Context $context,
-        ConfigHelper $config,
-        RestHelper $rest,
+        Helper\ConfigHelper $config,
+        Helper\RestHelper $rest,
         array $data = []
     ) {
         parent::__construct($context, $data);
@@ -44,5 +43,23 @@ class UserInfo extends Template
         $result = $this->_restHelper->legacyInit();
         var_dump($result);
         return 'lel';//$result;
+    }
+
+    public function isAllowed($acl)
+    {
+        $baseAcl = 'Tym17_MailPerformance::';
+
+        return $this->_authorization->isAllowed($baseAcl . $acl);
+    }
+
+    public function isInfoAllowed()
+    {
+        $baseAcl = 'Acl_Acc';
+        $somethingIsAllowed = $this->isAllowed($baseAcl . 'Name')
+            || $this->isAllowed($baseAcl . 'Owner')
+            || $this->isAllowed($baseAcl . 'Email')
+            || $this->isAllowed($baseAcl . 'Expiration')
+            || $this->isAllowed($baseAcl . 'XKey');
+        return ($this->isAllowed($baseAcl . 'ountInfo') && $somethingIsAllowed);
     }
 }

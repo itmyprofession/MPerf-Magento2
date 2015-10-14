@@ -2,28 +2,44 @@
     <div class="admin__page-section-title">
         <span class="title">Account Informations</span>
     </div>
+    <?php if ($block->isInfoAllowed()): ?>
     <table class="admin__table-secondary">
         <tbody>
+        <?php if ($block->isAllowed('AccName')): ?>
             <tr>
                 <th>Name</th>
                 <td>ACC_NAME</td>
             </tr>
+        <?php endif; if ($block->isAllowed('AccOwner')): ?>
             <tr>
                 <th>Owner</th>
                 <td>ACC_OWNER</td>
             </tr>
+        <?php endif; if ($block->isAllowed('AccEmail')): ?>
             <tr>
                 <th>Email</th>
                 <td>ACC_EMAIL</td>
             </tr>
+        <?php endif; if ($block->isAllowed('AccExpiration')): ?>
             <tr>
                 <th>Expiration date</th>
                 <td>ACC_DATE</td>
             </tr>
-            <tr>
-                <th>XKey</th>
-                <td>input</td>
-            </tr>
+        <?php endif; if ($block->isAllowed('AccXKey')): ?>
+                <tr>
+                    <th>XKey</th>
+                    <td>
+                        <input type="text" value="<?php echo $block->showXKey(); ?>" readonly>
+                    </td>
+                </tr>
+            <?php endif; ?>
         </tbody>
     </table>
+    <?php else: ?>
+    <p>You don't have access to this. If you believe this is an error, please contact your Administrator.</p>
+    <?php endif; ?>
 </div>
+<?php
+
+
+?>
