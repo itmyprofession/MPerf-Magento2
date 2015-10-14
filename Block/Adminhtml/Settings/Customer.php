@@ -1,9 +1,9 @@
 <?php
-namespace Tym17\MailPerformance\Block\Adminhtml;
+namespace Tym17\MailPerformance\Block\Adminhtml\Settings;
 
 use Magento\Backend\Block\Template;
 
-class Settings extends \Magento\Backend\Block\Widget\Form\Generic
+class Customer extends \Magento\Backend\Block\Widget\Form\Generic
 {
     /**
      * @param \Magento\Backend\Block\Template\Context $context
@@ -24,20 +24,10 @@ class Settings extends \Magento\Backend\Block\Widget\Form\Generic
     {
         $form = $this->_formFactory->create();
 
-        /* EventBindings Configuration */
-        $eventBinding = $form->addFieldset('settings_events', ['legend' => __('Event Binding')]);
-
-        $eventBinding->addField('setting_name', 'note', ['label' => __('setnaem'), 'text' => 'setting_name']);
-
         /* Customer Management Configuration */
         $customerManagement = $form->addFieldset('settings_customers', ['legend' => __('Customer Management')]);
 
         $customerManagement->addField('sample', 'note', ['label' => __('setnaem'), 'text' => 'saample']);
-
-        /* Cart Abandonment Configuration */
-        $cartAbandonment = $form->addFieldset('settings_cart', ['legend' => __('Cart Abandonment')]);
-
-        $cartAbandonment->addField('samplee', 'note', ['label' => __('setnaem'), 'text' => 'saamople']);
 
         /* form finalisation */
         $form->setMethod('post');

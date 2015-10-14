@@ -2,10 +2,13 @@
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="content">
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings" name="settings_form" template="Tym17_MailPerformance::form.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Sandbox" name="sandbox" template="Tym17_MailPerformance::sandbox.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Events" name="settings_events" template="Tym17_MailPerformance::form.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Customer" name="settings_customer" template="Tym17_MailPerformance::form.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Cart" name="settings_cart" template="Tym17_MailPerformance::form.phtml" />
         </referenceContainer>
         <referenceContainer name="left">
-            <block class="Tym17\MailPerformance\Block\Adminhtml\UserInfo" name="overview" template="Tym17_MailPerformance::settings/userinfo.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\UserInfo" name="user_info" template="Tym17_MailPerformance::settings/userinfo.phtml" />
         </referenceContainer>
     </body>
 </page>
