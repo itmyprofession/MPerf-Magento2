@@ -17,8 +17,10 @@ class UserInfo extends Template
     protected $_restHelper;
 
     /**
-    * @param Context $context
-    * @param array $data
+    * @param Magento\Backend\Block\Template\Context
+    * @param Tym17\MailPerformance\Helper\ConfigHelper
+    * @param Tym17\MailPerformance\Helper\RestHelper
+    * @param array
     */
     public function __construct(
         Template\Context $context,
@@ -31,6 +33,9 @@ class UserInfo extends Template
         $this->_restHelper = $rest;
     }
 
+    /**
+     * @return string
+     */
     public function showXKey()
     {
         return $this->_config->getXKey();
@@ -45,6 +50,10 @@ class UserInfo extends Template
         return 'lel';//$result;
     }
 
+    /**
+     * @param  string
+     * @return bool
+     */
     public function isAllowed($acl)
     {
         $baseAcl = 'Tym17_MailPerformance::';
@@ -52,6 +61,9 @@ class UserInfo extends Template
         return $this->_authorization->isAllowed($baseAcl . $acl);
     }
 
+    /**
+     * @return bool
+     */
     public function isInfoAllowed()
     {
         $baseAcl = 'Acl_Acc';
@@ -61,5 +73,20 @@ class UserInfo extends Template
             || $this->isAllowed($baseAcl . 'Expiration')
             || $this->isAllowed($baseAcl . 'XKey');
         return ($this->isAllowed($baseAcl . 'ountInfo') && $somethingIsAllowed);
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReady()
+    {
+        if ($this->_config->getReadyState() != 'ready')
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

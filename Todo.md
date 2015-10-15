@@ -36,6 +36,8 @@
 * http://magento-quickies.alanstorm.com/post/66167788899/magento-2-replacements-for-getmodel-and
 * https://www.ashsmith.io/magento2/module-from-scratch-part-4-the-frontend/
 
+* http://cyrillschumacher.com/magento2-list-of-all-dispatched-events/
+
 Error ==> var/report
 json_encode()
 htmlspecialchars()

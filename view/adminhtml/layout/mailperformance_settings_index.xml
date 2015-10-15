@@ -9,6 +9,7 @@
         </referenceContainer>
         <referenceContainer name="left">
             <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\UserInfo" name="user_info" template="Tym17_MailPerformance::settings/userinfo.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Action" name="user_action" template="Tym17_MailPerformance::settings/action.phtml" />
         </referenceContainer>
     </body>
 </page>

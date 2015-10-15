@@ -10,6 +10,11 @@ class ConfigHelper extends App\Helper\AbstractHelper
      */
     const BASE = 'mailperformance/';
 
+    /**
+     * @param  Magento\Framework\App\Helper\Context
+     * @param  Magento\Framework\App\MutableScopeConfig
+     * @return void
+     */
     public function __construct(
         App\Helper\Context $context,
         App\MutableScopeConfig $mutable
@@ -33,6 +38,42 @@ class ConfigHelper extends App\Helper\AbstractHelper
     public function getXKey()
     {
         return $this->scopeConfig->getValue(self::BASE . 'auth/xkey');
+    }
+
+    /**
+     * @return string
+     */
+    public function getReadyState()
+    {
+        /*
+         * missing-xkey
+         * ready
+         */
+        return $this->scopeConfig->getValue(self::BASE . 'auth/readystate');
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReady()
+    {
+        if ($this->getReadyState() != 'ready')
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    /**
+     * @param  stringt
+     * @return void
+     */
+    public function setReadyState($newState)
+    {
+        $this->scopeConfig->setValue(self::BASE . 'auth/readystate', $newState);
     }
 
     /**

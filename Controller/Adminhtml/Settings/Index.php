@@ -29,6 +29,7 @@ class Index extends \Magento\Backend\App\Action
         parent::__construct($context);
         $this->scopeConfig = $scopeConfig;
         $this->resultPageFactory = $resultPageFactory;
+        $this->_eventManager->dispatch('test', ['arg' => 'sample']);
     }
 
     /**
@@ -38,13 +39,13 @@ class Index extends \Magento\Backend\App\Action
     */
     public function execute()
     {
+
         /** @var \MAgento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Tym17_MailPerformance::settings');
         $resultPage->addBreadcrumb(__('MailPerformance'), __('MailPerformance'));
         $resultPage->addBreadcrumb(__('Settings'), __('Settings'));
         $resultPage->getConfig()->getTitle()->prepend(__('MailPerformance Settings'));
-
         return $resultPage;
     }
 }

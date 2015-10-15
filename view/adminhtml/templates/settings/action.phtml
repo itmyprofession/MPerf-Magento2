@@ -1,0 +1,12 @@
+<div>
+    <div class="admin__page-section-title">
+        <span class="title">Actions</span>
+    </div>
+    <div>
+        <?php if (!$block->isReady()): ?>
+            <button class="primary" type="button">Authenticate</button>
+        <?php else: ?>
+            <button class="primary ui-corner-all" type="button">Reload MailPerformance components</button>
+        <?php endif; ?>
+    </div>
+</div>

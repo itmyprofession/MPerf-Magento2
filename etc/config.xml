@@ -4,6 +4,7 @@
         <mailperformance>
             <auth>
                 <xkey>YOURXKEYHERE</xkey>
+                <readystate>missing-xkey</readystate>
             </auth>
             <cfg>
                 <auto_add_subscriber>0</auto_add_subscriber>
