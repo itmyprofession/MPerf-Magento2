@@ -3,7 +3,7 @@ namespace Tym17\MailPerformance\Helper;
 
 use Magento\Framework\App as App;
 
-class RestHelper extends \Magento\Framework\App\Helper\AbstractHelper
+class RestHelper extends App\Helper\AbstractHelper
 {
     const REST_GET = 'GET';
     const REST_PUT = 'PUT';

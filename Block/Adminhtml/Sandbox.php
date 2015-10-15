@@ -31,24 +31,9 @@ class Sandbox extends Template
         $this->_restHelper = $rest;
     }
 
-    public function showXKey()
+    public function dostuff()
     {
-        return $this->_config->getXKey();
+        return $this->_config->getMutant('sandy', true);
     }
 
-    public function getActions()
-    {
-        $result = $this->_restHelper->get('http://backoffice.mailperformance.dev/actions/');
-        //var_dump($result);
-        $result = $this->_restHelper->legacyInit();
-        var_dump($result);
-        return 'lel';//$result;
-    }
-
-    public function isAllowed($acl)
-    {
-        $baseAcl = 'Tym17_MailPerformance::';
-
-        return $this->_authorization->isAllowed($baseAcl . $acl);
-    }
 }
