@@ -4,7 +4,9 @@
     </div>
     <div>
         <?php if (!$block->isReady()): ?>
-            <button class="primary" type="button">Authenticate</button>
+            <form action="/admin/MailPerformance/Settings/Authenticate">
+                <button class="primary" type="submit">Authenticate</button>
+            </form>
         <?php else: ?>
             <button class="primary ui-corner-all" type="button">Reload MailPerformance components</button>
         <?php endif; ?>

@@ -7,8 +7,9 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/Event/etc/events.xsd">
     <event name="layout_render_before">
-        <observer name="admin_login" instance="Tym17\MailPerformance\Model\Observer\OnLogin" method="checkOperational" />
-    </event><event name="test">
-        <observer name="admin_logqin" instance="Tym17\MailPerformance\Model\Observer\OnLogin" method="checkOperational" />
+        <observer name="checkworking" instance="Tym17\MailPerformance\Model\Observer\OnPageLoad" method="checkOperational" />
+    </event>
+    <event name="mperf_authenticate">
+        <observer name="mperflogin" instance="Tym17\MailPerformance\Model\Observer\Authenticate" method="authenticate" />
     </event>
 </config>

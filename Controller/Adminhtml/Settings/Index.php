@@ -29,7 +29,6 @@ class Index extends \Magento\Backend\App\Action
         parent::__construct($context);
         $this->scopeConfig = $scopeConfig;
         $this->resultPageFactory = $resultPageFactory;
-        $this->_eventManager->dispatch('test', ['arg' => 'sample']);
     }
 
     /**
