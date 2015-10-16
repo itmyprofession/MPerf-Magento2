@@ -33,7 +33,9 @@ class Sandbox extends Template
 
     public function dostuff()
     {
-        return $this->_config->getReadyState();
+        $tmp = $this->_config->getReadyState();
+        $this->_config->setReadyState('bad-xkey');
+        return $tmp;
     }
 
 }

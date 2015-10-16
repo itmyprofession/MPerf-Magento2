@@ -18,7 +18,6 @@ class Authenticate
     public function authenticate()
     {
         $this->_config->setReadyState('bad-xkey');
-        
-        $this->_msgManager->addWarning('tried to auth !');
+        $this->_msgManager->addWarning('tried to auth ! ' . $this->_config->getReadyState());
     }
 }
