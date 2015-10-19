@@ -13,7 +13,7 @@ class ConfigHelper extends App\Helper\AbstractHelper
     /**
      * @var string
      */
-    const SCOPE = 'websites';
+    const SCOPE = 'default';
 
     /**
      * @param  Magento\Framework\App\Helper\Context

@@ -11,7 +11,6 @@ class OnPageLoad
         \Magento\Framework\Message\ManagerInterface $msgManager,
         \Tym17\MailPerformance\Helper\ConfigHelper $cfg
     ) {
-        var_dump($this);
         $this->_config = $cfg;
         $this->_msgManager = $msgManager;
     }

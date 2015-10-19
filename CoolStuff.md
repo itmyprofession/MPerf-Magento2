@@ -2,3 +2,5 @@
 `$this->_isAllowedAction('Magento_Sales::invoice')`
 
 https://github.com/magento/magento2/issues/597
+
+== Db Config ==

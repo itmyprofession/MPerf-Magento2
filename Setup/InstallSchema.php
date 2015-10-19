@@ -25,21 +25,27 @@ class InstallSchema implements InstallSchemaInterface
         * Create table 'mailperf_targets'
         */
         $table = $installer->getConnection()->newTable(
-            $installer->getTable('mailperf_targets')
+            $installer->getTable('mailperf_config')
         )->addColumn(
-            'id_magento',
+            'config_id',
             \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
             null,
             array('identity' => true, 'nullable' => false, 'primary' => true),
-            'magento ID'
+            'Config Id'
         )->addColumn(
-            'id_mailperf',
+            'path',
             \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
-            8,
+            255,
             array('nullable' => false),
-            'mperf id'
+            'Config Path'
+        )->addColumn(
+            'value',
+            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            255,
+            array('nullable' => true),
+            'Config Value'
         )->setComment(
-        'MailPerformance Table'
+        'MailPerformance Config Table'
         );
         $installer->getConnection()->createTable($table);
 
