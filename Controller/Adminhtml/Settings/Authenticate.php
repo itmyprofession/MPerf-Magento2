@@ -21,8 +21,9 @@ class Authenticate extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $this->_eventManager->dispatch('mperf_authenticate', ['from' => 'settings']);
+        $cfg = $this->_objectManager->create('\Tym17\MailPerformance\Helper\ConfigHelper');
+        $this->_eventManager->dispatch('mperf_authenticate');
         $resultRedirect = $this->resultRedirectFactory->create();
-        return $resultRedirect->setPath('*/*/');
+        return $resultRedirect->setPath('*/Settings');
     }
 }
