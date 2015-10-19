@@ -1,7 +1,7 @@
 <?php
 namespace Tym17\MailPerformance\Controller\Adminhtml\Check;
 
-use Magento\Backend\App\Action;
+use Magento\Backend\App\Action\Context;
 
 class Index extends \Magento\Backend\App\Action
 {
@@ -9,7 +9,7 @@ class Index extends \Magento\Backend\App\Action
      * @param Action\Context $context
      */
     public function __construct(
-        Action\Context $context
+        Context $context
     ) {
         parent::__construct($context);
     }
@@ -21,8 +21,17 @@ class Index extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $this->_eventManager->dispatch('mperf_authenticate', ['from' => 'settings']);
-        $resultRedirect = $this->resultRedirectFactory->create();
-        return $resultRedirect->setPath('*/' . $this->getRequest()->getParam('path'));
+        $this->_eventManager->dispatch('mperf_request', ['from' => 'settings']);
+        if (false)
+        {
+            $resultRedirect = $this->resultRedirectFactory->create();
+            return $resultRedirect->setPath('*/' . $this->getRequest()->getParam('path'));
+        }
+        else
+        {
+            $resultPageFactory = $this->_objectManager->create('Magento\Framework\View\Result\PageFactory');
+            $resultPage = $resultPageFactory->create();
+            return $resultPage;
+        }
     }
 }
