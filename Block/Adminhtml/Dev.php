@@ -38,4 +38,9 @@ class Dev extends Template
         return $tmp;
     }
 
+    public function getFields()
+    {
+      var_dump($this->$_restHelper->get("http://backoffice.mailperformance.dev/fields/fields/"));
+    }
+
 }
