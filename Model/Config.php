@@ -10,7 +10,7 @@ class Config extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {
-        $this->_init('Tym17\MailPerformance\Model\Resource\Config');
+        //$this->_init('Tym17\MailPerformance\Model\Resource\Config');
     }
 
     /**
@@ -20,7 +20,7 @@ class Config extends \Magento\Framework\Model\AbstractModel
      */
     public function saveConfig($path, $value)
     {
-        $this->_getResource()->saveConfig($path, $value);
+        //$this->_getResource()->saveConfig($path, $value);
         return $this;
     }
 }
