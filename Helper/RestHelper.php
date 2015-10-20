@@ -8,6 +8,7 @@ class RestHelper extends App\Helper\AbstractHelper
     const REST_GET = 'GET';
     const REST_PUT = 'PUT';
     const REST_POST = 'POST';
+    const MPERF_URL = 'http://backoffice.mailperformance.dev/'
 
     /**
      * @var string
@@ -54,7 +55,7 @@ class RestHelper extends App\Helper\AbstractHelper
                 'forceSync' => true
             )
         );
-        return $this->post('http://backoffice.mailperformance.dev/api/auth', $post_content);
+        return $this->post(self::MPERF_URL . 'api/auth', $post_content);
     }
 
     /**

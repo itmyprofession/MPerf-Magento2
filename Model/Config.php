@@ -3,6 +3,18 @@ namespace Tym17\MailPerformance\Model;
 
 class Config extends \Magento\Framework\Model\AbstractModel
 {
+
+    /**
+     * @param  array $data
+     * @return void
+     */
+    public function __construct(
+        \Magento\Framework\Model\Context $context,
+        array $data = []
+    ) {
+        parent::__construct($context, $data);
+    }
+
     /**
      * Init resource Model
      *
@@ -20,7 +32,6 @@ class Config extends \Magento\Framework\Model\AbstractModel
      */
     public function saveConfig($path, $value)
     {
-        //$this->_getResource()->saveConfig($path, $value);
         return $this;
     }
 }
