@@ -12,7 +12,7 @@
             <group id="auth" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Authentification</label>
                 <field id="xkey" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Auto-Login key</label>
+                    <label>XKey</label>
                 </field>
             </group>
             <group id="cfg" translate="label" type="text" sortOder="20" showInDefault="1" showInWebsite="0" showInStore="0">
