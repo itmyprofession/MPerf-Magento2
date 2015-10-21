@@ -47,19 +47,7 @@ class Dev extends Template
     */
     public function get($endUrl)
     {
-      $url = \Tym17\MailPerformance\Helper\RestHelper::MPERF_URL . $endUrl;
-
-      $tab = $this->_restHelper->get($url);
-
-      if ($tab['info']['http_code'] != 200)
-      {
-        echo '<p>Error ' . $tab['info']['http_code'] . ': \'GET\' on /fields failed.</p>';
-        return (null);
-      }
-
-      return (json_encode($tab['result']));
+      return ($this->_restHelper->get($endUrl));
     }
 
 }
-
-?>

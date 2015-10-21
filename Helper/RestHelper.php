@@ -97,33 +97,63 @@ class RestHelper extends App\Helper\AbstractHelper
 
     /**
      * @param  string
-     * @return array
+     * @return string
      */
-    public function get($url)
+    public function get($endUrl)
     {
-        return $this->act(self::REST_GET, $url, null);
+      $url = self::MPERF_URL . $endUrl;
+
+      $tab = $this->act(self::REST_GET, $url, null);
+
+      if ($tab['info']['http_code'] != 200 && $tab['info']['http_code'] != 204)
+      {
+        echo '<p>Error ' . $tab['info']['http_code'] . ' : \'GET\' on ' . $endUrl . ' failed.</p>';
+        return (null);
+      }
+
+      return (json_encode($tab['result']));
     }
 
     /**
      * @param  string
      * @param  array
-     * @return array
+     * @return string
      */
-    public function post($url, $data)
+    public function post($endUrl, $data)
     {
+        $url = self::MPERF_URL . $endUrl;
         $dataJson = json_encode($data);
-        return $this->act(self::REST_POST, $url, $dataJson);
+
+        $tab = $this->act(self::REST_POST, $url, $dataJson);
+
+        if ($tab['info']['http_code'] != 200 && $tab['info']['http_code'] != 204)
+        {
+          echo '<p>Error ' . $tab['info']['http_code'] . ' : \'POST\' on ' . $endUrl . ' failed.</p>';
+          return (null);
+        }
+
+        return (json_encode($tab['result']));
     }
 
     /**
      * @param  string
      * @param  array
-     * @return array
+     * @return string
      */
     public function put($url, $data)
     {
+        $url = self::MPERF_URL . $endUrl;
         $dataJson = json_encode($data);
-        return $this->act(self::REST_PUT, $url, $dataJson);
+
+        $tab = $this->act(self::REST_PUT, $url, $dataJson);
+
+        if ($tab['info']['http_code'] != 200 && $tab['info']['http_code'] != 204)
+        {
+          echo '<p>Error ' . $tab['info']['http_code'] . ' : \'PUT\' on ' . $endUrl . ' failed.</p>';
+          return (null);
+        }
+
+        return (json_encode($tab['result']));
     }
 
     /**
@@ -137,5 +167,3 @@ class RestHelper extends App\Helper\AbstractHelper
         return json_decode($json, true);
     }
 }
-
-?>
