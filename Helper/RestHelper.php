@@ -137,3 +137,5 @@ class RestHelper extends App\Helper\AbstractHelper
         return json_decode($json, true);
     }
 }
+
+?>

@@ -1,4 +1,42 @@
 <?php
-var_dump($this);
+
+
+    /*global $wpdb;
+    $wpdb->query("CREATE TABLE IF NOT EXISTS {$wpdb->prefix}mperf_fields (id INT NOT NULL, name VARCHAR(255) NOT NULL);");
+    $wpdb->query("TRUNCATE TABLE {$wpdb->prefix}mperf_fields;");
+
+    $tab = json_decode($json, TRUE);
+
+    for ($i = 0; $i < count($tab); $i = $i + 1)
+    {
+      $wpdb->insert("{$wpdb->prefix}mperf_fields", array('id' => $tab[$i]['id'], 'name' => $tab[$i]['name']));
+    }*/
+
+
+$urlFields = "http://backoffice.mailperformance.dev/fields/";
+
+
+echo '<p>' . $urlFields . '</p>';
+
+
+echo ($block->get('fields/'));
+
+echo '<p>ZZZZZZZZ</p>';
+//var_dump($block);
+/*
+$tab = $block->getFields();
+$result = $tab['result'];
+$info = $tab['info'];
+
+/*
+if ($info['http_code'] != 200)
+{
+  echo '<p>Error \'GET\' /fields.</p>';
+}
+else
+{
+  echo $result;
+}*/
+
 
 ?>

@@ -31,16 +31,35 @@ class Dev extends Template
         $this->_restHelper = $rest;
     }
 
+    /**
+    * @return array
+    */
     public function dostuff()
     {
-        $tmp = $this->_config->getReadyState();
-        $this->_config->setReadyState('bad-xkey');
-        return $tmp;
+        $tmp = $this->_config->getReadyState(); //ok
+        $this->_config->setReadyState('bad-xkey'); //ok
+
+        return 'dostuff';
     }
 
-    public function getFields()
+    /**
+    * @return array
+    */
+    public function get($endUrl)
     {
-      var_dump($this->$_restHelper->get("http://backoffice.mailperformance.dev/fields/fields/"));
+      $url = \Tym17\MailPerformance\Helper\RestHelper::MPERF_URL . $endUrl;
+
+      $tab = $this->_restHelper->get($url);
+
+      if ($tab['info']['http_code'] != 200)
+      {
+        echo '<p>Error ' . $tab['info']['http_code'] . ': \'GET\' on /fields failed.</p>';
+        return (null);
+      }
+
+      return (json_encode($tab['result']));
     }
 
 }
+
+?>
