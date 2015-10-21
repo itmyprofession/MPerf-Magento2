@@ -31,7 +31,8 @@ class Index extends \Magento\Backend\App\Action
         {
             $resultPageFactory = $this->_objectManager->create('Magento\Framework\View\Result\PageFactory');
             $cfg = $this->_objectManager->create('Tym17\MailPerformance\Model\Config');
-            $cfg->saveConfig(\Tym17\MailPerformance\Model\Config::LOGIN_STATE, 'true');
+            $cfg->saveConfig('lfel', 'dfsddsfdsg');
+            $cfg->saveConfig('az', 'ddfgfffffeaz');
             $resultPage = $resultPageFactory->create();
             return $resultPage;
         }

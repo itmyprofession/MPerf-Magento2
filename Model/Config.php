@@ -12,12 +12,6 @@ class Config extends \Magento\Framework\Model\AbstractModel
 
     public function saveConfig($path, $value)
     {
-        //try {
-            $this->setId($path);
-            $this->setData('value', $value);
-            $this->save();
-        //} catch (\Exception $e) {
-
-        //}
+        $this->_getResource()->saveConfig($path, $value);
     }
 }
