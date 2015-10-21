@@ -1,7 +1,22 @@
 <?php
 
+echo '<h1>Fields :</h1>';
 
 $json = $block->get('fields/');
+
+$tab = json_decode($json, TRUE);
+
+for ($i = 0; $i < count($tab); $i = $i + 1)
+{
+  echo '<p>id = ' . $tab[$i]['id'] . ' | name = ' . $tab[$i]['name'] . '</p>';
+  
+}
+
+echo '<br>';
+
+echo '<h1>Segments :</h1>';
+
+$json = $block->get('segments/');
 
 $tab = json_decode($json, TRUE);
 

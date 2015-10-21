@@ -101,10 +101,13 @@ class RestHelper extends App\Helper\AbstractHelper
      */
     public function get($endUrl)
     {
+      /* make the complete url */
       $url = self::MPERF_URL . $endUrl;
 
+      /* make a Get action */
       $tab = $this->act(self::REST_GET, $url, null);
 
+      /* check the result */
       if ($tab['info']['http_code'] != 200 && $tab['info']['http_code'] != 204)
       {
         echo '<p>Error ' . $tab['info']['http_code'] . ' : \'GET\' on ' . $endUrl . ' failed.</p>';
@@ -121,11 +124,16 @@ class RestHelper extends App\Helper\AbstractHelper
      */
     public function post($endUrl, $data)
     {
+        /* make the complete url */
         $url = self::MPERF_URL . $endUrl;
+
+        /* transform the array to json */
         $dataJson = json_encode($data);
 
+        /* make a Get action */
         $tab = $this->act(self::REST_POST, $url, $dataJson);
 
+        /* check the result */
         if ($tab['info']['http_code'] != 200 && $tab['info']['http_code'] != 204)
         {
           echo '<p>Error ' . $tab['info']['http_code'] . ' : \'POST\' on ' . $endUrl . ' failed.</p>';
@@ -142,11 +150,16 @@ class RestHelper extends App\Helper\AbstractHelper
      */
     public function put($url, $data)
     {
+        /* make the complete url */
         $url = self::MPERF_URL . $endUrl;
+
+        /* transform the array to json */
         $dataJson = json_encode($data);
 
+        /* make a Get action */
         $tab = $this->act(self::REST_PUT, $url, $dataJson);
 
+        /* check the result */
         if ($tab['info']['http_code'] != 200 && $tab['info']['http_code'] != 204)
         {
           echo '<p>Error ' . $tab['info']['http_code'] . ' : \'PUT\' on ' . $endUrl . ' failed.</p>';
