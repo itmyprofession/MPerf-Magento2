@@ -39,6 +39,7 @@ class Index extends \Magento\Backend\App\Action
     public function execute()
     {
 
+        $this->_eventManager->dispatch('mperf_request', ['from' => 'Settings']);
         /** @var \MAgento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $resultPage->setActiveMenu('Tym17_MailPerformance::settings');

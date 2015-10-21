@@ -38,9 +38,23 @@ class Check extends Template
         $this->_objectManager = $objectManager;
     }
 
+    /**
+     * @return string
+     */
     public function getAuthUrl()
     {
-        return $this->_urlBuilder->getUrl('*/*/Authenticate', []);
+        return $this->_urlBuilder->getUrl('*/*/Authenticate', ['path' => $this->getRequest()->getParam('path')]);
+    }
+
+    /**
+     * @return bool
+     */
+    public function haveConfigAccess()
+    {
+        /*return($this->_authorization->isAllowed('Magento_Backend::stores_settings')
+        && $this->_authorization->isAllowed('Magento_Config::config');
+        && $this->_authorization->isAllowed('Tym17_MailPerformance::config'));*/
+        return (true);
     }
 
 }

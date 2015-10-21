@@ -46,6 +46,9 @@ class Config extends \Magento\Framework\Model\AbstractModel
      */
     public function saveConfig($path, $value)
     {
-        $this->_getResource()->saveConfig($path, $value);
+        if ($this->getConfig($path, 'NoConfigDefined') != $value)
+        {
+            $this->_getResource()->saveConfig($path, $value);
+        }
     }
 }

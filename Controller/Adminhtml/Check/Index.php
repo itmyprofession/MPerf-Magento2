@@ -21,7 +21,7 @@ class Index extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $this->_eventManager->dispatch('mperf_request', ['from' => 'settings']);
+        $this->_eventManager->dispatch('mperf_request', ['from' => 'Check']);
         if (false)
         {
             $resultRedirect = $this->resultRedirectFactory->create();
@@ -30,7 +30,6 @@ class Index extends \Magento\Backend\App\Action
         else
         {
             $resultPageFactory = $this->_objectManager->create('Magento\Framework\View\Result\PageFactory');
-            $cfg = $this->_objectManager->create('Tym17\MailPerformance\Model\Config');
             $resultPage = $resultPageFactory->create();
             return $resultPage;
         }

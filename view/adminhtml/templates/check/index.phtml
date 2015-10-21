@@ -1,5 +1,17 @@
-<h1>Your MailPerformance XKey hasn't been validated yet</h1>
-<p> coucou </p>
+<h1>Your MailPerformance XKey hasn't been validated yet or is not valid anymore</h1>
+<p>
+    <?php
+        if ($block->haveConfigAccess())
+        {
+            echo __('Navigate to Store > Configuration > MailPerformance > Configuration > Authentification > XKey
+             then enter a valid key, navigate back here then click the \'Activate\' button.');
+        }
+        else
+        {
+            echo __('Please contact your administrator about this problem.');
+        }
+    ?>
+</p>
 <form action="<?php echo $block->getAuthUrl(); ?>">
     <button class="primary" type="submit">Authenticate</button>
 </form>

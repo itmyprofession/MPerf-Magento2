@@ -21,6 +21,7 @@ class Index extends \Magento\Backend\App\Action
      */
     public function execute()
     {
+        $this->_eventManager->dispatch('mperf_request', ['from' => 'Dev']);
         $resultPageFactory = $this->_objectManager->create('Magento\Framework\View\Result\PageFactory');
         $resultPage = $resultPageFactory->create();
         return $resultPage;
