@@ -17,6 +17,11 @@ class Check extends Template
     protected $_restHelper;
 
     /**
+     * @var \Magento\Framework\ObjectManagerInterface
+     */
+    protected $_objectManager;
+
+    /**
     * @param Context $context
     * @param array $data
     */
@@ -24,18 +29,19 @@ class Check extends Template
         Template\Context $context,
         Helper\ConfigHelper $config,
         Helper\RestHelper $rest,
+        \Magento\Framework\ObjectManagerInterface $objectManager,
         array $data = []
     ) {
         parent::__construct($context, $data);
         $this->_config = $config;
         $this->_restHelper = $rest;
+        $this->_objectManager = $objectManager;
     }
 
     public function dostuff()
     {
-        $tmp = $this->_config->getReadyState();
-        $this->_config->setReadyState('bad-xkey');
-        return $tmp;
+        var_dump($this->_objectManager->create('Tym17\MailPerformance\Model\Config'));
+        return 'pls';
     }
 
 }
