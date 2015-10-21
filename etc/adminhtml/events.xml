@@ -9,7 +9,4 @@
     <event name="mperf_request">
         <observer name="mperf_each_loaded_page" instance="Tym17\MailPerformance\Model\Observer\OnPageLoad" method="checkOperational" />
     </event>
-    <event name="mperf_authenticate">
-        <observer name="mperf_login" instance="Tym17\MailPerformance\Model\Observer\Authenticate" method="authenticate" />
-    </event>
 </config>

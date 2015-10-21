@@ -38,10 +38,9 @@ class Check extends Template
         $this->_objectManager = $objectManager;
     }
 
-    public function dostuff()
+    public function getAuthUrl()
     {
-        var_dump($this->_objectManager->create('Tym17\MailPerformance\Model\Config'));
-        return 'pls';
+        return $this->_urlBuilder->getUrl('*/*/Authenticate', []);
     }
 
 }

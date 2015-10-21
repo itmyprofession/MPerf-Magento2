@@ -21,10 +21,10 @@ class Authenticate extends \Magento\Backend\App\Action
      */
     public function execute()
     {
+        $this->messageManager->addSuccess(__('You succesfully linked your XKey to your Magento2 install'));
         $cfg = $this->_objectManager->create('\Tym17\MailPerformance\Helper\ConfigHelper');
         $this->_eventManager->dispatch('mperf_authenticate');
         $resultRedirect = $this->resultRedirectFactory->create();
-        var_dump($resultRedirect->setPath('*/Settings'));
         return $resultRedirect->setPath('*/Settings');
     }
 }

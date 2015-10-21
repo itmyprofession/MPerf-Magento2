@@ -8,3 +8,8 @@ https://github.com/magento/magento2/issues/597
 ## Act wsith db
 
 https://github.com/magento/magento2/blob/master/lib/internal/Magento/Framework/DB/Adapter/AdapterInterface.php
+
+
+## Get link for Backend with secret KEY from block
+
+`$this->_urlBuilder->getUrl('\*/Settings', []);`
