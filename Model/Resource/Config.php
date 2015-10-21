@@ -3,11 +3,18 @@ namespace Tym17\MailPerformance\Model\Resource;
 
 class Config extends \Magento\Framework\Model\Resource\Db\AbstractDb
 {
+    /**
+     * @return void
+     */
     protected function _construct()
     {
         $this->_init('mailperf_config', 'config_id');
     }
 
+    /**
+     * @param  array $data
+     * @return void
+     */
     protected function _updateConfig($data)
     {
         $pathQuery = 'path = \'' . $data['path'] . '\'';
@@ -20,19 +27,52 @@ class Config extends \Magento\Framework\Model\Resource\Db\AbstractDb
         $writeAdapter->update($this->getMainTable(), $data, $pathQuery);
     }
 
-    public function isConfig($path)
+    /**
+     * @param  array $data
+     * @return void
+     */
+    protected function _createConfig($data)
+    {
+        $readAdapter =$this->_getReadAdapter();
+        $select = $readAdapter->select()
+            ->from($this->getMainTable(),
+            new \Zend_Db_Expr("MAX(config_id)"));
+        $result = $readAdapter->fetchAll($select);
+        $data['config_id'] = $result[0]['MAX(config_id)'] + 1;
+        $writeAdapter = $this->_getWriteAdapter();
+        $writeAdapter->insertForce($this->getMainTable(), $data);
+    }
+
+    /**
+     * @param  string $path
+     * @return array $result
+     */
+    public function getConfig($path)
     {
         $pathQuery = 'path = \'' . $path . '\'';
         $readAdapter =$this->_getReadAdapter();
-        $select = $readAdapter->select()->from($this->getMainTable())->where($pathQuery);
+        $select = $readAdapter->select()
+            ->from($this->getMainTable())
+            ->where($pathQuery);
         $result = $readAdapter->fetchAll($select);
-        return !empty($result);
+        return $result;
     }
 
+    /**
+     * @param  string $path
+     * @param  string $value
+     * @return void
+     */
     public function saveConfig($path, $value)
     {
         $data = ['path' => $path, 'value' => $value];
-        var_dump($this->isConfig($path));
-        $this->_updateConfig($data);
+        if (!empty($this->getConfig($path)))
+        {
+            $this->_updateConfig($data);
+        }
+        else
+        {
+            $this->_createConfig($data);
+        }
     }
 }
