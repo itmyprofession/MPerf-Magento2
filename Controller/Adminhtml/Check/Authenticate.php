@@ -26,7 +26,7 @@ class Authenticate extends \Magento\Backend\App\Action
         $cfg->saveConfig('linkstate', 'linked');
         $this->_eventManager->dispatch('mperf_authenticate');
         $resultRedirect = $this->resultRedirectFactory->create();
-        if ($cfg->getConfig('linkstate', 'notlinked') == 'linked')
+        if ($cfg->isReady())
         {
             return $resultRedirect->setPath('*/' . $this->getRequest()->getParam('path'));
         }

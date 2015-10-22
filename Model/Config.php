@@ -3,7 +3,47 @@ namespace Tym17\MailPerformance\Model;
 
 class Config extends \Magento\Framework\Model\AbstractModel
 {
-    const LOGIN_STATE = 0;
+    /**
+     * @var string
+     */
+    const BASE = 'mailperformance/';
+
+    /**
+     * @var string
+     */
+    const SCOPE = 'default';
+
+    /**
+     * @var \Magento\Framework\App\MutableScopeConfig
+     */
+    protected $_config;
+
+    /**
+    * @param  \Magento\Framework\Model\Context $context
+    * @param  \Magento\Framework\Registry $registry
+    * @param  \Magento\Framework\App\ScopeConfig $cfg
+    * @param  \Magento\Framework\Model\Resource\AbstractResource $resource = null
+    * @param  \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null
+    * @param  array $data = []
+    * @return void
+    */
+    public function __construct(
+        \Magento\Framework\Model\Context $context,
+        \Magento\Framework\Registry $registry,
+        \Magento\Framework\App\MutableScopeConfig $cfg,
+        \Magento\Framework\Model\Resource\AbstractResource $resource = null,
+        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
+        array $data = []
+    ) {
+        $this->_config = $cfg;
+        parent::__construct(
+            $context,
+            $registry,
+            $resource,
+            $resourceCollection,
+            $data
+        );
+    }
 
     /**
      * @return void
@@ -50,5 +90,45 @@ class Config extends \Magento\Framework\Model\AbstractModel
         {
             $this->_getResource()->saveConfig($path, $value);
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function getReadyState()
+    {
+        return $this->getConfig('linkstate', 'post-install');
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReady()
+    {
+        if ($this->getReadyState() == 'linked')
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    /**
+     * @return string
+     */
+    public function getXKey()
+    {
+        return $this->_config->getValue(self::BASE . 'auth/xkey', self::SCOPE);
+    }
+
+    /**
+     * @return string
+     */
+    public function getALKey()
+    {
+        $xkey = $this->getXKey();
+        return substr($xkey, 7);
     }
 }

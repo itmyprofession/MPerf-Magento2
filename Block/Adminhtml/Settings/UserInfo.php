@@ -7,11 +7,6 @@ use Tym17\MailPerformance\Helper;
 class UserInfo extends Template
 {
     /**
-     * @var \Tym17\MailPerformance\Helper\ConfigHelper
-     */
-    protected $_config;
-
-    /**
      * @var \Tym17\MailPerformance\Helper\RestHelper
      */
     protected $_restHelper;
@@ -24,12 +19,10 @@ class UserInfo extends Template
     */
     public function __construct(
         Template\Context $context,
-        Helper\ConfigHelper $config,
         Helper\RestHelper $rest,
         array $data = []
     ) {
         parent::__construct($context, $data);
-        $this->_config = $config;
         $this->_restHelper = $rest;
     }
 
@@ -38,7 +31,7 @@ class UserInfo extends Template
      */
     public function showXKey()
     {
-        return $this->_config->getXKey();
+        return 'le';
     }
 
     public function getActions()
@@ -80,7 +73,7 @@ class UserInfo extends Template
      */
     public function isReady()
     {
-        if ($this->_config->getReadyState() != 'ready')
+        if (true)//$this->_config->getReadyState() != 'ready')
         {
             return false;
         }

@@ -7,11 +7,6 @@ use Tym17\MailPerformance\Helper;
 class Check extends Template
 {
     /**
-     * @var \Tym17\MailPerformance\Helper\ConfigHelper
-     */
-    protected $_config;
-
-    /**
      * @var \Tym17\MailPerformance\Helper\RestHelper
      */
     protected $_restHelper;
@@ -27,13 +22,11 @@ class Check extends Template
     */
     public function __construct(
         Template\Context $context,
-        Helper\ConfigHelper $config,
         Helper\RestHelper $rest,
         \Magento\Framework\ObjectManagerInterface $objectManager,
         array $data = []
     ) {
         parent::__construct($context, $data);
-        $this->_config = $config;
         $this->_restHelper = $rest;
         $this->_objectManager = $objectManager;
     }
@@ -51,10 +44,9 @@ class Check extends Template
      */
     public function haveConfigAccess()
     {
-        /*return($this->_authorization->isAllowed('Magento_Backend::stores_settings')
-        && $this->_authorization->isAllowed('Magento_Config::config');
-        && $this->_authorization->isAllowed('Tym17_MailPerformance::config'));*/
-        return (true);
+        return($this->_authorization->isAllowed('Magento_Backend::stores_settings')
+            && $this->_authorization->isAllowed('Magento_Config::config')
+            && $this->_authorization->isAllowed('Tym17_MailPerformance::config'));
     }
 
 }

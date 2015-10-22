@@ -6,8 +6,6 @@ use Tym17\MailPerformance\Helper;
 
 class Customer extends \Magento\Backend\Block\Widget\Form\Generic
 {
-    protected $_config;
-
     /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\Registry $registry
@@ -18,10 +16,8 @@ class Customer extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
-        Helper\ConfigHelper $config,
         array $data = []
     ) {
-        $this->_config = $config;
         parent::__construct($context, $registry, $formFactory, $data);
     }
 
@@ -30,7 +26,7 @@ class Customer extends \Magento\Backend\Block\Widget\Form\Generic
      */
     public function isReady()
     {
-        return $this->_config->isReady();
+        return false;
     }
 
     protected function _prepareForm()

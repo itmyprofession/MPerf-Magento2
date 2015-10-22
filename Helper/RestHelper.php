@@ -15,6 +15,10 @@ class RestHelper extends App\Helper\AbstractHelper
      */
     protected $_xkey;
 
+    /**
+     * @param  \Magento\Framework\App\Helper\Context $Context
+     * @return void
+     */
     public function __construct(
         App\Helper\Context $context
     ) {

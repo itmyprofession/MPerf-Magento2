@@ -7,11 +7,6 @@ use Tym17\MailPerformance\Helper;
 class Action extends Template
 {
     /**
-     * @var \Tym17\MailPerformance\Helper\ConfigHelper
-     */
-    protected $_config;
-
-    /**
      * @var \Tym17\MailPerformance\Helper\RestHelper
      */
     protected $_restHelper;
@@ -24,12 +19,10 @@ class Action extends Template
     */
     public function __construct(
         Template\Context $context,
-        Helper\ConfigHelper $config,
         Helper\RestHelper $rest,
         array $data = []
     ) {
         parent::__construct($context, $data);
-        $this->_config = $config;
         $this->_restHelper = $rest;
     }
 
@@ -38,6 +31,6 @@ class Action extends Template
      */
     public function isReady()
     {
-        return $this->_config->isReady();
+        return false;
     }
 }
