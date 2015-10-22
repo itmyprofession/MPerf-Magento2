@@ -16,14 +16,21 @@ class RestHelper extends App\Helper\AbstractHelper
     protected $_xkey;
 
     /**
+     * @var \Magento\Framework\Message\ManagerInterface
+     */
+    protected $messageManager;
+
+    /**
      * @param  \Magento\Framework\App\Helper\Context $Context
      * @return void
      */
     public function __construct(
-        App\Helper\Context $context
+        App\Helper\Context $context,
+        \Magento\Framework\Message\ManagerInterface $msgManager
     ) {
         parent::__construct($context);
         $this->_xkey = $this->scopeConfig->getValue('mailperformance/auth/xkey');
+        $this->messageManager = $msgManager;
     }
 
     /**
@@ -63,12 +70,14 @@ class RestHelper extends App\Helper\AbstractHelper
     }
 
     /**
-     * @param  string
-     * @param  string
-     * @param  string
+     * / ! \ Changing notice will also change return type / ! \
+     * @param  string $kind
+     * @param  string $url
+     * @param  array $dataJson
+     * @param  bool $notice
      * @return array
      */
-    protected function act($kind, $url, $dataJson)
+    protected function act($kind, $url, $dataJson = [], $notice = 0)
     {
         /* Prepairing request and it's header */
         $request = $this->init($url);
@@ -78,10 +87,11 @@ class RestHelper extends App\Helper\AbstractHelper
         curl_setopt($request, CURLOPT_CUSTOMREQUEST, $kind);
 
         /* if POST/PUT request, add Json parameters */
-        if ($dataJson != null)
+        if (!empty($dataJson))
         {
-            curl_setopt($request, CURLOPT_POSTFIELDS, $dataJson);
-            $headerArray[] = 'Content-Length: ' . strlen($dataJson);
+            $data = json_encode($dataJson);
+            curl_setopt($request, CURLOPT_POSTFIELDS, $data);
+            $headerArray[] = 'Content-Length: ' . strlen($data);
         }
 
         /* filling header with Xkey and options */
@@ -96,81 +106,57 @@ class RestHelper extends App\Helper\AbstractHelper
         $resultArray = array('result' => $result, 'info' => $info);
 
         curl_close($request);
+        /* Notice user about the error and return json array of result or null if error */
+        if ($notice > 0)
+        {
+            if ($resultArray['info']['http_code'] != 200 && $resultArray['info']['http_code'] != 204 && $notice > 0)
+            {
+                $text = '<p>Error ' . $tab['info']['http_code'] . ' : ""' . $kind . '"" on ' . $endUrl . ' failed.</p>';
+                if ($notive == 2)
+                {
+                    /* shows up a fancy message on the [next] loading[/ed] page */
+                    $this->messageManager->addWarning($text);
+                }
+                else if ($notice == 1)
+                {
+                    /* Directly echo the error on the page */
+                    echo $text;
+                }
+                return (null);
+            }
+            return json_encode($resultArray['result']);
+        }
+        /* Returns an array with all the details, including error results */
         return $resultArray;
     }
 
     /**
      * @param  string
-     * @return string
+     * @return string|array
      */
-    public function get($endUrl)
+    public function get($endUrl, $notice = 0)
     {
-      /* make the complete url */
-      $url = self::MPERF_URL . $endUrl;
-
-      /* make a Get action */
-      $tab = $this->act(self::REST_GET, $url, null);
-
-      /* check the result */
-      if ($tab['info']['http_code'] != 200 && $tab['info']['http_code'] != 204)
-      {
-        echo '<p>Error ' . $tab['info']['http_code'] . ' : \'GET\' on ' . $endUrl . ' failed.</p>';
-        return (null);
-      }
-
-      return (json_encode($tab['result']));
+      return $this->act(self::REST_GET, self::MPERF_URL . $endUrl, [ ], $notice);
     }
 
     /**
      * @param  string
      * @param  array
-     * @return string
+     * @return string|array
      */
-    public function post($endUrl, $data)
+    public function post($endUrl, $data, $notice = 0)
     {
-        /* make the complete url */
-        $url = self::MPERF_URL . $endUrl;
-
-        /* transform the array to json */
-        $dataJson = json_encode($data);
-
-        /* make a Get action */
-        $tab = $this->act(self::REST_POST, $url, $dataJson);
-
-        /* check the result */
-        if ($tab['info']['http_code'] != 200 && $tab['info']['http_code'] != 204)
-        {
-          echo '<p>Error ' . $tab['info']['http_code'] . ' : \'POST\' on ' . $endUrl . ' failed.</p>';
-          return (null);
-        }
-
-        return (json_encode($tab['result']));
+        return $this->act(self::REST_POST, self::MPERF_URL . $endUrl, $data, $notice);
     }
 
     /**
      * @param  string
      * @param  array
-     * @return string
+     * @return string|array
      */
-    public function put($url, $data)
+    public function put($url, $data, $notice = 0)
     {
-        /* make the complete url */
-        $url = self::MPERF_URL . $endUrl;
-
-        /* transform the array to json */
-        $dataJson = json_encode($data);
-
-        /* make a Get action */
-        $tab = $this->act(self::REST_PUT, $url, $dataJson);
-
-        /* check the result */
-        if ($tab['info']['http_code'] != 200 && $tab['info']['http_code'] != 204)
-        {
-          echo '<p>Error ' . $tab['info']['http_code'] . ' : \'PUT\' on ' . $endUrl . ' failed.</p>';
-          return (null);
-        }
-
-        return (json_encode($tab['result']));
+        return $this->act(self::REST_PUT, self::MPERF_URL . $endUrl, $data, $notice);
     }
 
     /**

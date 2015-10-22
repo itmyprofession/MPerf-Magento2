@@ -46,7 +46,7 @@ class Dev extends Template
     */
     public function get($endUrl)
     {
-      return ($this->_restHelper->get($endUrl));
+      return ($this->_restHelper->get($endUrl, 1));
     }
 
     /**
@@ -56,7 +56,7 @@ class Dev extends Template
     */
     public function post($endUrl, $data)
     {
-      return ($this->_restHelper->post($endUrl, $data));
+      return ($this->_restHelper->post($endUrl, $data, 1));
     }
 
     /**
@@ -66,7 +66,7 @@ class Dev extends Template
     */
     public function put($endUrl, $data)
     {
-      return ($this->_restHelper->put($endUrl, $data));
+      return ($this->_restHelper->put($endUrl, $data, 1));
     }
 
 }
