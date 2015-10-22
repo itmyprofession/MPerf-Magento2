@@ -7,6 +7,11 @@ use Tym17\MailPerformance\Helper;
 class Cart extends \Magento\Backend\Block\Widget\Form\Generic
 {
     /**
+     * @var \Tym17\MailPerformance\Model\Config
+     */
+    protected $_config;
+
+    /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\Registry $registry
      * @param \Magento\Framework\Data\FormFactory $formFactory
@@ -16,8 +21,10 @@ class Cart extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
+        \Magento\Framework\ObjectManagerInterface $objectManager,
         array $data = []
     ) {
+        $this->_config = $objectManager->create('Tym17\MailPerformance\Model\Config');
         parent::__construct($context, $registry, $formFactory, $data);
     }
 
@@ -26,7 +33,7 @@ class Cart extends \Magento\Backend\Block\Widget\Form\Generic
      */
     public function isReady()
     {
-        return false;
+        return $this->_config->isReady();
     }
 
     protected function _prepareForm()
