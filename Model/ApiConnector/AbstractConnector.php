@@ -7,11 +7,6 @@ use Tym17\MailPerformance\Helper;
 class AbstractConnector extends Framework\Model\AbstractModel
 {
     /**
-     * @var Tym17\MailPerformance\Helper\ConfigHelper
-     */
-    protected $_configHelper;
-
-    /**
      * @var Tym17\MailPerformance\Helper\RestHelper
      */
     protected $_restHelper;
@@ -34,10 +29,8 @@ class AbstractConnector extends Framework\Model\AbstractModel
         Framework\Model\Resource\AbstractResource $resource = null,
         Framework\Data\Collection\Db $resourceCollection = null,
         Helper\RestHelper $rest,
-        Helper\ConfigHelper $config,
         array $data = array()
     ) {
-        $this->_configHelper = $config;
         $this->_restHelper = $rest;
         parent::__construct($context, $registry, $resource, $resourceCollection, $data);
     }

@@ -11,6 +11,5 @@ class ContactConnector extends AbstractConnector
     public function _construct()
     {
         parent::_construct();
-        //$this->_init('Tym17\MailPerformance\Model\ApiConnector\Resource\ContactConnector');
     }
 }

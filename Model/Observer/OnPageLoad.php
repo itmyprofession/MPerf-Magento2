@@ -5,19 +5,16 @@ class OnPageLoad
 {
     protected $_msgManager;
 
-    protected $_config;
 
     public function __construct(
-        \Magento\Framework\Message\ManagerInterface $msgManager,
-        \Tym17\MailPerformance\Helper\ConfigHelper $cfg
+        \Magento\Framework\Message\ManagerInterface $msgManager
     ) {
-        $this->_config = $cfg;
         $this->_msgManager = $msgManager;
     }
 
     public function getWarning()
     {
-        $state = $this->_config->getReadyState();
+        $state = 'lel';
         switch($state)
         {
             case "fresh-install":
@@ -34,9 +31,9 @@ class OnPageLoad
 
     public function checkOperational()
     {
-        if (!$this->_config->isReady())
-        {
+        /*if (!$this->_config->isReady())
+        {*/
             $this->_msgManager->addWarning($this->getWarning());
-        }
+        //}
     }
 }
