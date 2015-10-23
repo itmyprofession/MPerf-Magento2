@@ -66,6 +66,7 @@ class Config extends \Magento\Framework\Model\Resource\Db\AbstractDb
     public function saveConfig($path, $value)
     {
         $data = ['path' => $path, 'value' => $value];
+        /* if config already exists, update it or create it */
         if (!empty($this->getConfig($path)))
         {
             $this->_updateConfig($data);

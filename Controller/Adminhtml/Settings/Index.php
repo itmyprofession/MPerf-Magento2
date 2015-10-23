@@ -15,7 +15,7 @@ class Index extends \Magento\Backend\App\Action
     /**
      * @var scopeConfig
      */
-    protected $scopeConfig;
+    protected $_config;
 
     /**
      * @param Context $context
@@ -27,7 +27,7 @@ class Index extends \Magento\Backend\App\Action
         PageFactory $resultPageFactory
     ) {
         parent::__construct($context);
-        $this->scopeConfig = $scopeConfig;
+        $this->_config = $this->_objectManager->create('Tym17\MailPerformance\Model\Config');
         $this->resultPageFactory = $resultPageFactory;
     }
 
@@ -41,6 +41,6 @@ class Index extends \Magento\Backend\App\Action
 
         $this->_eventManager->dispatch('mperf_request', ['from' => 'Settings']);
         $resultPage = $this->resultPageFactory->create();
-        return $resultPage;
+        return $this->_config->checkLinked($resultPage, $this->resultRedirectFactory, 'Settings');
     }
 }

@@ -131,4 +131,26 @@ class Config extends \Magento\Framework\Model\AbstractModel
         $xkey = $this->getXKey();
         return substr($xkey, 7);
     }
+
+    /**
+     * / ! \ Only use this from a Controller / ! \
+     * / ! \ Every Non-Check Controller should return this function / ! \
+     * Redirection to the Auth page incase the user
+     * forces Magento to load XKey-Link required pages
+     * @param  mixed $result
+     * This is what the controller is mean to return, either Redirect or Page
+     * @param  mixed $redirectFactory
+     * @param  string $calledUrl
+     * @return mixed $result
+     */
+     public function checkLinked($result, $redirectFactory, $calledUrl)
+     {
+        if (!$this->isReady())
+        {
+            /* Since XKey is not linked, we redirect to the Auth Page */
+            $result = $redirectFactory->create();
+            $result = $result->setPath('*/Check', ['path' => $calledUrl]);
+        } /* else we don't touch result and return it since the XKey is linked */
+        return $result;
+     }
 }

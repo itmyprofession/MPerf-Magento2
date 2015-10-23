@@ -3,8 +3,6 @@ namespace Tym17\MailPerformance\Model;
 
 class Segments extends \Magento\Framework\Model\AbstractModel
 {
-    const LOGIN_STATE = 0;
-
     /**
      * @return void
      */

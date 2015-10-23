@@ -74,19 +74,4 @@ class UserInfo extends Template
             || $this->isAllowed($baseAcl . 'XKey');
         return ($this->isAllowed($baseAcl . 'ountInfo') && $somethingIsAllowed);
     }
-
-    /**
-     * @return bool
-     */
-    public function isReady()
-    {
-        if ($this->_config->getReadyState())
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
 }

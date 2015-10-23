@@ -28,14 +28,6 @@ class Customer extends \Magento\Backend\Block\Widget\Form\Generic
         parent::__construct($context, $registry, $formFactory, $data);
     }
 
-    /**
-     * @return bool
-     */
-    public function isReady()
-    {
-        return $this->_config->isReady();
-    }
-
     protected function _prepareForm()
     {
         $form = $this->_formFactory->create();

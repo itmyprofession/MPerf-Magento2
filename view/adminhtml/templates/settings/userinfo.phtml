@@ -2,7 +2,6 @@
     <div class="admin__page-section-title">
         <span class="title">Account Informations</span>
     </div>
-    <?php if ($block->isReady()): ?>
     <?php if ($block->isInfoAllowed()): ?>
     <table class="admin__table-secondary">
         <tbody>
@@ -38,7 +37,5 @@
     </table>
     <?php else: ?>
     <p>You don't have access to this. If you believe this is an error, please contact your Administrator.</p>
-    <?php endif; else:?>
-    <p>Your MailPerformance module needs a configuration reload in order to operate, please click on the Authenticate button</p>
     <?php endif; ?>
 </div>
