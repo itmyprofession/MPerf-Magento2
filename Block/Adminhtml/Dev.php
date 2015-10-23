@@ -11,6 +11,10 @@ class Dev extends Template
      */
     protected $_restHelper;
 
+    /**
+     * @var \Tym17\MailPerformance\Model\Fields
+     */
+    protected $_fields;
 
     /**
      * @var \Magento\Framework\ObjectManagerInterface
@@ -28,6 +32,7 @@ class Dev extends Template
         array $data = []
     ) {
         parent::__construct($context, $data);
+        $this->_fields = $objectManager->create('\Tym17\MailPerformance\Model\Fields');
         $this->_restHelper = $rest;
         $this->_objectManager = $objectManager;
     }
@@ -35,9 +40,10 @@ class Dev extends Template
     /**
     * @return array
     */
-    public function dostuff()
+    public function dostuff($id, $name)
     {
-        return 'dostuff';
+      $this->_fields->saveFields($id, $name);
+      return 'dostuff';
     }
 
     /**
@@ -67,6 +73,15 @@ class Dev extends Template
     public function put($endUrl, $data)
     {
       return ($this->_restHelper->put($endUrl, $data, 1));
+    }
+
+
+    /**
+    * @return array
+    */
+    public function addChangeFields($id, $name)
+    {
+      $this->_fields->saveFields($id, $name);
     }
 
 }

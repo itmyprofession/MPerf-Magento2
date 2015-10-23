@@ -39,7 +39,6 @@ class Fields extends \Magento\Framework\Model\Resource\Db\AbstractDb
             new \Zend_Db_Expr("MAX(id)"));
 
         $result = $readAdapter->fetchAll($select);
-        $data['id'] = $result[0]['MAX(id)'] + 1;
 
         $writeAdapter = $this->_getWriteAdapter();
         $writeAdapter->insertForce($this->getMainTable(), $data);
@@ -49,9 +48,9 @@ class Fields extends \Magento\Framework\Model\Resource\Db\AbstractDb
      * @param  string $path
      * @return array $result
      */
-    public function getFields($path)
+    public function getFields($id)
     {
-        $pathQuery = 'path = \'' . $path . '\'';
+        $pathQuery = 'id = \'' . $id . '\'';
         $readAdapter =$this->_getReadAdapter();
         $select = $readAdapter->select()
             ->from($this->getMainTable())
@@ -67,7 +66,7 @@ class Fields extends \Magento\Framework\Model\Resource\Db\AbstractDb
      */
     public function saveFields($id, $name)
     {
-        $data = ['path' => $id, 'value' => $name];
+        $data = ['id' => $id, 'name' => $name];
         if (!empty($this->getFields($id)))
         {
             $this->_updateFields($data);
