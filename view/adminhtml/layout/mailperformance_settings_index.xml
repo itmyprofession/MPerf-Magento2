@@ -5,7 +5,6 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Sandbox" name="sandbox" template="Tym17_MailPerformance::sandbox.phtml" />
             <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Events" name="settings_events" template="Tym17_MailPerformance::form.phtml" />
             <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Customer" name="settings_customer" template="Tym17_MailPerformance::form.phtml" />
             <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Cart" name="settings_cart" template="Tym17_MailPerformance::form.phtml" />

@@ -34,20 +34,15 @@ class UserInfo extends Template
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function showXKey()
+    public function getInfos()
     {
-        return 'le';
-    }
-
-    public function getActions()
-    {
-        $result = $this->_restHelper->get('http://backoffice.mailperformance.dev/actions/');
-        //var_dump($result);
-        $result = $this->_restHelper->legacyInit();
-        var_dump($result);
-        return 'lel';//$result;
+        return ['ACC_NAME' => $this->_config->getConfig('accountName', 'Undefined'),
+            'ACC_OWNER' => $this->_config->getConfig('accountUserName', 'Undefined'),
+            'ACC_EMAIL' => $this->_config->getConfig('accountEmail', 'Undefined'),
+            'ACC_DATE' => $this->_config->getConfig('accountExpire', 'Undefined'),
+            'ACC_XKEY' => $this->_config->getXKey()];
     }
 
     /**

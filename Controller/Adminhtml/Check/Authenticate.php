@@ -50,7 +50,8 @@ class Authenticate extends \Magento\Backend\App\Action
         $this->_config->saveConfig('accountId', $data['id']);
         $this->_config->saveConfig('customerLogo', $data['customer']['logo']);
         $this->_config->saveConfig('companyLogo', $data['agency']['logo']);
-        $this->_config->saveConfig('accountName', $data['firstName'] . ' ' . $data['lastName']);
+        $this->_config->saveConfig('accountUserName', $data['firstName'] . ' ' . $data['lastName']);
+        $this->_config->saveConfig('accountName', $data['customer']['name']);
         $this->_config->saveConfig('lastAuth', date('d.n.Y'));
         $this->_config->saveConfig('accountEmail', $details['email']);
         if ($details['expire']['isdefined'])
@@ -91,7 +92,7 @@ class Authenticate extends \Magento\Backend\App\Action
         /* Final step: Redirect to param page */
         if ($this->_config->isReady())
         {
-            $this->messageManager->addSuccess(__('You succesfully linked your XKey to your Magento2 install'));
+            $this->messageManager->addSuccess(__('You succesfully linked your XKey to Magento2'));
             /* Since we just auth, we now need to generate the mailperformance pre-stored bindings */
             return $resultRedirect->setPath('*/' . $this->getRequest()->getParam('path'));
         }
