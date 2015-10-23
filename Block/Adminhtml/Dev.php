@@ -17,6 +17,11 @@ class Dev extends Template
     protected $_fields;
 
     /**
+     * @var \Tym17\MailPerformance\Model\Segments
+     */
+    protected $_segments;
+
+    /**
      * @var \Magento\Framework\ObjectManagerInterface
      */
     protected $_objectManager;
@@ -33,6 +38,7 @@ class Dev extends Template
     ) {
         parent::__construct($context, $data);
         $this->_fields = $objectManager->create('\Tym17\MailPerformance\Model\Fields');
+        $this->_segments = $objectManager->create('\Tym17\MailPerformance\Model\Segments');
         $this->_restHelper = $rest;
         $this->_objectManager = $objectManager;
     }
@@ -82,6 +88,15 @@ class Dev extends Template
     public function addChangeFields($id, $name)
     {
       $this->_fields->saveFields($id, $name);
+    }
+
+
+    /**
+    * @return array
+    */
+    public function addChangeSegments($id, $name)
+    {
+      $this->_segments->saveSegments($id, $name);
     }
 
 }

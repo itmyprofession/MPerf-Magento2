@@ -23,6 +23,7 @@ $tab = json_decode($json, TRUE);
 for ($i = 0; $i < count($tab); $i = $i + 1)
 {
   echo '<p>id = ' . $tab[$i]['id'] . ' | name = ' . $tab[$i]['name'] . '</p>';
+  $block->addChangeSegments($tab[$i]['id'], $tab[$i]['name']);
 }
 
 ?>
