@@ -41,7 +41,7 @@ class Cart extends \Magento\Backend\Block\Widget\Form\Generic
         $form->setMethod('post');
         $form->setUseContainer(true);
         $form->setId('cart');
-        $form->setAction($this->getUrl('*/*/Save'));
+        $form->setAction($this->getUrl('*/*/Save/Cart'));
 
         $this->setForm($form);
     }

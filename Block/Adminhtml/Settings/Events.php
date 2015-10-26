@@ -14,6 +14,11 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
     protected $_config;
 
     /**
+     * @var \Tym17\MailPerformance\Model\System\ApiList
+     */
+    protected $list;
+
+    /**
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\Registry $registry
      * @param \Magento\Framework\Data\FormFactory $formFactory
@@ -25,9 +30,11 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Framework\Data\FormFactory $formFactory,
         \Magento\Store\Model\System\Store $systemStore,
         \Magento\Framework\ObjectManagerInterface $objectManager,
+        \Tym17\MailPerformance\Model\System\ApiList $list,
         array $data = []
     ) {
         $this->_systemStore = $systemStore;
+        $this->list = $list;
         $this->_config = $objectManager->create('Tym17\MailPerformance\Model\Config');
         parent::__construct($context, $registry, $formFactory, $data);
     }
@@ -45,13 +52,28 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
         $fieldset->addField('notif_cart_edit', 'note', ['label' => __('Called after cart creation/edition'), 'text' => __('Adds the customer in a segment')]);
 
         $fieldset->addField(
-            'select_stores',
-            'multiselect',
+            'segment',
+            'select',
             [
-                'label' => __('Visibility'),
+                'label' => __('Segment'),
+                'title' => __('Segment'),
                 'required' => true,
-                'name' => 'select_stores[]',
-                'values' => [['label' => 'TestLAbel', 'value' => 'noArray'], ['label' => 'witharray', 'value' => [['label' => 'pls', 'value' => 2]]]]
+                'name' => 'segment',
+                'options' => $this->list->getSegments(),
+                'disabled' => false
+            ]
+        );
+
+        $fieldset->addField(
+            'field',
+            'select',
+            [
+                'label' => __('Field'),
+                'title' => __('Field'),
+                'required' => true,
+                'name' => 'field',
+                'options' => $this->list->getFields(),
+                'disabled' => false
             ]
         );
 
@@ -59,7 +81,7 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
         $form->setMethod('post');
             $form->setUseContainer(true);
         $form->setId('events');
-        $form->setAction($this->getUrl('*/*/Save'));
+        $form->setAction($this->getUrl('*/*/Save/Events'));
 
         $this->setForm($form);
     }
@@ -73,7 +95,7 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
         {
             $html = $this->getForm()->getHtml();
             $html = substr($html, 0, -7);
-            $html .= '<button class="primary" type="submit">' . __('Save') . '</button>';
+            $html .= '<button class="primary" style="vertical-align:middle" type="submit">' . __('Save') . '</button>';
             $html .= '</form>';
             return $html;
         }
