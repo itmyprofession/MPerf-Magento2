@@ -33,7 +33,6 @@ class ApiList
     {
         $result = [];
         $segTab = $this->segments->getAllSegments();
-        var_dump($segTab);
         foreach ($segTab as $segment)
         {
             $result[$segment['id']] = $segment['name'];
@@ -50,12 +49,7 @@ class ApiList
         $fieldTab = $this->fields->getAllFields();
         foreach ($fieldTab as $field)
         {
-            $txt = $field['name'];
-            if ($field['isUnicity'] == 1)
-            {
-                $txt = '<strong>' . $txt . '</strong>';
-            }
-            $result[$field['id']] = $txt;
+            $result[$field['id']] = $field['name'];
         }
         return $result;
     }
