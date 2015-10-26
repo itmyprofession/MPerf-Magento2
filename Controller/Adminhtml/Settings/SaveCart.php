@@ -1,7 +1,7 @@
 <?php
-namespace Tym17\MailPerformance\Controller\Settings\Save;
+namespace Tym17\MailPerformance\Controller\Adminhtml\Settings;
 
-class Cart extends \Tym17\MailPerformance\Controller\Settings\Save
+class SaveCart extends \Magento\Backend\App\Action
 {
     /**
      * @return mixed

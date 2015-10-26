@@ -81,7 +81,7 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
         $form->setMethod('post');
             $form->setUseContainer(true);
         $form->setId('events');
-        $form->setAction($this->getUrl('*/*/Save/Events'));
+        $form->setAction($this->getUrl('*/*/SaveEvents'));
 
         $this->setForm($form);
     }

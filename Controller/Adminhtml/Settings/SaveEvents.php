@@ -1,7 +1,7 @@
 <?php
-namespace Tym17\MailPerformance\Controller\Adminhtml\Settings\Save;
+namespace Tym17\MailPerformance\Controller\Adminhtml\Settings;
 
-class Events extends \Tym17\MailPerformance\Controller\Settings\Save
+class SaveEvents extends \Magento\Backend\App\Action
 {
     /**
      * @return mixed
