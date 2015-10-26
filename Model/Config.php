@@ -133,6 +133,15 @@ class Config extends \Magento\Framework\Model\AbstractModel
     }
 
     /**
+     * @param  string $path
+     * @return mixed
+     */
+    public function getStoreConfig($path)
+    {
+        return $this->_config->getValue(self::BASE . $path, self::SCOPE);
+    }
+
+    /**
      * / ! \ Only use this from a Controller / ! \
      * / ! \ Every Non-Check Controller should return this function / ! \
      * Redirection to the Auth page incase the user

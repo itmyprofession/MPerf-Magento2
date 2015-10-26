@@ -37,7 +37,16 @@
             </tr>
         <?php endif; ?>
             <tr>
-                <th>feature enabled</th>
+                <th>Auto add subscriber</th>
+                <td>
+                    <?php echo $block->isFeatureEnabled('auto_add_subscriber'); ?>
+                </td>
+            </tr>
+            <tr>
+                <th>Cart Abandon</th>
+                <td>
+                    <?php echo $block->isFeatureEnabled('cart_abandon'); ?>
+                </td>
             </tr>
         </tbody>
     </table>

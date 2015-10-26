@@ -3,12 +3,12 @@
     <default>
         <mailperformance>
             <auth>
-                <xkey>YOURXKEYHERE</xkey>
+                <xkey>Y0UR-XKEY-HERE</xkey>
                 <readystate>fresh-install</readystate>
             </auth>
             <cfg>
-                <auto_add_subscriber>0</auto_add_subscriber>
-                <cart_abandon>0</cart_abandon>
+                <auto_add_subscriber>1</auto_add_subscriber>
+                <cart_abandon>1</cart_abandon>
             </cfg>
         </mailperformance>
     </default>

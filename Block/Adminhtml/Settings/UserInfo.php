@@ -69,4 +69,17 @@ class UserInfo extends Template
             || $this->isAllowed($baseAcl . 'XKey');
         return ($this->isAllowed($baseAcl . 'ountInfo') && $somethingIsAllowed);
     }
+
+    /**
+     * @param  string $feature
+     * @return string
+     */
+    public function isFeatureEnabled($feature)
+    {
+        if ($this->_config->getStoreConfig('cfg/' . $feature) == 0)
+        {
+            return __('Disabled');
+        }
+        return __('Enabled');
+    }
 }

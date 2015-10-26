@@ -32,6 +32,9 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
         parent::__construct($context, $registry, $formFactory, $data);
     }
 
+    /**
+     * @return void
+     */
     protected function _prepareForm()
     {
         $form = $this->_formFactory->create();
@@ -56,8 +59,24 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
         $form->setMethod('post');
         $form->setUseContainer(true);
         $form->setId('events');
-        $form->setAction($this->getUrl('testurl'));
+        $form->setAction($this->getUrl('*/*/Save'));
 
         $this->setForm($form);
+    }
+
+    /**
+     * @return string
+     */
+    public function getFormHtml()
+    {
+        if (is_object($this->getForm()))
+        {
+            $html = $this->getForm()->getHtml();
+            $html = substr($html, 0, -7);
+            $html .= '<button class="primary" type="submit">' . __('Save') . '</button>';
+            $html .= '</form>';
+            return $html;
+        }
+        return '';
     }
 }
