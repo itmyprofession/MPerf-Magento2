@@ -51,13 +51,13 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
                 'label' => __('Visibility'),
                 'required' => true,
                 'name' => 'select_stores[]',
-                'values' => $this->_systemStore->getStoreValuesForForm()
+                'values' => [['label' => 'TestLAbel', 'value' => 'noArray'], ['label' => 'witharray', 'value' => [['label' => 'pls', 'value' => 2]]]]
             ]
         );
 
         /* form finalisation */
         $form->setMethod('post');
-        $form->setUseContainer(true);
+            $form->setUseContainer(true);
         $form->setId('events');
         $form->setAction($this->getUrl('*/*/Save'));
 
