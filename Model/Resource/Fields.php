@@ -33,7 +33,7 @@ class Fields extends \Magento\Framework\Model\Resource\Db\AbstractDb
      */
     protected function _createFields($data)
     {
-        $readAdapter =$this->_getReadAdapter();
+        $readAdapter = $this->_getReadAdapter();
         $select = $readAdapter->select()
             ->from($this->getMainTable(),
             new \Zend_Db_Expr("MAX(id)"));
@@ -45,18 +45,30 @@ class Fields extends \Magento\Framework\Model\Resource\Db\AbstractDb
     }
 
     /**
+     * @return array
+     */
+    public function getAllFields()
+    {
+        $readAdapter = $this->_getReadAdapter();
+        $select = $readAdapter->select()
+            ->from($this->getMainTable());
+        $result = $readAdapter->fetchAll($select);
+        return ($result);
+    }
+
+    /**
      * @param  string $path
      * @return array $result
      */
     public function getFields($id)
     {
         $pathQuery = 'id = \'' . $id . '\'';
-        $readAdapter =$this->_getReadAdapter();
+        $readAdapter = $this->_getReadAdapter();
         $select = $readAdapter->select()
             ->from($this->getMainTable())
             ->where($pathQuery);
         $result = $readAdapter->fetchAll($select);
-        return $result;
+        return ($result);
     }
 
     /**

@@ -94,6 +94,14 @@ class Dev extends Template
     }
 
     /**
+    * @return array
+    */
+    public function getAllFields()
+    {
+         return ($this->_fields->getAllFields());
+    }
+
+    /**
     * @param string
     * @return string
     */
@@ -119,6 +127,15 @@ class Dev extends Template
     public function getSegments($id)
     {
          return ($this->_segments->getSegments($id, '404'));
+    }
+
+    /**
+    * @param string
+    * @return string
+    */
+    public function getAllSegments()
+    {
+         return ($this->_segments->getAllSegments());
     }
 
 }

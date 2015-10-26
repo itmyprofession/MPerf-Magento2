@@ -12,6 +12,14 @@ class Segments extends \Magento\Framework\Model\AbstractModel
     }
 
     /**
+     * @return array
+     */
+    public function getAllSegments()
+    {
+        return ($this->_getResource()->getAllSegments());
+    }
+
+    /**
      * @param  string $path
      * @return string $value
      */

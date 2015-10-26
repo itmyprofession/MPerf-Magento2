@@ -12,6 +12,14 @@ class Fields extends \Magento\Framework\Model\AbstractModel
     }
 
     /**
+     * @return array
+     */
+    public function getAllFields()
+    {
+        return ($this->_getResource()->getAllFields());
+    }
+
+    /**
      * @param  string $path
      * @return string $value
      */

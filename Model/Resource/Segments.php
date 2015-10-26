@@ -45,6 +45,18 @@ class Segments extends \Magento\Framework\Model\Resource\Db\AbstractDb
     }
 
     /**
+     * @return array
+     */
+    public function getAllSegments()
+    {
+        $readAdapter =$this->_getReadAdapter();
+        $select = $readAdapter->select()
+            ->from($this->getMainTable());
+        $result = $readAdapter->fetchAll($select);
+        return ($result);
+    }
+
+    /**
      * @param  string $path
      * @return array $result
      */

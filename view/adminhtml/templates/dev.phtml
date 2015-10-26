@@ -15,6 +15,15 @@ for ($i = 0; $i < count($tab); $i = $i + 1)
 
 echo '<br>';
 
+$tab = $block->getAllFields();
+
+foreach ($tab as $tab_2)
+{
+    echo '<p>FOREACH : id = ' . $tab_2['id'] . ' | name = ' . $tab_2['name'] . ' | unicity = ' . $tab_2['isUnicity'] . '</p>';
+}
+
+echo '<br>';
+
 echo '<h1>Segments :</h1>';
 
 $json = $block->get('segments/');
@@ -28,6 +37,14 @@ for ($i = 0; $i < count($tab); $i = $i + 1)
   echo '<p>id = ' . $tab_2['id'] . ' | name = ' . $tab_2['name'] . '</p>';
 }
 
+echo '<br>';
+
+$tab = $block->getAllSegments();
+
+foreach ($tab as $tab_2)
+{
+    echo '<p>FOREACH : id = ' . $tab_2['id'] . ' | name = ' . $tab_2['name'] . '</p>';
+}
 
 
 ?>
