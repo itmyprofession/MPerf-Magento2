@@ -66,7 +66,7 @@ class Fields extends \Magento\Framework\Model\Resource\Db\AbstractDb
      */
     public function saveFields($id, $name, $unicity)
     {
-        $data = ['id' => $id, 'name' => $name, 'unicity' => $unicity];
+        $data = ['id' => $id, 'name' => $name, 'isUnicity' => $unicity];
         if (!empty($this->getFields($id)))
         {
             $this->_updateFields($data);

@@ -20,7 +20,7 @@ class Segments extends \Magento\Framework\Model\AbstractModel
         if ($this->isSegments($path))
         {
             $result = $this->_getResource()->getSegments($path);
-            return $result[0]['value'];
+            return $result[0];
         }
         else
         {

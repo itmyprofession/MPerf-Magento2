@@ -8,8 +8,9 @@ $tab = json_decode($json, TRUE);
 
 for ($i = 0; $i < count($tab); $i = $i + 1)
 {
-  echo '<p>id = ' . $tab[$i]['id'] . ' | name = ' . $tab[$i]['name'] . ' | unicity = ' . $tab[$i]['isUnicity'] . '</p>';
   $block->addChangeFields($tab[$i]['id'], $tab[$i]['name'], $tab[$i]['isUnicity']);
+  $tab_2 = $block->getFields($tab[$i]['id']);
+  echo '<p>id = ' . $tab_2['id'] . ' | name = ' . $tab_2['name'] . ' | unicity = ' . $tab_2['isUnicity'] . '</p>';
 }
 
 echo '<br>';
@@ -22,8 +23,11 @@ $tab = json_decode($json, TRUE);
 
 for ($i = 0; $i < count($tab); $i = $i + 1)
 {
-  echo '<p>id = ' . $tab[$i]['id'] . ' | name = ' . $tab[$i]['name'] . '</p>';
   $block->addChangeSegments($tab[$i]['id'], $tab[$i]['name']);
+  $tab_2 = $block->getSegments($tab[$i]['id']);
+  echo '<p>id = ' . $tab_2['id'] . ' | name = ' . $tab_2['name'] . '</p>';
 }
+
+
 
 ?>

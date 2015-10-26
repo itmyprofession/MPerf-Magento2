@@ -66,6 +66,12 @@ class InstallSchema implements InstallSchemaInterface
             255,
             array('nullable' => false),
             'Fields Name'
+        )->addColumn(
+            'isUnicity',
+            \Magento\Framework\DB\Ddl\Table::TYPE_BOOLEAN,
+            null,
+            array('nullable' => false),
+            'Fields Unicity'
         )->setComment(
         'MailPerformance Fields Table'
         );

@@ -20,7 +20,7 @@ class Fields extends \Magento\Framework\Model\AbstractModel
         if ($this->isFields($path))
         {
             $result = $this->_getResource()->getFields($path);
-            return $result[0]['value'];
+            return $result[0];
         }
         else
         {

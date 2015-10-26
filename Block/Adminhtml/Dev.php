@@ -83,6 +83,9 @@ class Dev extends Template
 
 
     /**
+    * @param string
+    * @param string
+    * @param string
     * @return array
     */
     public function addChangeFields($id, $name, $unicity)
@@ -90,13 +93,32 @@ class Dev extends Template
       $this->_fields->saveFields($id, $name, $unicity);
     }
 
+    /**
+    * @param string
+    * @return string
+    */
+    public function getFields($id)
+    {
+         return ($this->_fields->getFields($id, '404'));
+    }
+
 
     /**
-    * @return array
+    * @param string
+    * @param string
     */
     public function addChangeSegments($id, $name)
     {
       $this->_segments->saveSegments($id, $name);
+    }
+
+    /**
+    * @param string
+    * @return string
+    */
+    public function getSegments($id)
+    {
+         return ($this->_segments->getSegments($id, '404'));
     }
 
 }
