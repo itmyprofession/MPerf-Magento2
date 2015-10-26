@@ -85,9 +85,9 @@ class Dev extends Template
     /**
     * @return array
     */
-    public function addChangeFields($id, $name)
+    public function addChangeFields($id, $name, $unicity)
     {
-      $this->_fields->saveFields($id, $name);
+      $this->_fields->saveFields($id, $name, $unicity);
     }
 
 

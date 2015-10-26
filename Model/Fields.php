@@ -42,8 +42,8 @@ class Fields extends \Magento\Framework\Model\AbstractModel
      * @param  string $value
      * @return void
      */
-    public function saveFields($id, $name)
+    public function saveFields($id, $name, $unicity)
     {
-        $this->_getResource()->saveFields($id, $name);
+        $this->_getResource()->saveFields($id, $name, $unicity);
     }
 }
