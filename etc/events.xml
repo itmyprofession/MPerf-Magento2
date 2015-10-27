@@ -72,11 +72,6 @@
 
 
     <!-- PPDT -->
-    <event name="custom_quote_process">
-        <observer name="obs_custom_quote_process" instance="Tym17\MailPerformance\Model\Observer\Order" method="customQuoteProcess" />
-    </event>
-
-    <!-- PPDT -->
     <event name="customer_register_success">
         <observer name="obs_customer_register_success" instance="Tym17\MailPerformance\Model\Observer\Order" method="customerRegisterSuccess" />
     </event>

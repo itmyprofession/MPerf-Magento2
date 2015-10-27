@@ -116,18 +116,6 @@ class Order
 
 
 
-
-
-    public function customQuoteProcess()
-    {
-        $this->_msgManager->addWarning(__('customQuoteProcess'));
-    }
-
-
-
-
-
-
     public function customerRegisterSuccess()
     {
         $this->_msgManager->addWarning(__('customerRegisterSuccess'));
