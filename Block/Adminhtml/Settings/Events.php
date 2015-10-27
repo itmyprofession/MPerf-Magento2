@@ -59,10 +59,12 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
                 'title' => __('Segment'),
                 'required' => true,
                 'name' => 'segment',
-                'options' => $this->list->getSegments($this->_config->getConfig('events/segment', 'none')),
+                'options' => $this->list->getSegments($this->_config->getConfig('events/cartEdit/segment', 'none')),
                 'disabled' => false
             ]
         );
+
+        $fieldset->addField('cart_edit_fields_to_modif', 'note', ['label' => '', 'text' => __('Fields to update on event.')]);
 
         $fieldset->addField(
             'field',
@@ -72,10 +74,12 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
                 'title' => __('Field'),
                 'required' => true,
                 'name' => 'field',
-                'options' => $this->list->getFields($this->_config->getConfig('events/field', 'none')),
+                'options' => $this->list->getFields($this->_config->getConfig('events/cartEdit/field', 'none')),
                 'disabled' => false
             ]
         );
+
+
 
         /* form finalisation */
         $form->setMethod('post');

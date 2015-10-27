@@ -33,8 +33,11 @@ class ApiList
     {
         $result = [];
         $segTab = $this->segments->getAllSegments();
+        /* We add empty item */
         $segTab[] = ['id' => 'none', 'name' => __('Don\'t bind')];
+        /* We get the item index we need to put first in the list */
         $specialKey = array_search($special, array_column($segTab, 'id'));
+        /* We put the item as first in the list */
         $result[$special] = $segTab[$specialKey]['name'];
         foreach ($segTab as $segment)
         {
@@ -53,8 +56,11 @@ class ApiList
     {
         $result = [];
         $fieldTab = $this->fields->getAllFields();
+        /* We add empty item */
         $fieldTab[] = ['id' => 'none', 'name' => __('Don\'t bind'), 'isUnicity' => 0];
+        /* We get the item index we need to put first in the list */
         $specialKey = array_search($special, array_column($fieldTab, 'id'));
+        /* We put the item as first in the list */
         $result[$special] = $fieldTab[$specialKey]['name'];
         foreach ($fieldTab as $field)
         {

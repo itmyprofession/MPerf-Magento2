@@ -55,8 +55,12 @@ class Cart extends \Magento\Backend\Block\Widget\Form\Generic
         {
             $html = $this->getForm()->getHtml();
             $html = substr($html, 0, -7);
-            $html .= '<button class="primary" type="submit">' . __('Save') . '</button>';
+            $html .= '<button class="primary" style="vertical-align:middle" type="submit">' . __('Save') . '</button>';
             $html .= '</form>';
+            $html .= '<style>.redText{ color:red!Important; }.blackText{ color:black; }</style>';
+            $html = preg_replace("#<option#", "<option class=\"blackText\"", $html);
+            $html = preg_replace("#blackText(.*?)>&lt;isUnicity&gt;#", "redText$1>", $html);
+            $html = preg_replace("#<select id=\"field\"#", "<select id=\"field\" onchange=\"this.className=this.options[this.selectedIndex].className\"", $html);
             return $html;
         }
         return '';
