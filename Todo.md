@@ -1,8 +1,12 @@
 # Magento's MailPerformance Module
 ## Possible Todo-list
 
-* Add Admin notification on Admin board after correct installation
-* notif abo Mperf expire
+* OnCartEdit/create
+* ProcessValidationPaiment
+* paiment accepté
+* suppression d'une commande
+* retour produit
+
 
 ### DEBUG
 
