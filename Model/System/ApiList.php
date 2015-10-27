@@ -49,7 +49,12 @@ class ApiList
         $fieldTab = $this->fields->getAllFields();
         foreach ($fieldTab as $field)
         {
-            $result[$field['id']] = $field['name'];
+            $txt = $field['name'];
+            if ($field['isUnicity'] == 1)
+            {
+                $txt = '<strong>' . $txt . '</strong>';
+            }
+            $result[$field['id']] = $txt;
         }
         return $result;
     }

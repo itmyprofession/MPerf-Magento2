@@ -97,6 +97,9 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
             $html = substr($html, 0, -7);
             $html .= '<button class="primary" style="vertical-align:middle" type="submit">' . __('Save') . '</button>';
             $html .= '</form>';
+            $html = preg_replace("#&lt;strong.*?&gt;#", '<span style="background-color: red; font-size: 5pt !Important">', $html);
+            $html = preg_replace("#&lt;/strong&gt;#", "</span>", $html);
+            echo htmlspecialchars($html);
             return $html;
         }
         return '';
