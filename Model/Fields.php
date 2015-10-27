@@ -58,7 +58,7 @@ class Fields extends \Magento\Framework\Model\AbstractModel
         /* Make REST request */
         $result = $this->_rest->get('fields/');
 
-        /* Check if everything went fine */
+        /* Check if everything went fine or lock down the module*/
         if ($result['info']['http_code'] < 200 || $result['info']['http_code'] > 299)
         {
             $this->cfg->saveConfig('linkstate', 'unvalid');

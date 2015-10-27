@@ -28,13 +28,14 @@ class Reload extends \Magento\Backend\App\Action
     public function execute()
     {
         $fields = $this->_objectManager->create('\Tym17\MailPerformance\Model\Fields');
-        if (!$fields->populate())
+        $segments = $this->_objectManager->create('\Tym17\MailPerformance\Model\Segments');
+        if (!$fields->populate() || !$segments->populate())
         {
             $this->messageManager->addWarning(__('Failed reloading your MailPerformance components'));
         }
         else
         {
-            $this->messageManager->addSuccess(__('You succesfully reloaded your MailPerformance components'));
+            $this->messageManager->addSuccess(__('Succesfully reloaded your MailPerformance components'));
         }
         $resultRedirect = $this->resultRedirectFactory->create();
         return $resultRedirect->setPath('*/Check/Index', [ 'path' => $this->getRequest()->getParam('path')]);
