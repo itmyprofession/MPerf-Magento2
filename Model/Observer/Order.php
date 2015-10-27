@@ -1,7 +1,7 @@
 <?php
 namespace Tym17\MailPerformance\Model\Observer;
 
-class OnPageLoad
+class Order
 {
     protected $_msgManager;
 
@@ -14,12 +14,12 @@ class OnPageLoad
 
     public function salesOrderPaymentPay()
     {
-        $msgManager->addWarning(__('salesOrderPaymentPay')));
+        $this->_msgManager->addWarning(__('salesOrderPaymentPay'));
     }
 
     public function salesOrderPaymentRefund()
     {
-        $msgManager->addWarning(__('salesOrderPaymentRefund')));
+        $this->_msgManager->addWarning(__('salesOrderPaymentRefund'));
     }
 
 
@@ -31,17 +31,17 @@ class OnPageLoad
 
     public function checkoutCartAddProductComplete()
     {
-        $msgManager->addWarning(__('checkoutCartAddProductComplete')));
+        $this->_msgManager->addWarning(__('checkoutCartAddProductComplete'));
     }
 
     public function checkoutCartProductAddAfter()
     {
-        $msgManager->addWarning(__('checkoutCartProductAddAfter')));
+        $this->_msgManager->addWarning(__('checkoutCartProductAddAfter'));
     }
 
     public function checkoutCartSaveAfter()
     {
-        $msgManager->addWarning(__('checkoutCartSaveAfter')));
+        $this->_msgManager->addWarning(__('checkoutCartSaveAfter'));
     }
 
 
@@ -50,17 +50,17 @@ class OnPageLoad
 
     public function checkoutCartUpdateItemComplete()
     {
-        $msgManager->addWarning(__('checkoutCartUpdateItemComplete')));
+        $this->_msgManager->addWarning(__('checkoutCartUpdateItemComplete'));
     }
 
     public function checkoutCartUpdateItemsAfter()
     {
-        $msgManager->addWarning(__('checkoutCartUpdateItemsAfter')));
+        $this->_msgManager->addWarning(__('checkoutCartUpdateItemsAfter'));
     }
 
     public function checkoutCartProductUpdateAfter()
     {
-        $msgManager->addWarning(__('checkoutCartProductUpdateAfter')));
+        $this->_msgManager->addWarning(__('checkoutCartProductUpdateAfter'));
     }
 
 
@@ -70,7 +70,7 @@ class OnPageLoad
 
     public function checkoutOnepageControllerSuccessAction()
     {
-        $msgManager->addWarning(__('checkoutOnepageControllerSuccessAction')));
+        $this->_msgManager->addWarning(__('checkoutOnepageControllerSuccessAction'));
     }
 
 
@@ -78,7 +78,7 @@ class OnPageLoad
 
     public function checkoutTypeOnepageSaveOrderAfter()
     {
-        $msgManager->addWarning(__('checkoutTypeOnepageSaveOrderAfter')));
+        $this->_msgManager->addWarning(__('checkoutTypeOnepageSaveOrderAfter'));
     }
 
 
@@ -88,7 +88,7 @@ class OnPageLoad
 
     public function salesModelServiceQuoteSubmitSuccess()
     {
-        $msgManager->addWarning(__('salesModelServiceQuoteSubmitSuccess')));
+        $this->_msgManager->addWarning(__('salesModelServiceQuoteSubmitSuccess'));
     }
 
 
@@ -99,17 +99,17 @@ class OnPageLoad
 
     public function salesOrderInvoiceCancel()
     {
-        $msgManager->addWarning(__('salesOrderInvoiceCancel')));
+        $this->_msgManager->addWarning(__('salesOrderInvoiceCancel'));
     }
 
     public function salesOrderPaymentCancelInvoice()
     {
-        $msgManager->addWarning(__('salesOrderPaymentCancelInvoice')));
+        $this->_msgManager->addWarning(__('salesOrderPaymentCancelInvoice'));
     }
 
     public function salesOrderPaymentCancel()
     {
-        $msgManager->addWarning(__('salesOrderPaymentCancel')));
+        $this->_msgManager->addWarning(__('salesOrderPaymentCancel'));
     }
 
 
@@ -120,7 +120,7 @@ class OnPageLoad
 
     public function customQuoteProcess()
     {
-        $msgManager->addWarning(__('customQuoteProcess')));
+        $this->_msgManager->addWarning(__('customQuoteProcess'));
     }
 
 
@@ -130,7 +130,7 @@ class OnPageLoad
 
     public function customerRegisterSuccess()
     {
-        $msgManager->addWarning(__('customerRegisterSuccess')));
+        $this->_msgManager->addWarning(__('customerRegisterSuccess'));
     }
 
 
@@ -140,7 +140,7 @@ class OnPageLoad
 
     public function checkoutControllerOnepageSaveOrder()
     {
-        $msgManager->addWarning(__('checkoutControllerOnepageSaveOrder')));
+        $this->_msgManager->addWarning(__('checkoutControllerOnepageSaveOrder'));
     }
 
 
@@ -148,7 +148,7 @@ class OnPageLoad
 
     public function salesModelServiceQuoteSubmitFailure()
     {
-        $msgManager->addWarning(__('salesModelServiceQuoteSubmitFailure')));
+        $this->_msgManager->addWarning(__('salesModelServiceQuoteSubmitFailure'));
     }
 
 }
