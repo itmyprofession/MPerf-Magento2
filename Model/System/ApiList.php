@@ -29,13 +29,19 @@ class ApiList
     /**
      * @return array
      */
-    public function getSegments()
+    public function getSegments($special = 'none')
     {
         $result = [];
         $segTab = $this->segments->getAllSegments();
+        $segTab[] = ['id' => 'none', 'name' => __('Don\'t bind')];
+        $specialKey = array_search($special, array_column($segTab, 'id'));
+        $result[$special] = $segTab[$specialKey]['name'];
         foreach ($segTab as $segment)
         {
-            $result[$segment['id']] = $segment['name'];
+            if ($segment['id'] != $special)
+            {
+                $result[$segment['id']] = $segment['name'];
+            }
         }
         return $result;
     }
@@ -43,18 +49,28 @@ class ApiList
     /**
      * @return array
      */
-    public function getFields()
+    public function getFields($special = 'none')
     {
         $result = [];
         $fieldTab = $this->fields->getAllFields();
+        $fieldTab[] = ['id' => 'none', 'name' => __('Don\'t bind'), 'isUnicity' => 0];
+        $specialKey = array_search($special, array_column($fieldTab, 'id'));
+        $result[$special] = $fieldTab[$specialKey]['name'];
         foreach ($fieldTab as $field)
         {
-            $txt = $field['name'];
-            if ($field['isUnicity'] == 1)
+            if ($field['id'] != $special)
             {
-                $txt = '<isUnicity>' . $txt . ' (Unicity)';
+                $txt = $field['name'];
+                if ($field['isUnicity'] == 1)
+                {
+                    $txt = '<isUnicity>' . $txt . ' (Unicity)';
+                }
+                $result[$field['id']] = $txt;
             }
-            $result[$field['id']] = $txt;
+            else if ($field['isUnicity'] == 1)
+            {
+                $result[$field['id']] = '<isUnicity>' . $result[$field['id']] . ' (Unicity)';
+            }
         }
         return $result;
     }

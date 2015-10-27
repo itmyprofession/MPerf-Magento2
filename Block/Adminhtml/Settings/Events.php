@@ -59,7 +59,7 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
                 'title' => __('Segment'),
                 'required' => true,
                 'name' => 'segment',
-                'options' => $this->list->getSegments(),
+                'options' => $this->list->getSegments($this->_config->getConfig('events/segment', 'none')),
                 'disabled' => false
             ]
         );
@@ -72,7 +72,7 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
                 'title' => __('Field'),
                 'required' => true,
                 'name' => 'field',
-                'options' => $this->list->getFields(),
+                'options' => $this->list->getFields($this->_config->getConfig('events/field', 'none')),
                 'disabled' => false
             ]
         );
@@ -101,7 +101,6 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
             $html = preg_replace("#<option#", "<option class=\"blackText\"", $html);
             $html = preg_replace("#blackText(.*?)>&lt;isUnicity&gt;#", "redText$1>", $html);
             $html = preg_replace("#<select id=\"field\"#", "<select id=\"field\" onchange=\"this.className=this.options[this.selectedIndex].className\"", $html);
-            echo htmlspecialchars($html);
             return $html;
         }
         return '';
