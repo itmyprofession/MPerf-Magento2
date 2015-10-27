@@ -6,6 +6,7 @@
 * paiment accepté
 * suppression d'une commande
 * retour produit
+* inscription
 
 
 ### DEBUG
