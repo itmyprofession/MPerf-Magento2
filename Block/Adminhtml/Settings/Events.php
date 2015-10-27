@@ -97,7 +97,10 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
             $html = substr($html, 0, -7);
             $html .= '<button class="primary" style="vertical-align:middle" type="submit">' . __('Save') . '</button>';
             $html .= '</form>';
-            $html = preg_replace("#>&lt;isUnicity&gt;#", " style=\"color:red\">", $html);
+            $html .= '<style>.redText{ color:red!Important; }.blackText{ color:black; }</style>';
+            $html = preg_replace("#<option#", "<option class=\"blackText\"", $html);
+            $html = preg_replace("#blackText(.*?)>&lt;isUnicity&gt;#", "redText$1>", $html);
+            $html = preg_replace("#<select id=\"field\"#", "<select id=\"field\" onchange=\"this.className=this.options[this.selectedIndex].className\"", $html);
             echo htmlspecialchars($html);
             return $html;
         }
