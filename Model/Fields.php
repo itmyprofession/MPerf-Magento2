@@ -4,11 +4,74 @@ namespace Tym17\MailPerformance\Model;
 class Fields extends \Magento\Framework\Model\AbstractModel
 {
     /**
+     * @var \Tym17\MailPerformance\Helper\RestHelper
+     */
+    protected $_rest;
+
+    /**
+     * @var \Tym17\MailPerformance\Model\Config
+     */
+    protected $cfg;
+
+    /**
+    * @param  \Magento\Framework\Model\Context $context
+    * @param  \Magento\Framework\Registry $registry
+    * @param  \Tym17\MailPerformance\Helper\RestHelper $rest
+    * @param  \Magento\Framework\Model\Resource\AbstractResource $resource = null
+    * @param  \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null
+    * @param  array $data = []
+    * @return void
+    */
+    public function __construct(
+        \Magento\Framework\Model\Context $context,
+        \Magento\Framework\Registry $registry,
+        \Tym17\MailPerformance\Helper\RestHelper $rest,
+        \Tym17\MailPerformance\Model\Config $cfg,
+        \Magento\Framework\Model\Resource\AbstractResource $resource = null,
+        \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
+        array $data = []
+    ) {
+        $this->_rest = $rest;
+        $this->cfg = $cfg;
+        parent::__construct(
+            $context,
+            $registry,
+            $resource,
+            $resourceCollection,
+            $data
+        );
+    }
+
+    /**
      * @return void
      */
     protected function _construct()
     {
         $this->_init('Tym17\MailPerformance\Model\Resource\Fields');
+    }
+
+    /**
+     * @return bool
+     */
+    public function populate()
+    {
+        /* Make REST request */
+        $result = $this->_rest->get('fields/');
+
+        /* Check if everything went fine */
+        if ($result['info']['http_code'] < 200 || $result['info']['http_code'] > 299)
+        {
+            $this->cfg->saveConfig('linkstate', 'unvalid');
+            return false;
+        }
+
+        /* Populate DB */
+        $tab = $result['result'];
+        foreach ($tab as $elem)
+        {
+          $this->saveFields($elem['id'], $elem['name'], $elem['isUnicity']);
+        }
+        return true;
     }
 
     /**

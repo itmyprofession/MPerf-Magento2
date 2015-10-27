@@ -3,10 +3,15 @@
         <span class="title">Actions</span>
     </div>
     <div>
-        <button class="primary ui-corner-all" type="button">Reload MailPerformance components</button>
-        <br>
-        <form action="<?php echo $block->getDevUrl(); ?>">
-            <button class="primary" type="submit">Dev</button>
-        </form>
+        <p>
+            <a href="<?php echo $block->getReloadUrl(); ?>">
+                <button class="primary" type="submit">Reload</button>
+            </a>
+        </p>
+        <p>
+            <a href="<?php echo $block->getDevUrl(); ?>">
+                <button class="primary" type="submit">Dev</button>
+            </a>
+        </p>
     </div>
 </div>

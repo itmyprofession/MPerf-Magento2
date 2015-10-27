@@ -6,12 +6,18 @@ use Magento\Backend\App\Action\Context;
 class Reload extends \Magento\Backend\App\Action
 {
     /**
+     * @var \Tym17\MailPerformance\Model\Config
+     */
+    protected $_config;
+
+    /**
      * @param Action\Context $context
      */
     public function __construct(
         Context $context
     ) {
         parent::__construct($context);
+        $this->_config = $this->_objectManager->create('Tym17\MailPerformance\Model\Config');
     }
 
     /**
@@ -21,10 +27,16 @@ class Reload extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        if (false)
+        $fields = $this->_objectManager->create('\Tym17\MailPerformance\Model\Fields');
+        if (!$fields->populate())
         {
-            $resultRedirect = $this->resultRedirectFactory->create();
-            return $resultRedirect->setPath('*/' . $this->getRequest()->getParam('path'));
+            $this->messageManager->addWarning(__('Failed reloading your MailPerformance components'));
         }
+        else
+        {
+            $this->messageManager->addSuccess(__('You succesfully reloaded your MailPerformance components'));
+        }
+        $resultRedirect = $this->resultRedirectFactory->create();
+        return $resultRedirect->setPath('*/Check/Index', [ 'path' => $this->getRequest()->getParam('path')]);
     }
 }
