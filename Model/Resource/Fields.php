@@ -4,6 +4,25 @@ namespace Tym17\MailPerformance\Model\Resource;
 class Fields extends \Magento\Framework\Model\Resource\Db\AbstractDb
 {
     /**
+     * @var
+     */
+    protected $_tree;
+
+
+    /**
+     * Class constructor
+     *
+     * @param \Magento\Framework\Model\Resource\Db\Context $context
+     * @param string|null $resourcePrefix
+     */
+    public function __construct(\Magento\Framework\Model\Resource\Db\Context $context, /*Magento\Framework\Db\Tree $tree,*/ $resourcePrefix = null)
+    {
+        //$this->_tree = $tree;
+        parent::__construct($context, $resourcePrefix);
+    }
+
+
+    /**
      * @return void
      */
     protected function _construct()
@@ -87,5 +106,13 @@ class Fields extends \Magento\Framework\Model\Resource\Db\AbstractDb
         {
             $this->_createFields($data);
         }
+    }
+
+    /**
+     * @return void
+     */
+    public function flushFields()
+    {
+        $this->_getReadAdapter()->query('TRUNCATE TABLE ' . $this->getMainTable());
     }
 }

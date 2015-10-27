@@ -29,7 +29,7 @@ class Reload extends \Magento\Backend\App\Action
     {
         $fields = $this->_objectManager->create('\Tym17\MailPerformance\Model\Fields');
         $segments = $this->_objectManager->create('\Tym17\MailPerformance\Model\Segments');
-        if (!$fields->populate() || !$segments->populate())
+        if (!$fields->populateFields() || !$segments->populateSegments())
         {
             $this->messageManager->addWarning(__('Failed reloading your MailPerformance components'));
         }

@@ -53,7 +53,7 @@ class Fields extends \Magento\Framework\Model\AbstractModel
     /**
      * @return bool
      */
-    public function populate()
+    public function populateFields()
     {
         /* Make REST request */
         $result = $this->_rest->get('fields/');
@@ -116,5 +116,13 @@ class Fields extends \Magento\Framework\Model\AbstractModel
     public function saveFields($id, $name, $unicity)
     {
         $this->_getResource()->saveFields($id, $name, $unicity);
+    }
+
+    /**
+     * @return void
+     */
+    public function flushFields()
+    {
+        $this->_getResource()->flushFields();
     }
 }

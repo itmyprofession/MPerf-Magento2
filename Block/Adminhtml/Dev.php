@@ -110,6 +110,14 @@ class Dev extends Template
          return ($this->_fields->getFields($id, '404'));
     }
 
+    /**
+    * @return void
+    */
+    public function flushFields()
+    {
+        $this->_fields->flushFields();
+    }
+
 
     /**
     * @param string
@@ -117,7 +125,7 @@ class Dev extends Template
     */
     public function addChangeSegments($id, $name)
     {
-      $this->_segments->saveSegments($id, $name);
+        $this->_segments->saveSegments($id, $name);
     }
 
     /**
@@ -126,7 +134,7 @@ class Dev extends Template
     */
     public function getSegments($id)
     {
-         return ($this->_segments->getSegments($id, '404'));
+        return ($this->_segments->getSegments($id, '404'));
     }
 
     /**
@@ -136,6 +144,14 @@ class Dev extends Template
     public function getAllSegments()
     {
          return ($this->_segments->getAllSegments());
+    }
+
+    /**
+    * @return void
+    */
+    public function flushSegments()
+    {
+        $this->_segments->flushSegments();
     }
 
 }

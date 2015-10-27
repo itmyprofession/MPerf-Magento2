@@ -88,4 +88,12 @@ class Segments extends \Magento\Framework\Model\Resource\Db\AbstractDb
             $this->_createSegments($data);
         }
     }
+
+    /**
+     * @return void
+     */
+    public function flushSegments()
+    {
+        $this->_getReadAdapter()->query('TRUNCATE TABLE ' . $this->getMainTable());
+    }
 }

@@ -15,6 +15,8 @@ for ($i = 0; $i < count($tab); $i = $i + 1)
 
 echo '<br>';
 
+$block->flushFields();
+
 $tab = $block->getAllFields();
 
 foreach ($tab as $tab_2)
@@ -39,11 +41,13 @@ for ($i = 0; $i < count($tab); $i = $i + 1)
 
 echo '<br>';
 
+$block->flushSegments();
+
 $tab = $block->getAllSegments();
 
 foreach ($tab as $tab_2)
 {
     echo '<p>FOREACH : id = ' . $tab_2['id'] . ' | name = ' . $tab_2['name'] . '</p>';
 }
- 
+
 ?>

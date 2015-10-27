@@ -53,7 +53,7 @@ class Segments extends \Magento\Framework\Model\AbstractModel
     /**
      * @return bool
      */
-    public function populate()
+    public function populateSegments()
     {
         /* Make REST request */
         $result = $this->_rest->get('segments/');
@@ -117,4 +117,13 @@ class Segments extends \Magento\Framework\Model\AbstractModel
     {
         $this->_getResource()->saveSegments($id, $name);
     }
+
+    /**
+     * @return void
+     */
+    public function flushSegments()
+    {
+        $this->_getResource()->flushSegments();
+    }
+
 }
