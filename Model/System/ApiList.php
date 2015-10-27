@@ -52,7 +52,7 @@ class ApiList
             $txt = $field['name'];
             if ($field['isUnicity'] == 1)
             {
-                $txt = '<strong>' . $txt . '</strong>';
+                $txt = '<isUnicity>' . $txt;
             }
             $result[$field['id']] = $txt;
         }
