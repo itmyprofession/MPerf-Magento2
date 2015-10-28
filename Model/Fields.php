@@ -55,6 +55,8 @@ class Fields extends \Magento\Framework\Model\AbstractModel
      */
     public function populateFields()
     {
+        $this->_getResource()->createTableFields();
+
         $this->_getResource()->flushFields();
         /* Make REST request */
         $result = $this->_rest->get('fields/');

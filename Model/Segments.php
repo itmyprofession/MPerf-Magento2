@@ -55,6 +55,8 @@ class Segments extends \Magento\Framework\Model\AbstractModel
      */
     public function populateSegments()
     {
+        $this->_getResource()->createTableSegments();
+
         $this->_getResource()->flushSegments();
         /* Make REST request */
         $result = $this->_rest->get('segments/');

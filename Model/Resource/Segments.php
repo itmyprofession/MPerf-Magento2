@@ -96,4 +96,10 @@ class Segments extends \Magento\Framework\Model\Resource\Db\AbstractDb
     {
         $this->_getReadAdapter()->query('TRUNCATE TABLE ' . $this->getMainTable());
     }
+
+    public function createTableSegments()
+    {
+        $table = 'CREATE TABLE IF NOT EXISTS mailperf_segments (id INT(11) PRIMARY KEY NOT NULL COMMENT \'Segments Id\', name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Segments Name\');';
+        $this->_getReadAdapter()->query($table);
+    }
 }
