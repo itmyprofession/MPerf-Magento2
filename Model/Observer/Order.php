@@ -5,16 +5,17 @@ class Order
 {
     protected $_msgManager;
 
-
     public function __construct(
         \Magento\Framework\Message\ManagerInterface $msgManager
     ) {
         $this->_msgManager = $msgManager;
     }
 
-    public function checkout_submit_all_after($obj)
+    public function bindOnSuccess($observer)
     {
-        $this->_msgManager->addWarning(__('Cocacola '));
-        //file_put_contents('plswork', 'EVENT:' . $obj . PHP_EOL, FILE_APPEND);
+        $data = $observer->getData();
+        $orderId = $data['order_ids'][0];
+        var_dump($orderId);
+        
     }
 }

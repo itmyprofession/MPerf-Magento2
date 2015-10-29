@@ -7,6 +7,6 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/Event/etc/events.xsd">
     <event name="checkout_onepage_controller_success_action">
-        <observer name="obs_checkout_submit_all_after" instance="Tym17\MailPerformance\Model\Observer\Order" method="checkout_submit_all_after" />
+        <observer name="mperf_on_order_success" instance="Tym17\MailPerformance\Model\Observer\Order" method="bindOnSuccess" />
     </event>
 </config>
