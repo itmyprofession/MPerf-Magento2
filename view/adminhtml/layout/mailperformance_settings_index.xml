@@ -5,9 +5,11 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Events" name="settings_events" template="Tym17_MailPerformance::form.phtml" />
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Customer" name="settings_customer" template="Tym17_MailPerformance::form.phtml" />
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Cart" name="settings_cart" template="Tym17_MailPerformance::form.phtml" />
+            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\CheckoutSuccess" name="settings_events" template="Tym17_MailPerformance::form.phtml" />
+            <!-- Those blocks are waiting for the next version of this module
+                <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Customer" name="settings_customer" template="Tym17_MailPerformance::form.phtml" />
+                <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Cart" name="settings_cart" template="Tym17_MailPerformance::form.phtml" />
+            -->
         </referenceContainer>
         <referenceContainer name="left">
             <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\UserInfo" name="user_info" template="Tym17_MailPerformance::settings/userinfo.phtml" />

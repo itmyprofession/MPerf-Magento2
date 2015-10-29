@@ -4,9 +4,12 @@ namespace Tym17\MailPerformance\Block\Adminhtml\Settings;
 use Magento\Backend\Block\Template;
 use Tym17\MailPerformance\Helper;
 
-class Events extends \Magento\Backend\Block\Widget\Form\Generic
+class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
 {
-    protected $_systemStore;
+    /**
+     * @var string
+     */
+    const CFG_PATH = 'events/CheckoutSuccess/';
 
     /**
      * @var \Tym17\MailPerformance\Model\Config
@@ -40,6 +43,26 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
     }
 
     /**
+     * @param  string
+     * @param  string
+     * @return void
+     */
+    protected function addField($fieldset, $name, $label)
+    {
+        $fieldset->addField(
+            $name,
+            'select',
+            [
+                'label' => __($label),
+                'required' => true,
+                'name' => $name,
+                'options' => $this->list->getFields($this->_config->getConfig(self::CFG_PATH . $name, 'none')),
+                'disabled' => false
+            ]
+        );
+    }
+
+    /**
      * @return void
      */
     protected function _prepareForm()
@@ -47,9 +70,9 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
         $form = $this->_formFactory->create();
 
         /* EventBindings Configuration */
-        $fieldset = $form->addFieldset('settings_events', ['legend' => __('Event Binding')]);
+        $fieldset = $form->addFieldset('settings_events', ['legend' => __('Checkout Success')]);
 
-        $fieldset->addField('notif_cart_edit', 'note', ['label' => __('Called after cart creation/edition'), 'text' => __('Adds the customer in a segment')]);
+        $fieldset->addField('notif_cart_edit', 'note', ['label' => __('Called after succesful checkout'), 'text' => __('Adds the customer in a segment')]);
 
         $fieldset->addField(
             'segment',
@@ -59,25 +82,20 @@ class Events extends \Magento\Backend\Block\Widget\Form\Generic
                 'title' => __('Segment'),
                 'required' => true,
                 'name' => 'segment',
-                'options' => $this->list->getSegments($this->_config->getConfig('events/cartEdit/segment', 'none')),
+                'options' => $this->list->getSegments($this->_config->getConfig(self::CFG_PATH . 'segment', 'none')),
                 'disabled' => false
             ]
         );
 
         $fieldset->addField('cart_edit_fields_to_modif', 'note', ['label' => '', 'text' => __('Fields to update on event.')]);
 
-        $fieldset->addField(
-            'field',
-            'select',
-            [
-                'label' => __('Field'),
-                'title' => __('Field'),
-                'required' => true,
-                'name' => 'field',
-                'options' => $this->list->getFields($this->_config->getConfig('events/cartEdit/field', 'none')),
-                'disabled' => false
-            ]
-        );
+        $this->addField($fieldset, 'coupon_code', 'Coupon used');
+        $this->addField($fieldset, 'store_id', 'Store Id');
+        $this->addField($fieldset, 'total_due', 'Total');
+        $this->addField($fieldset, 'is_virtual', 'Only virtual orders');
+        $this->addField($fieldset, 'total_qty_ordered', 'Quantity of ordered items');
+        $this->addField($fieldset, 'customer_is_guest', 'Is Guest');
+        $this->addField($fieldset, 'coupon_rule_name', 'Coupon name');
 
 
 
