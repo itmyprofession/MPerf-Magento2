@@ -95,14 +95,20 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
         $this->addField($fieldset, 'is_virtual', 'Only virtual orders');
         $this->addField($fieldset, 'total_qty_ordered', 'Quantity of ordered items');
         $this->addField($fieldset, 'customer_is_guest', 'Is Guest');
-        $this->addField($fieldset, 'coupon_rule_name', 'Coupon name');
-
-
+        $this->addField($fieldset, 'created_at', 'Creation date');
+        $this->addField($fieldset, 'order_currency_code', 'Currency');
+        $this->addField($fieldset, 'shipping_method', 'Shipping method');
+        $this->addField($fieldset, 'customer_firstname', 'Customer\'s first name');
+        $this->addField($fieldset, 'customer_lastname', 'Customer\'s last name');
+        $this->addField($fieldset, 'customer_email', 'Customer\'s email');
+        $this->addField($fieldset, 'weight', 'Weight');
+        $this->addField($fieldset, 'shipping_address_id', 'Shipping adress Id');
+        $this->addField($fieldset, 'customer_group_id', 'Customer Group Id');
 
         /* form finalisation */
         $form->setMethod('post');
             $form->setUseContainer(true);
-        $form->setId('events');
+        $form->setId('toplel');
         $form->setAction($this->getUrl('*/*/SaveEvents'));
 
         $this->setForm($form);
