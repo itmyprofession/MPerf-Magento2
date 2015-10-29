@@ -8,6 +8,12 @@
 * retour produit
 * inscription
 
+* quote --> cart
+* achat finalisé --> salesModelServiceQuoteSubmitSuccess *très interessant* | checkout_submit_all_after
+
+
+* checkout_onepage_controller_success_action --> tres good
+
 
 ### DEBUG
 
