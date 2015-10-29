@@ -22,6 +22,11 @@ class Dev extends Template
     protected $_segments;
 
     /**
+     * @var \Tym17\MailPerformance\Model\quote
+     */
+    protected $_quote;
+
+    /**
      * @var \Magento\Framework\ObjectManagerInterface
      */
     protected $_objectManager;
@@ -39,6 +44,7 @@ class Dev extends Template
         parent::__construct($context, $data);
         $this->_fields = $objectManager->create('\Tym17\MailPerformance\Model\Fields');
         $this->_segments = $objectManager->create('\Tym17\MailPerformance\Model\Segments');
+        $this->_quote = $objectManager->create('\Tym17\MailPerformance\Model\Quote');
         $this->_restHelper = $rest;
         $this->_objectManager = $objectManager;
     }
@@ -152,6 +158,15 @@ class Dev extends Template
     public function flushSegments()
     {
         $this->_segments->flushSegments();
+    }
+
+    /**
+    * @param string
+    * @return string
+    */
+    public function getDataFromSqlToFields($valuePrimaryKey)
+    {
+        return ($this->_quote->getDataFromSqlToFields($valuePrimaryKey));
     }
 
 }
