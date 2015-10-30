@@ -154,7 +154,7 @@ class RestHelper extends App\Helper\AbstractHelper
      * @param  array
      * @return string|array
      */
-    public function put($url, $data, $notice = 0)
+    public function put($endUrl, $data, $notice = 0)
     {
         return $this->act(self::REST_PUT, self::MPERF_URL . $endUrl, $data, $notice);
     }

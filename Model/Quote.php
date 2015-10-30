@@ -49,7 +49,7 @@ class Quote extends \Magento\Framework\Model\AbstractModel
     * @param string
     * @return array
     */
-    public function getSqlColumn($nameTable, $namePrimaryKey, $valuePrimaryKey,$nameColumn)
+    public function getSqlColumn($nameTable, $namePrimaryKey, $valuePrimaryKey, $nameColumn)
     {
         $Column = $this->_getResource()->getSqlColumn($nameTable, $namePrimaryKey, $valuePrimaryKey, $nameColumn);
 
@@ -98,7 +98,7 @@ class Quote extends \Magento\Framework\Model\AbstractModel
 
         foreach ($nameTab as $key)
         {
-            $fieldId = $this->cfg->getConfig('events/checkoutSuccess/' . $key, 'none');
+            $fieldId = $this->cfg->getConfig('checkoutSuccess/' . $key, 'none');
             if ($fieldId != 'none')
             {
                 $tabToFields[$fieldId] = $tabFromSql[0][$key];
