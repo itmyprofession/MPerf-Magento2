@@ -9,7 +9,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
     /**
      * @var string
      */
-    const NAME = 'CheckoutSuccess';
+    const NAME = 'checkoutSuccess';
     /**
      * @var \Tym17\MailPerformance\Model\Config
      */
@@ -104,7 +104,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
         /* form finalisation */
         $form->setMethod('post');
             $form->setUseContainer(true);
-        $form->setId('toplel');
+        $form->setId(self::NAME);
         $form->setAction($this->getUrl('*/*/Save', ['form' => self::NAME]));
 
         $this->setForm($form);
