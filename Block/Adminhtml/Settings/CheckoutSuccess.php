@@ -9,8 +9,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
     /**
      * @var string
      */
-    const CFG_PATH = 'events/CheckoutSuccess/';
-
+    const NAME = 'CheckoutSuccess';
     /**
      * @var \Tym17\MailPerformance\Model\Config
      */
@@ -47,8 +46,16 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
      * @param  string
      * @return void
      */
-    protected function addField($fieldset, $name, $label)
+    protected function addField($fieldset, $name, $label, $isField = true)
     {
+        if ($isField)
+        {
+            $options = $this->list->getFields($this->_config->getConfig(self::NAME . '/' . $name, 'none'));
+        }
+        else
+        {
+            $options = $this->list->getSegments($this->_config->getConfig(self::NAME . '/' . $name, 'none'));
+        }
         $fieldset->addField(
             $name,
             'select',
@@ -56,7 +63,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
                 'label' => __($label),
                 'required' => true,
                 'name' => $name,
-                'options' => $this->list->getFields($this->_config->getConfig(self::CFG_PATH . $name, 'none')),
+                'options' => $options,
                 'disabled' => false
             ]
         );
@@ -74,22 +81,11 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
 
         $fieldset->addField('notif_cart_edit', 'note', ['label' => __('Called after succesful checkout'), 'text' => __('Adds the customer in a segment')]);
 
-        $fieldset->addField(
-            'segment',
-            'select',
-            [
-                'label' => __('Segment'),
-                'title' => __('Segment'),
-                'required' => true,
-                'name' => 'segment',
-                'options' => $this->list->getSegments($this->_config->getConfig(self::CFG_PATH . 'segment', 'none')),
-                'disabled' => false
-            ]
-        );
+        $this->addField($fieldset, 'segment', 'Segment', false);
+
 
         $fieldset->addField('cart_edit_fields_to_modif', 'note', ['label' => '', 'text' => __('Fields to update on event.')]);
 
-        $this->addField($fieldset, 'coupon_code', 'Coupon used');
         $this->addField($fieldset, 'store_id', 'Store Id');
         $this->addField($fieldset, 'total_due', 'Total');
         $this->addField($fieldset, 'is_virtual', 'Only virtual orders');
@@ -109,7 +105,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
         $form->setMethod('post');
             $form->setUseContainer(true);
         $form->setId('toplel');
-        $form->setAction($this->getUrl('*/*/SaveEvents'));
+        $form->setAction($this->getUrl('*/*/Save', ['form' => self::NAME]));
 
         $this->setForm($form);
     }
@@ -131,7 +127,13 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
                         </div>
                     </div>';
             $html .= '</fieldset></form>';
-            $html .= '<style>.redText{ color:red!Important; }.blackText{ color:black; }.myButton{ text-align:center; }</style>';
+            $html .= '
+                <style>
+                    .redText{ color:red!Important; }
+                    .blackText{ color:black; }
+                    .myButton{ text-align:center; }
+                    .admin__scope-old .fieldset .field { margin: 0px 0px 29px!Important; }
+                </style>';
             $html = preg_replace("#<option#", "<option class=\"blackText\"", $html);
             $html = preg_replace("#blackText(.*?)>&lt;isUnicity&gt;#", "redText$1>", $html);
             $html = preg_replace("#<select id=\"field\"#", "<select id=\"field\" onchange=\"this.className=this.options[this.selectedIndex].className\"", $html);

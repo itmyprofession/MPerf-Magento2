@@ -1,13 +1,8 @@
 <?php
 namespace Tym17\MailPerformance\Controller\Adminhtml\Settings;
 
-class SaveEvents extends \Magento\Backend\App\Action
+class Save extends \Magento\Backend\App\Action
 {
-    /**
-     * @var string
-     */
-    const CFG_PATH = 'events/';
-
     /**
      * @var \Tym17\MailPerformance\Model\Config
      */
@@ -18,13 +13,16 @@ class SaveEvents extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $this->messageManager->addSuccess(__('Saved !'));
         $this->_config = $this->_objectManager->create('Tym17\MailPerformance\Model\Config');
         $toSave = $this->getRequest()->getPostValue();
-        /*$this->_config->saveConfig(self::CFG_PATH . 'cartEdit/segment', $toSave['segment']);
-        $this->_config->saveConfig(self::CFG_PATH . 'cartEdit/field', $toSave['field']);*/
-        var_dump($toSave);
-        die('lol');
+        $event = $this->getRequest()->getParam('form') . '/';
+        foreach ($toSave as $key => $result) {
+            if ($key != 'form_key')
+            {
+                $this->_config->saveConfig($event . $key, $result);
+            }
+        }
+        $this->messageManager->addSuccess(__('Saved !'));
         $resultRedirect = $this->resultRedirectFactory->create();
         return $resultRedirect->setPath('*/Settings');
     }
