@@ -20,9 +20,11 @@ class Order
 
     public function __construct(
         \Magento\Framework\Message\ManagerInterface $msgManager,
+        \Tym17\MailPerformance\Model\Config $cfg,
         \Magento\Framework\ObjectManagerInterface $objectManager,
         Helper\RestHelper $rest
     ) {
+        $this->cfg = $cfg;
         $this->_msgManager = $msgManager;
         $this->_quote = $objectManager->create('\Tym17\MailPerformance\Model\Quote');
         $this->_restHelper = $rest;
@@ -50,10 +52,13 @@ class Order
             }
         }
         echo '<p>' . $endUrl . '</p>';
+
+        //On regarde si la cible existe
         $getResponseApi = $this->_restHelper->get($endUrl);
         echo '<p>' . json_encode($getResponseApi) . '</p>';
 
-        if ($getResponseApi['info']['http_code'] == 200 && $getResponseApi['result']['id'])
+        //Suivant les reponses on fait un PUT ou un POST
+        if ($getResponseApi['info']['http_code'] == 200)
         {
             echo '<p>PUT</p>';
             $endUrl = 'targets/' . $getResponseApi['result']['id'];
@@ -72,5 +77,17 @@ class Order
         }
         echo '<p>Reponse apres modif/creation de la target : ' . json_encode($getResponseApi) . '</p>';
 
+        $idSegement = $this->cfg->getConfig('checkoutSuccess/segment', 'none');
+        if ($idSegement != 'none')
+        {
+            $endUrl = 'targets/' . $getResponseApi['result']['id'] . '/segments/' . $idSegement;
+
+            $getResponseApi = $this->_restHelper->post($endUrl, NULL);
+
+            if ($getResponseApi['info']['http_code'] != 200)
+            {
+                echo '<p>' . $getResponseApi['info']['http_code'] . '</p>';
+            }
+        }
     }
 }

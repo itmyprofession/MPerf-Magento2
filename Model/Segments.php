@@ -72,7 +72,10 @@ class Segments extends \Magento\Framework\Model\AbstractModel
         $tab = $result['result'];
         foreach ($tab as $elem)
         {
-          $this->saveSegments($elem['id'], $elem['name']);
+            if ($elem['type'] == 'static')
+            {
+                $this->saveSegments($elem['id'], $elem['name']);
+            }
         }
         return true;
     }

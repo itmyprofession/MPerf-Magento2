@@ -93,6 +93,10 @@ class RestHelper extends App\Helper\AbstractHelper
             curl_setopt($request, CURLOPT_POSTFIELDS, $data);
             $headerArray[] = 'Content-Length: ' . strlen($data);
         }
+        if (empty($dataJson) && ($kind == self::REST_POST || $kind == self::REST_PUT))
+        {
+            $headerArray[] = 'Content-Length: 0';
+        }
 
         /* filling header with Xkey and options */
         curl_setopt($request, CURLOPT_HTTPHEADER, $headerArray);
