@@ -72,7 +72,12 @@ class Fields extends \Magento\Framework\Model\AbstractModel
         $tab = $result['result'];
         foreach ($tab as $elem)
         {
-          $this->saveFields($elem['id'], $elem['name'], $elem['isUnicity']);
+            /* $data = ['id' => $id, 'name' => $name, 'isUnicity' => $unicity]; */
+            $this->saveFields([
+                'id' => $elem['id'],
+                'name' => $elem['name'],
+                'isUnicity' => $elem['isUnicity'],
+                'type' => $elem['type']]);
         }
         return true;
     }
@@ -118,7 +123,7 @@ class Fields extends \Magento\Framework\Model\AbstractModel
      */
     public function saveFields($id, $name, $unicity)
     {
-        $this->_getResource()->saveFields($id, $name, $unicity);
+        $this->_getResource()->saveFields(['id' => $id, 'name' => $name, 'isUnicity' => $unicity]);
     }
 
     /**

@@ -37,9 +37,9 @@ class Save extends \Magento\Backend\App\Action
                 }
             }
         }
-        if ($unicity > 1)
+        if ($unicity != 1)
         {
-            return ['haveError' => true, 'message' => __('Please only select one field with unicity.')];
+            return ['haveError' => true, 'message' => __('Please select only one field with unicity.')];
         }
         return ['haveError' => false, 'message' => ''];
     }

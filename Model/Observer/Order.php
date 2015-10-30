@@ -34,40 +34,32 @@ class Order
     {
         $data = $observer->getData();
         $orderId = $data['order_ids'][0];
-        var_dump($orderId);
 
         // FLO
         $dataJson = $this->_quote->getDataFromSqlToFields($orderId);
-        echo '<p>' . json_encode($dataJson) . '</p>';
 
         $endUrl = 'targets?unicity=';
 
         foreach ($dataJson as $key => $value)
         {
             $unicity = $this->_quote->getSqlLine('mailperf_fields', 'id', $key);
-            var_dump($unicity);
             if ($unicity[0]['isUnicity'] == 1)
             {
                 $endUrl .= $value;
             }
         }
-        echo '<p>' . $endUrl . '</p>';
 
         //On regarde si la cible existe
         $getResponseApi = $this->_restHelper->get($endUrl);
-        echo '<p>' . json_encode($getResponseApi) . '</p>';
 
         //Suivant les reponses on fait un PUT ou un POST
         if ($getResponseApi['info']['http_code'] == 200)
         {
-            echo '<p>PUT</p>';
             $endUrl = 'targets/' . $getResponseApi['result']['id'];
-            echo '<p>' . $endUrl . '</p>';
             $getResponseApi = $this->_restHelper->put($endUrl, $dataJson);
         }
         else if ($getResponseApi['info']['http_code'] == 404)
         {
-            echo '<p>POST</p>';
             $endUrl = 'targets/';
             $getResponseApi = $this->_restHelper->post($endUrl, $dataJson);
         }
@@ -83,11 +75,6 @@ class Order
             $endUrl = 'targets/' . $getResponseApi['result']['id'] . '/segments/' . $idSegement;
 
             $getResponseApi = $this->_restHelper->post($endUrl, NULL);
-
-            if ($getResponseApi['info']['http_code'] != 200)
-            {
-                echo '<p>' . $getResponseApi['info']['http_code'] . '</p>';
-            }
         }
     }
 }
