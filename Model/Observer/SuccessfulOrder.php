@@ -24,7 +24,7 @@ class SuccessfulOrder
     public function __construct(
         \Magento\Framework\Message\ManagerInterface $msgManager,
         \NP6\MailPerformance\Model\Config $cfg,
-        \NP6\MailPerformance\Model\Quote $quote,
+        \NP6\MailPerformance\Model\Order $quote,
         Helper\RestHelper $rest
     ) {
         $this->cfg = $cfg;

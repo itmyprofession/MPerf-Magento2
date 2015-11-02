@@ -15,17 +15,6 @@
                     <label>XKey</label>
                 </field>
             </group>
-            <group id="cfg" translate="label" type="text" sortOder="20" showInDefault="1" showInWebsite="0" showInStore="0">
-                <label>Feature configuration</label>
-                <field id="auto_add_subscriber" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Automatically add subsriber on subscription</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="cart_abandon" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Activate cart abondonment</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-            </group>
         </section>
     </system>
 </config>

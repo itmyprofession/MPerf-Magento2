@@ -17,9 +17,6 @@
                                     <resource id="NP6_MailPerformance::Acl_AccExpiration" title="Expiration date" sortOrder="40"/>
                                     <resource id="NP6_MailPerformance::Acl_AccXKey" title="XKey" sortOrder="50"/>
                                 </resource>
-                                <resource id="NP6_MailPerformance::Acl_EventBinding" title="Event Binding" sortOrder="40"/>
-                                <resource id="NP6_MailPerformance::Acl_CustomerManagement" title="Customer Management" sortOrder="60"/>
-                                <resource id="NP6_MailPerformance::Acl_CartAbandonment" title="Cart Abandonment" sortOrder="80"/>
                             </resource>
                         </resource>
                     </resource>

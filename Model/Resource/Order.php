@@ -1,7 +1,7 @@
 <?php
 namespace NP6\MailPerformance\Model\Resource;
 
-class Quote extends \Magento\Framework\Model\Resource\Db\AbstractDb
+class Order extends \Magento\Framework\Model\Resource\Db\AbstractDb
 {
     /**
      * @return void

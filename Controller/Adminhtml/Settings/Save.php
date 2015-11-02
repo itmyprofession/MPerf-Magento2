@@ -18,9 +18,9 @@ class Save extends \Magento\Backend\App\Action
         if ($field['type'] == 'singleSelectList'
             || $field['type'] == 'multipleSelectList')
         {
-            return false;
+            return true;
         }
-        return true;
+        return false;
     }
 
     /**

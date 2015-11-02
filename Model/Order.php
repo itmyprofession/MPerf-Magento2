@@ -1,7 +1,7 @@
 <?php
 namespace NP6\MailPerformance\Model;
 
-class Quote extends \Magento\Framework\Model\AbstractModel
+class Order extends \Magento\Framework\Model\AbstractModel
 {
     /**
      * @var \NP6\MailPerformance\Model\Config
@@ -18,7 +18,7 @@ class Quote extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {
-        $this->_init('NP6\MailPerformance\Model\Resource\Quote');
+        $this->_init('NP6\MailPerformance\Model\Resource\Order');
     }
 
     /**
