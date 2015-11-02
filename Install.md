@@ -72,4 +72,4 @@
 
 ### Using an other method
 
-Delete and follow again the installation of the module.
+Delete and follow again the installation steps of the module.

@@ -1,5 +1,4 @@
-# Developer documentation to build upon this plugin
-
+# Developer documentation to build an addon to this plugin
 
 ## Events dispatched
 

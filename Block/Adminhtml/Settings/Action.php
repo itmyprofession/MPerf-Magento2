@@ -25,14 +25,6 @@ class Action extends Template
     /**
      * @return string
      */
-    public function getDevUrl()
-    {
-        return $this->_urlBuilder->getUrl('*/Dev');
-    }
-
-    /**
-     * @return string
-     */
     public function getReloadUrl()
     {
         return $this->_urlBuilder->getUrl('*/Check/Reload', ['path' => 'Settings']);

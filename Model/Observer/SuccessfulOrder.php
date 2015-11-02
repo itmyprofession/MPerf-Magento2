@@ -73,7 +73,6 @@ class SuccessfulOrder
         {
             /* An error message should be there, the API call failed. */
         }
-        echo '<p>Reponse apres modif/creation de la target : ' . json_encode($getResponseApi) . '</p>';
 
         $idSegement = $this->cfg->getConfig('checkoutSuccess/segment', 'none');
         if ($idSegement != 'none')
