@@ -41,7 +41,7 @@ class UserInfo extends Template
         return ['ACC_NAME' => $this->_config->getConfig('accountName', 'Undefined'),
             'ACC_OWNER' => $this->_config->getConfig('accountUserName', 'Undefined'),
             'ACC_EMAIL' => $this->_config->getConfig('accountEmail', 'Undefined'),
-            'ACC_DATE' => $this->_config->getConfig('accountExpire', 'Undefined'),
+            'ACC_DATE' => substr($this->_config->getConfig('accountExpire', 'Undefined'), 0, -10),
             'ACC_XKEY' => $this->_config->getXKey()];
     }
 

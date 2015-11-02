@@ -2,8 +2,7 @@
     <?php
         if ($block->haveConfigAccess())
         {
-            echo __('Navigate to Store > Configuration > MailPerformance > Configuration > Authentification > XKey
-             then enter a valid key, navigate back here then click the \'Activate\' button.');
+            echo __('Enter your XKey in your store configuration and click this button.');
         }
         else
         {
@@ -13,5 +12,5 @@
 </p>
 <br>
 <form action="<?php echo $block->getAuthUrl(); ?>">
-    <button class="primary" type="submit">Authenticate</button>
+    <button class="primary" type="submit"><?php echo __('Authenticate') ?></button>
 </form>
