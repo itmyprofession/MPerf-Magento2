@@ -79,7 +79,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
         /* EventBindings Configuration */
         $fieldset = $form->addFieldset('settings_events', ['legend' => __('Checkout Success')]);
 
-        $fieldset->addField('notif_cart_edit', 'note', ['label' => __('Called after succesful checkout'), 'text' => __('Adds the customer in a segment')]);
+        $fieldset->addField('notif_cart_edit', 'note', ['label' => __('Called after successful checkout'), 'text' => __('Adds the customer in a segment')]);
 
         $this->addField($fieldset, 'segment', 'Segment', false);
 

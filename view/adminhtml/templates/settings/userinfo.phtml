@@ -1,6 +1,6 @@
 <div>
     <div class="admin__page-section-title">
-        <span class="title">Account Informations</span>
+        <span class="title"><?php echo __("Account Informations") ?></span>
     </div>
     <?php
         if ($block->isInfoAllowed()):
@@ -10,22 +10,22 @@
         <tbody>
         <?php if ($block->isAllowed('AccName')): ?>
             <tr>
-                <th>Name</th>
+                <th><?php echo __('Name') ?></th>
                 <td><?php echo $infos['ACC_NAME']?></td>
             </tr>
         <?php endif; if ($block->isAllowed('AccOwner')): ?>
             <tr>
-                <th>Owner</th>
+                <th><?php echo __("Owner") ?></th>
                 <td><?php echo $infos['ACC_OWNER']?></td>
             </tr>
         <?php endif; if ($block->isAllowed('AccEmail')): ?>
             <tr>
-                <th>Email</th>
+                <th><?php echo __("Email") ?></th>
                 <td><?php echo $infos['ACC_EMAIL']?></td>
             </tr>
         <?php endif; if ($block->isAllowed('AccExpiration')): ?>
             <tr>
-                <th>Expiration date</th>
+                <th><?php echo __("Expiration date") ?></th>
                 <td><?php echo $infos['ACC_DATE']?></td>
             </tr>
         <?php endif; if ($block->isAllowed('AccXKey')): ?>
@@ -37,13 +37,13 @@
             </tr>
         <?php endif; ?>
             <tr>
-                <th>Auto add subscriber</th>
+                <th><?php echo __('Auto add subscriber') ?></th>
                 <td>
                     <?php echo $block->isFeatureEnabled('auto_add_subscriber'); ?>
                 </td>
             </tr>
             <tr>
-                <th>Cart Abandon</th>
+                <th><?php echo __('Cart Abandon') ?></th>
                 <td>
                     <?php echo $block->isFeatureEnabled('cart_abandon'); ?>
                 </td>
@@ -51,6 +51,6 @@
         </tbody>
     </table>
     <?php else: ?>
-    <p>You don't have access to this. If you believe this is an error, please contact your Administrator.</p>
+    <p><?php echo __('You don\'t have access to this. If you believe this is an error, please contact your Administrator.') ?></p>
     <?php endif; ?>
 </div>

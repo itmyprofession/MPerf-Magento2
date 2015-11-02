@@ -75,7 +75,7 @@ class Authenticate extends \Magento\Backend\App\Action
         if ($result['info']['http_code'] < 200 || $result['info']['http_code'] > 299)
         {
             return $this->redirectToError($resultRedirect,
-                'API Call: \'GET\' on \'/me\' failed. Please check your XKey');
+                'API : \'GET\' ' . __('on') . ' \'/me\' ' . __('failed. Please check your XKey'));
         }
         $result = $result['result'];
 
@@ -84,7 +84,7 @@ class Authenticate extends \Magento\Backend\App\Action
         if ($contactResult['info']['http_code'] < 200 || $contactResult['info']['http_code'] > 299)
         {
             return $this->redirectToError($resultRedirect,
-                'API Call: \'GET\' on \'/contacts/' . $result['id'] . '\' failed. Please check your XKey');
+                'API : \'GET\' ' . __('on') . ' \'/contacts/' . $result['id'] . '\' ' . __('failed. Please check your XKey'));
         }
         $contactResult = $contactResult['result'];
         $this->saveContactInfos($result, $contactResult);
@@ -96,6 +96,6 @@ class Authenticate extends \Magento\Backend\App\Action
             /* Since we just auth, we now need to generate the mailperformance pre-stored bindings */
             return $resultRedirect->setPath('*/Check/Reload', ['path' => $this->getRequest()->getParam('path')]);
         }
-        return $this->redirectToError($resultRedirect, 'Unknown error, please try again later');
+        return $this->redirectToError($resultRedirect, __('Unknown error, please try again later'));
     }
 }
