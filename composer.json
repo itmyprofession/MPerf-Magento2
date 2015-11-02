@@ -4,7 +4,7 @@
   "description": "MailPerformance module for Magento 2",
   "keywords": ["Magento2", "MPerf"],
   "homepage": "https://github.com/NP6/MPerf-Magento2",
-  "version": "1.0.0",
+  "version": "v1.0.0",
   "license": "AFL - Academic Free License (AFL 3.0)",
   "authors": [
     {
