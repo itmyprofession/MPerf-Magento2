@@ -18,22 +18,22 @@ class Save extends \Magento\Backend\App\Action
         $fieldsModel = $this->_objectManager->create('Tym17\MailPerformance\Model\Fields');
         $fields = $fieldsModel->getAllFields();
         $unicity = 0;
+        $type = 0;
         /* Check for each element valid */
         foreach ($result as $key => $elem) {
             /* Since we're checking valid fields, empty fields and segments doesn't require check */
-            if ($key != 'form_key' && $key != 'segment')
+            if ($key != 'form_key' && $key != 'segment' && $elem != 'none')
             {
-                if ($elem != 'none')
+                foreach ($fields as $field)
                 {
-                    foreach ($fields as $field)
+                    if ($field['id'] == $elem)
                     {
                         /* Checking if corresponding field is unicity critera */
-                        if ($field['id'] == $elem && $field['isUnicity'] == 1)
+                        if ($field['isUnicity'] == 1)
                         {
                             $unicity += 1;
                         }
                     }
-                    //$this->_config->saveConfig($event . $key, $result);
                 }
             }
         }
