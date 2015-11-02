@@ -34,12 +34,10 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
-        \Magento\Store\Model\System\Store $systemStore,
         \Magento\Framework\ObjectManagerInterface $objectManager,
         \NP6\MailPerformance\Model\System\ApiList $list,
         array $data = []
     ) {
-        $this->_systemStore = $systemStore;
         $this->list = $list;
         $this->_config = $objectManager->create('NP6\MailPerformance\Model\Config');
         parent::__construct($context, $registry, $formFactory, $data);
