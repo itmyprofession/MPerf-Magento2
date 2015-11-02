@@ -9,6 +9,21 @@ class Save extends \Magento\Backend\App\Action
     protected $_config;
 
     /**
+     * @param  array $field
+     * @param  string $key
+     * @return bool
+     */
+    protected function checkTypeIntegrity($field, $key)
+    {
+        if ($field['type'] == 'singleSelectList'
+            || $field['type'] == 'multipleSelectList')
+        {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * @param  array $result
      * @return array
      */
@@ -33,6 +48,11 @@ class Save extends \Magento\Backend\App\Action
                         {
                             $unicity += 1;
                         }
+                        /* Check if chosen value is valid for API calls */
+                        if ($this->checkTypeIntegrity($field, $key))
+                        {
+                            $type += 1;
+                        }
                     }
                 }
             }
@@ -40,6 +60,10 @@ class Save extends \Magento\Backend\App\Action
         if ($unicity != 1)
         {
             return ['haveError' => true, 'message' => __('Please select only one field with unicity.')];
+        }
+        else if ($type != 0)
+        {
+            $this->messageManager->addWarning(__('Some fields you selected may have unexpected result if they aren\'t bind correctly'));
         }
         return ['haveError' => false, 'message' => ''];
     }
