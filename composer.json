@@ -5,7 +5,6 @@
   "keywords": ["Magento2", "MPerf"],
   "homepage": "https://github.com/NP6/MPerf-Magento2",
   "version": "0.1.0",
-  "aaaminimum-stability": "dev",
   "license": "AFL - Academic Free License (AFL 3.0)",
   "authors": [
     {
