@@ -30,7 +30,7 @@
 "Some fields you selected may have unexpected result if they aren't bind correctly", "Some fields you selected may have unexpected result if they aren't bind correctly"
 "Saved !", "Saved !"
 "Don't bind", "Don't bind"
-"Navigate to Store > Configuration > MailPerformance > Configuration > Authentification > XKey then enter a valid key, navigate back here then click the 'Activate' button.", "Navigate to Store > Configuration > MailPerformance > Configuration > Authentification > XKey then enter a valid key, navigate back here then click the 'Activate' button."
+"Enter your XKey in your store configuration and click this button.", "Enter your XKey in your store configuration and click this button."
 "Please contact your administrator about this problem.", "Please contact your administrator about this problem."
 "Reload", "Reload"
 "Name", "Name"
