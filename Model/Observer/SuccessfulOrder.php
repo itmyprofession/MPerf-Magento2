@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Copyright © 2015 NP6. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 namespace NP6\MailPerformance\Model\Observer;
 
 use NP6\MailPerformance\Helper;
@@ -24,7 +27,7 @@ class SuccessfulOrder
     public function __construct(
         \Magento\Framework\Message\ManagerInterface $msgManager,
         \NP6\MailPerformance\Model\Config $cfg,
-        \NP6\MailPerformance\Model\Quote $quote,
+        \NP6\MailPerformance\Model\Order $quote,
         Helper\RestHelper $rest
     ) {
         $this->cfg = $cfg;

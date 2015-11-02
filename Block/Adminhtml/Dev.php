@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2015 NP6. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 namespace NP6\MailPerformance\Block\Adminhtml;
 
 use Magento\Backend\Block\Template;
@@ -44,7 +48,7 @@ class Dev extends Template
         parent::__construct($context, $data);
         $this->_fields = $objectManager->create('\NP6\MailPerformance\Model\Fields');
         $this->_segments = $objectManager->create('\NP6\MailPerformance\Model\Segments');
-        $this->_quote = $objectManager->create('\NP6\MailPerformance\Model\Quote');
+        $this->_quote = $objectManager->create('\NP6\MailPerformance\Model\Order');
         $this->_restHelper = $rest;
         $this->_objectManager = $objectManager;
     }

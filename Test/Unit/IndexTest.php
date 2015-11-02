@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2015 NP6. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 namespace Magento\SampleNewPage\Test\Unit\Controller\Index;
 
 class IndexTest extends \PHPUnit_Framework_TestCase
@@ -22,4 +26,3 @@ class IndexTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($page, $model->execute());
     }
 }
- 
