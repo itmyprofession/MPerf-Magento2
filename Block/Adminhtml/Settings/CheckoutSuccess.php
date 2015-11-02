@@ -1,8 +1,8 @@
 <?php
-namespace Tym17\MailPerformance\Block\Adminhtml\Settings;
+namespace NP6\MailPerformance\Block\Adminhtml\Settings;
 
 use Magento\Backend\Block\Template;
-use Tym17\MailPerformance\Helper;
+use NP6\MailPerformance\Helper;
 
 class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
 {
@@ -11,12 +11,12 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
      */
     const NAME = 'checkoutSuccess';
     /**
-     * @var \Tym17\MailPerformance\Model\Config
+     * @var \NP6\MailPerformance\Model\Config
      */
     protected $_config;
 
     /**
-     * @var \Tym17\MailPerformance\Model\System\ApiList
+     * @var \NP6\MailPerformance\Model\System\ApiList
      */
     protected $list;
 
@@ -32,12 +32,12 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Framework\Data\FormFactory $formFactory,
         \Magento\Store\Model\System\Store $systemStore,
         \Magento\Framework\ObjectManagerInterface $objectManager,
-        \Tym17\MailPerformance\Model\System\ApiList $list,
+        \NP6\MailPerformance\Model\System\ApiList $list,
         array $data = []
     ) {
         $this->_systemStore = $systemStore;
         $this->list = $list;
-        $this->_config = $objectManager->create('Tym17\MailPerformance\Model\Config');
+        $this->_config = $objectManager->create('NP6\MailPerformance\Model\Config');
         parent::__construct($context, $registry, $formFactory, $data);
     }
 

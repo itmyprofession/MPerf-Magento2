@@ -1,5 +1,5 @@
 <?php
-namespace Tym17\MailPerformance\Model\Resource;
+namespace NP6\MailPerformance\Model\Resource;
 
 class Fields extends \Magento\Framework\Model\Resource\Db\AbstractDb
 {

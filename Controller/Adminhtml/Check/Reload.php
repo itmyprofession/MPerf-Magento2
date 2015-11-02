@@ -1,12 +1,12 @@
 <?php
-namespace Tym17\MailPerformance\Controller\Adminhtml\Check;
+namespace NP6\MailPerformance\Controller\Adminhtml\Check;
 
 use Magento\Backend\App\Action\Context;
 
 class Reload extends \Magento\Backend\App\Action
 {
     /**
-     * @var \Tym17\MailPerformance\Model\Config
+     * @var \NP6\MailPerformance\Model\Config
      */
     protected $_config;
 
@@ -17,7 +17,7 @@ class Reload extends \Magento\Backend\App\Action
         Context $context
     ) {
         parent::__construct($context);
-        $this->_config = $this->_objectManager->create('Tym17\MailPerformance\Model\Config');
+        $this->_config = $this->_objectManager->create('NP6\MailPerformance\Model\Config');
     }
 
     /**
@@ -27,8 +27,8 @@ class Reload extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $fields = $this->_objectManager->create('\Tym17\MailPerformance\Model\Fields');
-        $segments = $this->_objectManager->create('\Tym17\MailPerformance\Model\Segments');
+        $fields = $this->_objectManager->create('\NP6\MailPerformance\Model\Fields');
+        $segments = $this->_objectManager->create('\NP6\MailPerformance\Model\Segments');
         if (!$fields->populateFields() || !$segments->populateSegments())
         {
             $this->messageManager->addWarning(__('Failed reloading your MailPerformance components'));

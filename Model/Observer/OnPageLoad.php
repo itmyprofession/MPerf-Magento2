@@ -1,5 +1,5 @@
 <?php
-namespace Tym17\MailPerformance\Model\Observer;
+namespace NP6\MailPerformance\Model\Observer;
 
 class OnPageLoad
 {

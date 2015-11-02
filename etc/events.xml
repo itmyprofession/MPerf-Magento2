@@ -7,6 +7,6 @@
 -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/internal/Magento/Framework/Event/etc/events.xsd">
     <event name="checkout_onepage_controller_success_action">
-        <observer name="mperf_on_order_success" instance="Tym17\MailPerformance\Model\Observer\SuccessfulOrder" method="execute" />
+        <observer name="mperf_on_order_success" instance="NP6\MailPerformance\Model\Observer\SuccessfulOrder" method="execute" />
     </event>
 </config>

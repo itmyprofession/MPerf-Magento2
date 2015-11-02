@@ -1,13 +1,13 @@
 <?php
-namespace Tym17\MailPerformance\Block\Adminhtml;
+namespace NP6\MailPerformance\Block\Adminhtml;
 
 use Magento\Backend\Block\Template;
-use Tym17\MailPerformance\Helper;
+use NP6\MailPerformance\Helper;
 
 class Check extends Template
 {
     /**
-     * @var \Tym17\MailPerformance\Helper\RestHelper
+     * @var \NP6\MailPerformance\Helper\RestHelper
      */
     protected $_restHelper;
 
@@ -46,7 +46,7 @@ class Check extends Template
     {
         return($this->_authorization->isAllowed('Magento_Backend::stores_settings')
             && $this->_authorization->isAllowed('Magento_Config::config')
-            && $this->_authorization->isAllowed('Tym17_MailPerformance::config'));
+            && $this->_authorization->isAllowed('NP6_MailPerformance::config'));
     }
 
 }

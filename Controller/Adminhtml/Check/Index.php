@@ -1,12 +1,12 @@
 <?php
-namespace Tym17\MailPerformance\Controller\Adminhtml\Check;
+namespace NP6\MailPerformance\Controller\Adminhtml\Check;
 
 use Magento\Backend\App\Action\Context;
 
 class Index extends \Magento\Backend\App\Action
 {
     /**
-     * @var \Tym17\MailPerformance\Model\Config
+     * @var \NP6\MailPerformance\Model\Config
      */
     protected $_config;
 
@@ -17,7 +17,7 @@ class Index extends \Magento\Backend\App\Action
         Context $context
     ) {
         parent::__construct($context);
-        $this->_config = $this->_objectManager->create('Tym17\MailPerformance\Model\Config');
+        $this->_config = $this->_objectManager->create('NP6\MailPerformance\Model\Config');
     }
 
     /**

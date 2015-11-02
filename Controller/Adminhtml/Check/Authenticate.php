@@ -1,17 +1,17 @@
 <?php
-namespace Tym17\MailPerformance\Controller\Adminhtml\Check;
+namespace NP6\MailPerformance\Controller\Adminhtml\Check;
 
 use Magento\Backend\App\Action;
 
 class Authenticate extends \Magento\Backend\App\Action
 {
     /**
-     * @var \Tym17\MailPerformance\Helper\RestHelper
+     * @var \NP6\MailPerformance\Helper\RestHelper
      */
     protected $_restHelper;
 
     /**
-     * @var \Tym17\MailPerformance\Model\Config
+     * @var \NP6\MailPerformance\Model\Config
      */
     protected $_config;
 
@@ -23,8 +23,8 @@ class Authenticate extends \Magento\Backend\App\Action
         Action\Context $context
     ) {
         parent::__construct($context);
-        $this->_config = $this->_objectManager->create('Tym17\MailPerformance\Model\Config');
-        $this->_restHelper = $this->_objectManager->create('\Tym17\MailPerformance\Helper\RestHelper');
+        $this->_config = $this->_objectManager->create('NP6\MailPerformance\Model\Config');
+        $this->_restHelper = $this->_objectManager->create('\NP6\MailPerformance\Helper\RestHelper');
     }
 
     /**

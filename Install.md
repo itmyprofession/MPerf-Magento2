@@ -26,9 +26,9 @@
 
 ### NOT RECOMENDED
 
-1. Clone this repository `git clone https://github.com/Tym17/MPerf-Magento2`
+1. Clone this repository `git clone https://github.com/NP6/MPerf-Magento2`
 
-2. Copy and paste the content of it to `{Magento}/app/code/Tym17/MailPerformance`
+2. Copy and paste the content of it to `{Magento}/app/code/NP6/MailPerformance`
 
 3. Run `php -f bin/magento setup:upgrade` from your Magento root folder
 
@@ -44,10 +44,10 @@
 
 1. Navigate from your root folder to `app/code`
 
-2. Create 2 directory following this scheme: `Tym17/MailPerformance`
+2. Create 2 directory following this scheme: `NP6/MailPerformance`
 
    ```shell
-   mkdir Tym17 && cd Tym17
+   mkdir NP6 && cd NP6
    mkdir MailPerformance
    ```
 

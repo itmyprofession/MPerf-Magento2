@@ -1,26 +1,26 @@
 <?php
-namespace Tym17\MailPerformance\Model\System;
+namespace NP6\MailPerformance\Model\System;
 
 class ApiList
 {
     /**
-     * @var \Tym17\MailPerformance\Model\Segments
+     * @var \NP6\MailPerformance\Model\Segments
      */
     private $segments;
 
     /**
-     * @var \Tym17\MailPerformance\Model\fields
+     * @var \NP6\MailPerformance\Model\fields
      */
     private $fields;
 
     /**
-     * @param  \Tym17\MailPerformance\Model\Segments $segments
-     * @param  \Tym17\MailPerformance\Model\Fields $fields
+     * @param  \NP6\MailPerformance\Model\Segments $segments
+     * @param  \NP6\MailPerformance\Model\Fields $fields
      * @return void
      */
     public function __construct(
-        \Tym17\MailPerformance\Model\Segments $segments,
-        \Tym17\MailPerformance\Model\Fields $fields
+        \NP6\MailPerformance\Model\Segments $segments,
+        \NP6\MailPerformance\Model\Fields $fields
     ) {
         $this->segments = $segments;
         $this->fields = $fields;

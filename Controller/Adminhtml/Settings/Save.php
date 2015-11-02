@@ -1,10 +1,10 @@
 <?php
-namespace Tym17\MailPerformance\Controller\Adminhtml\Settings;
+namespace NP6\MailPerformance\Controller\Adminhtml\Settings;
 
 class Save extends \Magento\Backend\App\Action
 {
     /**
-     * @var \Tym17\MailPerformance\Model\Config
+     * @var \NP6\MailPerformance\Model\Config
      */
     protected $_config;
 
@@ -30,7 +30,7 @@ class Save extends \Magento\Backend\App\Action
     protected function checkIntegrity($result)
     {
         /* Get fields to prepair comparison */
-        $fieldsModel = $this->_objectManager->create('Tym17\MailPerformance\Model\Fields');
+        $fieldsModel = $this->_objectManager->create('NP6\MailPerformance\Model\Fields');
         $fields = $fieldsModel->getAllFields();
         $unicity = 0;
         $type = 0;
@@ -99,7 +99,7 @@ class Save extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $this->_config = $this->_objectManager->create('Tym17\MailPerformance\Model\Config');
+        $this->_config = $this->_objectManager->create('NP6\MailPerformance\Model\Config');
         $this->checkAndSave();
         /* Since we're only sending a message to tell if save attempt went fine or not */
         $resultRedirect = $this->resultRedirectFactory->create();

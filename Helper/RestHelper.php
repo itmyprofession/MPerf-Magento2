@@ -1,5 +1,5 @@
 <?php
-namespace Tym17\MailPerformance\Helper;
+namespace NP6\MailPerformance\Helper;
 
 use Magento\Framework\App as App;
 

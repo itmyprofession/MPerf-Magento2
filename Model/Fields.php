@@ -1,22 +1,22 @@
 <?php
-namespace Tym17\MailPerformance\Model;
+namespace NP6\MailPerformance\Model;
 
 class Fields extends \Magento\Framework\Model\AbstractModel
 {
     /**
-     * @var \Tym17\MailPerformance\Helper\RestHelper
+     * @var \NP6\MailPerformance\Helper\RestHelper
      */
     protected $_rest;
 
     /**
-     * @var \Tym17\MailPerformance\Model\Config
+     * @var \NP6\MailPerformance\Model\Config
      */
     protected $cfg;
 
     /**
     * @param  \Magento\Framework\Model\Context $context
     * @param  \Magento\Framework\Registry $registry
-    * @param  \Tym17\MailPerformance\Helper\RestHelper $rest
+    * @param  \NP6\MailPerformance\Helper\RestHelper $rest
     * @param  \Magento\Framework\Model\Resource\AbstractResource $resource = null
     * @param  \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null
     * @param  array $data = []
@@ -25,8 +25,8 @@ class Fields extends \Magento\Framework\Model\AbstractModel
     public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
-        \Tym17\MailPerformance\Helper\RestHelper $rest,
-        \Tym17\MailPerformance\Model\Config $cfg,
+        \NP6\MailPerformance\Helper\RestHelper $rest,
+        \NP6\MailPerformance\Model\Config $cfg,
         \Magento\Framework\Model\Resource\AbstractResource $resource = null,
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
         array $data = []
@@ -47,7 +47,7 @@ class Fields extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {
-        $this->_init('Tym17\MailPerformance\Model\Resource\Fields');
+        $this->_init('NP6\MailPerformance\Model\Resource\Fields');
     }
 
     /**

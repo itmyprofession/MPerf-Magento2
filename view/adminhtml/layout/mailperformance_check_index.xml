@@ -5,7 +5,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Check" name="checkcontent" template="Tym17_MailPerformance::check/index.phtml" />
+            <block class="NP6\MailPerformance\Block\Adminhtml\Check" name="checkcontent" template="NP6_MailPerformance::check/index.phtml" />
         </referenceContainer>
     </body>
 </page>

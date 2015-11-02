@@ -1,6 +1,6 @@
 <?php
 
-namespace Tym17\MailPerformance\Setup;
+namespace NP6\MailPerformance\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;

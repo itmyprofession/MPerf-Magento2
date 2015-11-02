@@ -1,13 +1,13 @@
 <?php
-namespace Tym17\MailPerformance\Block\Adminhtml\Settings;
+namespace NP6\MailPerformance\Block\Adminhtml\Settings;
 
 use Magento\Backend\Block\Template;
-use Tym17\MailPerformance\Helper;
+use NP6\MailPerformance\Helper;
 
 class Cart extends \Magento\Backend\Block\Widget\Form\Generic
 {
     /**
-     * @var \Tym17\MailPerformance\Model\Config
+     * @var \NP6\MailPerformance\Model\Config
      */
     protected $_config;
 
@@ -24,7 +24,7 @@ class Cart extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Framework\ObjectManagerInterface $objectManager,
         array $data = []
     ) {
-        $this->_config = $objectManager->create('Tym17\MailPerformance\Model\Config');
+        $this->_config = $objectManager->create('NP6\MailPerformance\Model\Config');
         parent::__construct($context, $registry, $formFactory, $data);
     }
 

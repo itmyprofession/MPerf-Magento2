@@ -1,5 +1,5 @@
 <?php
-namespace Tym17\MailPerformance\Model;
+namespace NP6\MailPerformance\Model;
 
 class Config extends \Magento\Framework\Model\AbstractModel
 {
@@ -50,7 +50,7 @@ class Config extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {
-        $this->_init('Tym17\MailPerformance\Model\Resource\Config');
+        $this->_init('NP6\MailPerformance\Model\Resource\Config');
     }
 
     /**

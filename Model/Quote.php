@@ -1,15 +1,15 @@
 <?php
-namespace Tym17\MailPerformance\Model;
+namespace NP6\MailPerformance\Model;
 
 class Quote extends \Magento\Framework\Model\AbstractModel
 {
     /**
-     * @var \Tym17\MailPerformance\Model\Config
+     * @var \NP6\MailPerformance\Model\Config
      */
     protected $cfg;
 
     /**
-     * @var \Tym17\MailPerformance\Model\Fields
+     * @var \NP6\MailPerformance\Model\Fields
      */
     protected $fields;
 
@@ -18,13 +18,13 @@ class Quote extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {
-        $this->_init('Tym17\MailPerformance\Model\Resource\Quote');
+        $this->_init('NP6\MailPerformance\Model\Resource\Quote');
     }
 
     /**
      * @param  \Magento\Framework\Model\Context $context
      * @param  \Magento\Framework\Registry $registry
-     * @param  \Tym17\MailPerformance\Helper\RestHelper $rest
+     * @param  \NP6\MailPerformance\Helper\RestHelper $rest
      *  @param  \Magento\Framework\Model\Resource\AbstractResource $resource = null
      * @param  \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null
      * @param  array $data = []
@@ -33,8 +33,8 @@ class Quote extends \Magento\Framework\Model\AbstractModel
     public function __construct(
         \Magento\Framework\Model\Context $context,
         \Magento\Framework\Registry $registry,
-        \Tym17\MailPerformance\Model\Config $cfg,
-        \Tym17\MailPerformance\Model\Fields $fields,
+        \NP6\MailPerformance\Model\Config $cfg,
+        \NP6\MailPerformance\Model\Fields $fields,
         \Magento\Framework\Model\Resource\AbstractResource $resource = null,
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
         array $data = []

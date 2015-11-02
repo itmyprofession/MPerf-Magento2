@@ -8,18 +8,18 @@
             <resource id="Magento_Backend::admin">
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_other_settings">
-                        <resource id="Tym17_MailPerformance::mailperformance" title="MailPerformance">
-                            <resource id="Tym17_MailPerformance::settings" title="Settings" sortOrder="50">
-                                <resource id="Tym17_MailPerformance::Acl_AccountInfo" title="Account information" sortOrder="20">
-                                    <resource id="Tym17_MailPerformance::Acl_AccName" title="Name" sortOrder="10"/>
-                                    <resource id="Tym17_MailPerformance::Acl_AccOwner" title="Owner name" sortOrder="20"/>
-                                    <resource id="Tym17_MailPerformance::Acl_AccEmail" title="Email" sortOrder="30"/>
-                                    <resource id="Tym17_MailPerformance::Acl_AccExpiration" title="Expiration date" sortOrder="40"/>
-                                    <resource id="Tym17_MailPerformance::Acl_AccXKey" title="XKey" sortOrder="50"/>
+                        <resource id="NP6_MailPerformance::mailperformance" title="MailPerformance">
+                            <resource id="NP6_MailPerformance::settings" title="Settings" sortOrder="50">
+                                <resource id="NP6_MailPerformance::Acl_AccountInfo" title="Account information" sortOrder="20">
+                                    <resource id="NP6_MailPerformance::Acl_AccName" title="Name" sortOrder="10"/>
+                                    <resource id="NP6_MailPerformance::Acl_AccOwner" title="Owner name" sortOrder="20"/>
+                                    <resource id="NP6_MailPerformance::Acl_AccEmail" title="Email" sortOrder="30"/>
+                                    <resource id="NP6_MailPerformance::Acl_AccExpiration" title="Expiration date" sortOrder="40"/>
+                                    <resource id="NP6_MailPerformance::Acl_AccXKey" title="XKey" sortOrder="50"/>
                                 </resource>
-                                <resource id="Tym17_MailPerformance::Acl_EventBinding" title="Event Binding" sortOrder="40"/>
-                                <resource id="Tym17_MailPerformance::Acl_CustomerManagement" title="Customer Management" sortOrder="60"/>
-                                <resource id="Tym17_MailPerformance::Acl_CartAbandonment" title="Cart Abandonment" sortOrder="80"/>
+                                <resource id="NP6_MailPerformance::Acl_EventBinding" title="Event Binding" sortOrder="40"/>
+                                <resource id="NP6_MailPerformance::Acl_CustomerManagement" title="Customer Management" sortOrder="60"/>
+                                <resource id="NP6_MailPerformance::Acl_CartAbandonment" title="Cart Abandonment" sortOrder="80"/>
                             </resource>
                         </resource>
                     </resource>
@@ -27,7 +27,7 @@
                 <resource id="Magento_Backend::stores">
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
-                            <resource id="Tym17_MailPerformance::config" title="MailPerformance" />
+                            <resource id="NP6_MailPerformance::config" title="MailPerformance" />
                         </resource>
                     </resource>
                 </resource>

@@ -5,15 +5,15 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\CheckoutSuccess" name="settings_events" template="Tym17_MailPerformance::form.phtml" />
+            <block class="NP6\MailPerformance\Block\Adminhtml\Settings\CheckoutSuccess" name="settings_events" template="NP6_MailPerformance::form.phtml" />
             <!-- Those blocks are waiting for the next version of this module
-                <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Customer" name="settings_customer" template="Tym17_MailPerformance::form.phtml" />
-                <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Cart" name="settings_cart" template="Tym17_MailPerformance::form.phtml" />
+                <block class="NP6\MailPerformance\Block\Adminhtml\Settings\Customer" name="settings_customer" template="NP6_MailPerformance::form.phtml" />
+                <block class="NP6\MailPerformance\Block\Adminhtml\Settings\Cart" name="settings_cart" template="NP6_MailPerformance::form.phtml" />
             -->
         </referenceContainer>
         <referenceContainer name="left">
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\UserInfo" name="user_info" template="Tym17_MailPerformance::settings/userinfo.phtml" />
-            <block class="Tym17\MailPerformance\Block\Adminhtml\Settings\Action" name="user_action" template="Tym17_MailPerformance::settings/action.phtml" />
+            <block class="NP6\MailPerformance\Block\Adminhtml\Settings\UserInfo" name="user_info" template="NP6_MailPerformance::settings/userinfo.phtml" />
+            <block class="NP6\MailPerformance\Block\Adminhtml\Settings\Action" name="user_action" template="NP6_MailPerformance::settings/action.phtml" />
         </referenceContainer>
     </body>
 </page>

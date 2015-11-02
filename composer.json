@@ -3,13 +3,13 @@
   "type": "magento2-module",
   "description": "MailPerformance module for Magento 2",
   "keywords": ["Magento2", "MPerf"],
-  "homepage": "https://github.com/Tym17/MPerf-Magento2",
+  "homepage": "https://github.com/NP6/MPerf-Magento2",
   "version": "0.1.0",
   "aaaminimum-stability": "dev",
   "license": "AFL - Academic Free License (AFL 3.0)",
   "authors": [
     {
-      "name": "Tym17"
+      "name": "NP6"
     }
   ],
   "require": {
@@ -20,7 +20,7 @@
     "map": [
       [
         "*",
-        "Tym17/MailPerformance"
+        "NP6/MailPerformance"
       ]
     ]
   }

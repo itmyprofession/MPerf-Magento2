@@ -1,5 +1,5 @@
 <?php
-namespace Tym17\MailPerformance\Controller\Adminhtml\Settings;
+namespace NP6\MailPerformance\Controller\Adminhtml\Settings;
 
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
@@ -27,7 +27,7 @@ class Index extends \Magento\Backend\App\Action
         PageFactory $resultPageFactory
     ) {
         parent::__construct($context);
-        $this->_config = $this->_objectManager->create('Tym17\MailPerformance\Model\Config');
+        $this->_config = $this->_objectManager->create('NP6\MailPerformance\Model\Config');
         $this->resultPageFactory = $resultPageFactory;
     }
 

@@ -1,18 +1,18 @@
 <?php
 
-namespace Tym17\MailPerformance\Model\Observer;
+namespace NP6\MailPerformance\Model\Observer;
 
-use Tym17\MailPerformance\Helper;
+use NP6\MailPerformance\Helper;
 
 class SuccessfulOrder
 {
     /**
-     * @var \Tym17\MailPerformance\Helper\RestHelper
+     * @var \NP6\MailPerformance\Helper\RestHelper
      */
     protected $_restHelper;
 
     /**
-     * @var \Tym17\MailPerformance\Model\quote
+     * @var \NP6\MailPerformance\Model\quote
      */
     protected $_quote;
 
@@ -23,8 +23,8 @@ class SuccessfulOrder
 
     public function __construct(
         \Magento\Framework\Message\ManagerInterface $msgManager,
-        \Tym17\MailPerformance\Model\Config $cfg,
-        \Tym17\MailPerformance\Model\Quote $quote,
+        \NP6\MailPerformance\Model\Config $cfg,
+        \NP6\MailPerformance\Model\Quote $quote,
         Helper\RestHelper $rest
     ) {
         $this->cfg = $cfg;

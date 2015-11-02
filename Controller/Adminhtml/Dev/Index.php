@@ -1,5 +1,5 @@
 <?php
-namespace Tym17\MailPerformance\Controller\Adminhtml\Dev;
+namespace NP6\MailPerformance\Controller\Adminhtml\Dev;
 
 use Magento\Backend\App\Action\Context;
 

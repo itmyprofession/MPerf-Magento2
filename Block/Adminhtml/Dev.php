@@ -1,28 +1,28 @@
 <?php
-namespace Tym17\MailPerformance\Block\Adminhtml;
+namespace NP6\MailPerformance\Block\Adminhtml;
 
 use Magento\Backend\Block\Template;
-use Tym17\MailPerformance\Helper;
+use NP6\MailPerformance\Helper;
 
 class Dev extends Template
 {
     /**
-     * @var \Tym17\MailPerformance\Helper\RestHelper
+     * @var \NP6\MailPerformance\Helper\RestHelper
      */
     protected $_restHelper;
 
     /**
-     * @var \Tym17\MailPerformance\Model\Fields
+     * @var \NP6\MailPerformance\Model\Fields
      */
     protected $_fields;
 
     /**
-     * @var \Tym17\MailPerformance\Model\Segments
+     * @var \NP6\MailPerformance\Model\Segments
      */
     protected $_segments;
 
     /**
-     * @var \Tym17\MailPerformance\Model\quote
+     * @var \NP6\MailPerformance\Model\quote
      */
     protected $_quote;
 
@@ -42,9 +42,9 @@ class Dev extends Template
         array $data = []
     ) {
         parent::__construct($context, $data);
-        $this->_fields = $objectManager->create('\Tym17\MailPerformance\Model\Fields');
-        $this->_segments = $objectManager->create('\Tym17\MailPerformance\Model\Segments');
-        $this->_quote = $objectManager->create('\Tym17\MailPerformance\Model\Quote');
+        $this->_fields = $objectManager->create('\NP6\MailPerformance\Model\Fields');
+        $this->_segments = $objectManager->create('\NP6\MailPerformance\Model\Segments');
+        $this->_quote = $objectManager->create('\NP6\MailPerformance\Model\Quote');
         $this->_restHelper = $rest;
         $this->_objectManager = $objectManager;
     }
