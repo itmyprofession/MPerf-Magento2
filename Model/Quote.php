@@ -76,27 +76,24 @@ class Quote extends \Magento\Framework\Model\AbstractModel
      * @param  array $field
      * @param  string $key
      * @param  mixed $value
-     * @return bool
+     * @return void
      */
     protected function reformat($field, $key, &$value)
     {
         /* Check corresponding field */
         if ($field['id'] == $key)
         {
-            /* Check if field should be in an other format */
-            if ($field['type'] == 'textField' || $field['type'] == 'email')
-            {
-                /* since it is in the right format, lets skip other checks */
-                return false;
-            }
-            /* if field is a number, cast it as a number */
-            else if ($field['type'] == 'numeric')
+            /* if field is a special type, make it compatible with the API call */
+            if ($field['type'] == 'numeric')
             {
                 /* Tricky cast working with floats and ints */
                 $value = 0 + $value;
             }
+            else if ($field['type'] == 'multipleSelectList')
+            {
+                $value = explode(',', $value);
+            }
         }
-        return true;
     }
 
     /**
@@ -147,7 +144,6 @@ class Quote extends \Magento\Framework\Model\AbstractModel
                 $this->reformat($field, $key, $value);
             }
         }
-
         return ($tabToFields);
     }
 }
