@@ -4,7 +4,7 @@ namespace Tym17\MailPerformance\Model\Observer;
 
 use Tym17\MailPerformance\Helper;
 
-class Order
+class SuccessfulOrder
 {
     /**
      * @var \Tym17\MailPerformance\Helper\RestHelper
@@ -16,21 +16,24 @@ class Order
      */
     protected $_quote;
 
+    /**
+     * @var mixed
+     */
     protected $_msgManager;
 
     public function __construct(
         \Magento\Framework\Message\ManagerInterface $msgManager,
         \Tym17\MailPerformance\Model\Config $cfg,
-        \Magento\Framework\ObjectManagerInterface $objectManager,
+        \Tym17\MailPerformance\Model\Quote $quote,
         Helper\RestHelper $rest
     ) {
         $this->cfg = $cfg;
         $this->_msgManager = $msgManager;
-        $this->_quote = $objectManager->create('\Tym17\MailPerformance\Model\Quote');
+        $this->_quote = $quote;
         $this->_restHelper = $rest;
     }
 
-    public function bindOnSuccess($observer)
+    public function execute($observer)
     {
         $data = $observer->getData();
         $orderId = $data['order_ids'][0];
@@ -42,17 +45,17 @@ class Order
 
         foreach ($dataJson as $key => $value)
         {
-            $unicity = $this->_quote->getSqlLine('mailperf_fields', 'id', $key);
-            if ($unicity[0]['isUnicity'] == 1)
+            $result = $this->_quote->getSqlLine('mailperf_fields', 'id', $key);
+            if ($result[0]['isUnicity'] == 1)
             {
                 $endUrl .= $value;
             }
         }
 
-        //On regarde si la cible existe
+        /* Check if target exists */
         $getResponseApi = $this->_restHelper->get($endUrl);
 
-        //Suivant les reponses on fait un PUT ou un POST
+        /* perform a POST or PUT action depending on the previous result */
         if ($getResponseApi['info']['http_code'] == 200)
         {
             $endUrl = 'targets/' . $getResponseApi['result']['id'];
@@ -65,7 +68,7 @@ class Order
         }
         else
         {
-            //Mettre un message d'erreur : c'est l'appel au /target?unicity qui a cassé
+            /* An error message should be there, the API call failed. */
         }
         echo '<p>Reponse apres modif/creation de la target : ' . json_encode($getResponseApi) . '</p>';
 
