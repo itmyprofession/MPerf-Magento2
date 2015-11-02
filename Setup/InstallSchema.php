@@ -72,6 +72,12 @@ class InstallSchema implements InstallSchemaInterface
             null,
             array('nullable' => false),
             'Fields Unicity'
+        )->addColumn(
+            'type',
+            \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+            255,
+            array('nullable' => true),
+            'Fields Type'
         )->setComment(
         'MailPerformance Fields Table'
         );

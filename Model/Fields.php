@@ -72,7 +72,6 @@ class Fields extends \Magento\Framework\Model\AbstractModel
         $tab = $result['result'];
         foreach ($tab as $elem)
         {
-            /* $data = ['id' => $id, 'name' => $name, 'isUnicity' => $unicity]; */
             $this->saveFields([
                 'id' => $elem['id'],
                 'name' => $elem['name'],
@@ -121,9 +120,9 @@ class Fields extends \Magento\Framework\Model\AbstractModel
      * @param  string $value
      * @return void
      */
-    public function saveFields($id, $name, $unicity)
+    public function saveFields($data)
     {
-        $this->_getResource()->saveFields(['id' => $id, 'name' => $name, 'isUnicity' => $unicity]);
+        $this->_getResource()->saveFields($data);
     }
 
     /**
