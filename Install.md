@@ -1,7 +1,7 @@
 #Install
-* [Composer Install](#Composer-Install)
-* [Manual Install](#Manual-Install)
-* [Git Install](#Git-Install)
+* [Composer Install](#composer-install)
+* [Manual Install](#manual-install)
+* [Git Install](#git-install)
 * [Setup](#setup)
 * [Maintainance](#Maintainance)
 
@@ -61,6 +61,14 @@
 6. Navigate in your Magento 2 backend to `Store/MailPerformance`
 > if the installation didn't work, you will not see the menu.
 
+
+## Setup
+
+> Since you will need to link your MailPerformpance Account to your MAgento Installation, here are the steps required to do this
+
+1. Navigate to `Store/Configuration/MailPerformance/Authentification`, enter your XKey, save and flush Magento Cache
+
+2. Navigate to `Store/MailPerformance` and click on the `Àuthenticate` button.
 
 ## Maintainance
 

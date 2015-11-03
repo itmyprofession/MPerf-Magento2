@@ -1,11 +1,11 @@
 # MailPerformance
 > Plugin pour Magento2
 
-* [This file in english](https://github.com/np6/MPerf-Magento2/blob/Release/README.md)
-* [Installation](#Installation)
-* [Lier MailPerformance à Magento 2](#Linking-MailPerformance-to-Magento-2)
-* [Maintenance](#Maintenance)
-* [Liens](#Liens)
+* [This file in english](https://github.com/tym17/MPerf-Magento2/blob/Release/README.md)
+* [Installation](#installation)
+* [Lier MailPerformance à Magento 2](#lier-mailperformance-à-magento-2)
+* [Maintenance](#maintenance)
+* [Liens](#liens)
 
 ## Installation
 > Vous trouverez les différentes méthodes d'installation dans le fichier  `Ìnstall_fr.md` . Voici la méthode recommendée.
@@ -46,4 +46,4 @@
 ## Liens
 
 * [Magento2 Devdocs](http://devdocs.magento.com/)
-* [Packagist](https://packagist.org/packages/np6/mail-performance)
+* [Packagist](https://packagist.org/packages/tym17/mail-performance)

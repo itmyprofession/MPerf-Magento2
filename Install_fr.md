@@ -1,9 +1,9 @@
 #Installation
-* [Composer Installation](#Composer-Installation)
-* [Manual Installation](#Manual-Installation)
-* [Git Installation](#Git-Installation)
-* [Setup](#setup)
-* [Maintainance](#Maintainance)
+* [Composer Installation](#installation-composer)
+* [Manual Installation](#installation-manuelle)
+* [Git Installation](#installation-git)
+* [Setup](#liaison)
+* [Maintainance](#mainteance)
 
 ## Installation Composer
 
@@ -24,9 +24,9 @@
 3. Accédez au menu `Store/MailPerformance`.
 > Si l'installation a échoué, vous ne verrez pas ce menu.
 
-## Git Installation
+## Installation Git
 
-### NOT RECOMENDED
+### NOT RECOMANDEE
 
 1. Clonez ce repository `git clone https://github.com/NP6/MPerf-Magento2`
 
@@ -39,9 +39,9 @@
 5. Accédez au menu `Store/MailPerformance`.
 > Si l'installation a échoué, vous ne verrez pas ce menu.
 
-## Manual Installation
+## Installation manuelle
 
-### NOT RECOMENDED
+### NON RECOMANDEE
 
 0. Téléchargez ce repository
 
@@ -62,6 +62,14 @@
 
 6. Accédez au menu `Store/MailPerformance`.
 > Si l'installation a échoué, vous ne verrez pas ce menu.
+
+## Liaison
+
+1. Accédez à la configuration de votre e-Boutique  `Store/Configuration/MailPerformance/Authentification`, puis entrez votre XKey.
+
+2. Sauvegardez puis rafraîchissez le cache de Magento.
+
+3. Accédez au menu `Store/MailPerformance` et cliquez sur le boutton  `Activer`.
 
 ## Maintenance
 
