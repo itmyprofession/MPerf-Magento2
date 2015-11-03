@@ -96,6 +96,10 @@ class Order extends \Magento\Framework\Model\AbstractModel
             else if ($field['type'] == 'multipleSelectList')
             {
                 $value = explode(',', $value);
+                if ($value == "")
+                {
+                    $value = "none";
+                }
             }
         }
     }
