@@ -39,7 +39,7 @@ class Authenticate extends \Magento\Backend\App\Action
     private function redirectToError($resultRedirect, $error)
     {
         $this->_config->saveConfig('linkstate', 'fail');
-        $this->messageManager->addWarning(__($error));
+        $this->messageManager->addError(__($error));
         return $resultRedirect->setPath('*/*/');
     }
 
@@ -79,7 +79,7 @@ class Authenticate extends \Magento\Backend\App\Action
         if ($result['info']['http_code'] < 200 || $result['info']['http_code'] > 299)
         {
             return $this->redirectToError($resultRedirect,
-                'API : \'GET\' ' . __('on') . ' \'/me\' ' . __('failed. Please check your XKey'));
+                'API ' . __('Call') . ' : \'GET\' ' . __('on') . ' \'/me\' ' . __('failed. Please check your XKey'));
         }
         $result = $result['result'];
 
@@ -88,7 +88,7 @@ class Authenticate extends \Magento\Backend\App\Action
         if ($contactResult['info']['http_code'] < 200 || $contactResult['info']['http_code'] > 299)
         {
             return $this->redirectToError($resultRedirect,
-                'API : \'GET\' ' . __('on') . ' \'/contacts/' . $result['id'] . '\' ' . __('failed. Please check your XKey'));
+                'API ' . __('Call') . ' : \'GET\' ' . __('on') . ' \'/contacts/' . $result['id'] . '\' ' . __('failed. Please check your XKey'));
         }
         $contactResult = $contactResult['result'];
         $this->saveContactInfos($result, $contactResult);
