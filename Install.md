@@ -1,9 +1,9 @@
 #Install
-* [Composer Install](##Composer Install)
-* [Manual Install](##Manual Install)
-* [Git Install](##Git Install)
-* [Setup](##setup)
-* [Maintainance](##Maintainance)
+* [Composer Install](#Composer-Install)
+* [Manual Install](#Manual-Install)
+* [Git Install](#Git-Install)
+* [Setup](#setup)
+* [Maintainance](#Maintainance)
 
 ## Composer Install
 
@@ -13,14 +13,14 @@
 
    ```shell
    composer require magento/magento-composer-installer
-   composer require tym17/mail-performance
+   composer require np6/mail-performance
+   php -f bin/magento setup:upgrade
    ```
 
-2. Run `php -f bin/magento setup:upgrade` from your Magento root folder
+2. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
 
-3. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
-
-4. Navigate in your Magento 2 backend to `Store/Configuration/Advanced/Advanced` and check if you can see MailPerformance
+3. Navigate in your Magento 2 backend to `Store/MailPerformance`
+> if the installation didn't work, you will not see the menu.
 
 ## Git Install
 
@@ -34,7 +34,8 @@
 
 4. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
 
-5. Navigate in your Magento 2 backend to `Store/Configuration/Advanced/Advanced` and check if you can see MailPerformance
+5. Navigate in your Magento 2 backend to `Store/MailPerformance`
+> if the installation didn't work, you will not see the menu.
 
 ## Manual Install
 
@@ -57,7 +58,8 @@
 
 5. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
 
-6. Navigate in your Magento 2 backend to `Store/Configuration/Advanced/Advanced` and check if you can see MailPerformance
+6. Navigate in your Magento 2 backend to `Store/MailPerformance`
+> if the installation didn't work, you will not see the menu.
 
 
 ## Maintainance
