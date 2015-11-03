@@ -1,9 +1,9 @@
 #Installation
-* [Composer Installation](#installation-composer)
-* [Manual Installation](#installation-manuelle)
-* [Git Installation](#installation-git)
-* [Setup](#liaison)
-* [Maintainance](#mainteance)
+* [Installation Composer](#installation-composer)
+* [Installation Manuelle](#installation-manuelle)
+* [Installation Git](#installation-git)
+* [Liaison](#liaison)
+* [Maintenance](#maintenance)
 
 ## Installation Composer
 

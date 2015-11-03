@@ -3,7 +3,7 @@
 * [Manual Install](#manual-install)
 * [Git Install](#git-install)
 * [Setup](#setup)
-* [Maintainance](#Maintainance)
+* [Maintainance](#maintainance)
 
 ## Composer Install
 
