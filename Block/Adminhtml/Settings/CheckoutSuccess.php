@@ -63,7 +63,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
             'select',
             [
                 'label' => __($label),
-                'required' => true,
+                'required' => false,
                 'name' => $name,
                 'options' => $options,
                 'disabled' => false

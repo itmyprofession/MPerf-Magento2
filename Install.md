@@ -7,7 +7,7 @@
 
 ## Composer Install
 
-### RECOMENDED
+### RECOMMENDED
 
 1. Go to the root folder of your Magento 2 installation and type
 
@@ -24,7 +24,7 @@
 
 ## Git Install
 
-### NOT RECOMENDED
+### NOT RECOMMENDED
 
 1. Clone this repository `git clone https://github.com/NP6/MPerf-Magento2`
 
@@ -39,7 +39,7 @@
 
 ## Manual Install
 
-### NOT RECOMENDED
+### NOT RECOMMENDED
 
 0. Download this repository
 

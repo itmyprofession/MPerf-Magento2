@@ -7,7 +7,7 @@
 
 ## Installation Composer
 
-### RECOMANDEE
+### RECOMMANDEE
 
 > Vous trouverez les différentes méthodes d'installation dans le fichier  `Ìnstall_fr.md` . Voici la méthode recommendée.
 
@@ -26,7 +26,7 @@
 
 ## Installation Git
 
-### NOT RECOMANDEE
+### NON RECOMMANDEE
 
 1. Clonez ce repository `git clone https://github.com/NP6/MPerf-Magento2`
 
