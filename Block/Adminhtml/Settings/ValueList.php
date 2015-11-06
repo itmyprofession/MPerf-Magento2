@@ -8,21 +8,26 @@ namespace NP6\MailPerformance\Block\Adminhtml\Settings;
 use Magento\Backend\Block\Template;
 use NP6\MailPerformance\Helper;
 
-class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
+class ValueList extends \Magento\Backend\Block\Widget\Form\Generic
 {
     /**
      * @var string
      */
-    const NAME = 'checkoutSuccess';
+    const NAME = 'ValueList';
     /**
      * @var \NP6\MailPerformance\Model\Config
      */
     protected $_config;
 
     /**
-     * @var \NP6\MailPerformance\Model\System\ApiList
+     * @var \NP6\MailPerformance\Model\System\ConfList
      */
     protected $list;
+
+    /**
+     * @var \NP6\MailPerformance\Model\System\ApiList
+     */
+    protected $apiList;
 
     /**
      * @param \Magento\Backend\Block\Template\Context $context
@@ -35,10 +40,11 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
         \Magento\Framework\ObjectManagerInterface $objectManager,
-        \NP6\MailPerformance\Model\System\ApiList $list,
+        \NP6\MailPerformance\Model\System\ConfList $list,
         array $data = []
     ) {
         $this->list = $list;
+        $this->apiList = $objectManager->create('NP6\MailPerformance\Model\System\ApiList');
         $this->_config = $objectManager->create('NP6\MailPerformance\Model\Config');
         parent::__construct($context, $registry, $formFactory, $data);
     }
@@ -48,22 +54,14 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
      * @param  string
      * @return void
      */
-    protected function addField($fieldset, $name, $label, $isField = true)
+    protected function addField($fieldset, $name, $label, $options, $isRequired = false)
     {
-        if ($isField)
-        {
-            $options = $this->list->getFields($this->_config->getConfig(self::NAME . '/' . $name, 'none'));
-        }
-        else
-        {
-            $options = $this->list->getSegments($this->_config->getConfig(self::NAME . '/' . $name, 'none'));
-        }
         $fieldset->addField(
             $name,
             'select',
             [
                 'label' => __($label),
-                'required' => false,
+                'required' => $isRequired,
                 'name' => $name,
                 'options' => $options,
                 'disabled' => false
@@ -78,36 +76,27 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
     {
         $form = $this->_formFactory->create();
 
-        /* EventBindings Configuration */
-        $fieldset = $form->addFieldset('settings_events', ['legend' => __('Checkout Success')]);
+        $fieldset = $form->addFieldset('settings_valuelist', ['legend' => __('List of values')]);
 
-        $fieldset->addField('notif_cart_edit', 'note', ['label' => __('Called after successful checkout'), 'text' => __('Adds the customer in a segment')]);
+        $fieldset->addField('notif_cart_edit', 'note', ['label' => '', 'text' => __('Create or populate a list of value field')]);
 
-        $this->addField($fieldset, 'segment', 'Segment', false);
+        $this->addField($fieldset, 'populate',
+            'Add new values to the list if value doesn\'t exists ?',
+            $this->list->getYesNo(self::NAME . '/populate'));
 
+        $fieldset->addField('valuelabel', 'note', ['label' => '', 'text' => __('Choose in wich list to generate values')]);
 
-        $fieldset->addField('cart_edit_fields_to_modif', 'note', ['label' => '', 'text' => __('Fields to update on event.')]);
+        $this->addField($fieldset, 'shipping', 'Shipping', $this->apiList->getList(self::NAME . '/shipping'));
 
-        $this->addField($fieldset, 'store_id', 'Store Id');
-        $this->addField($fieldset, 'total_due', 'Total');
-        $this->addField($fieldset, 'is_virtual', 'Only virtual orders');
-        $this->addField($fieldset, 'total_qty_ordered', 'Quantity of ordered items');
-        $this->addField($fieldset, 'customer_is_guest', 'Is Guest');
-        $this->addField($fieldset, 'created_at', 'Creation date');
-        $this->addField($fieldset, 'order_currency_code', 'Currency');
-        $this->addField($fieldset, 'shipping_method', 'Shipping method');
-        $this->addField($fieldset, 'customer_firstname', 'Customer\'s first name');
-        $this->addField($fieldset, 'customer_lastname', 'Customer\'s last name');
-        $this->addField($fieldset, 'customer_email', 'Customer\'s email');
-        $this->addField($fieldset, 'weight', 'Weight');
-        $this->addField($fieldset, 'shipping_address_id', 'Shipping adress Id');
-        $this->addField($fieldset, 'customer_group_id', 'Customer Group Id');
+        $fieldset->addField(
+            $
+        )
 
         /* form finalisation */
         $form->setMethod('post');
             $form->setUseContainer(true);
         $form->setId(self::NAME);
-        $form->setAction($this->getUrl('*/*/Save', ['form' => self::NAME]));
+        $form->setAction($this->getUrl('*/*/Dump', ['form' => self::NAME]));
 
         $this->setForm($form);
     }
@@ -125,7 +114,8 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
                     <div class="admin__field field field-notif_cart_edit ">
                         <label class="label admin__field-label"></label>
                         <div class="admin__field-control control">
-                            <button class="primary" style="vertical-align:middle" type="submit">' . __('Save') . '</button>
+                        <button class="primary" style="vertical-align:middle" type="submit" name="button" value="save">' . __('Save') . '</button>
+                        <button  style="vertical-align:middle" type="submit" name="button" value="generate">' . __('Save') . __(' and Generate lists') . '</button>
                         </div>
                     </div>';
             $html .= '</fieldset></form>';

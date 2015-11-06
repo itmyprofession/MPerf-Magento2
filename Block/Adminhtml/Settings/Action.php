@@ -25,16 +25,16 @@ class Action extends Template
     /**
      * @return string
      */
-    public function getDevUrl()
+    public function getReloadUrl()
     {
-        return $this->_urlBuilder->getUrl('*/Dev');
+        return $this->getUrl('*/Check/Reload', ['path' => 'Settings']);
     }
 
     /**
      * @return string
      */
-    public function getReloadUrl()
+    public function getListGenUrl()
     {
-        return $this->_urlBuilder->getUrl('*/Check/Reload', ['path' => 'Settings']);
+        return $this->getUrl('*/*/ValueList');
     }
 }

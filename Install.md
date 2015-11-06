@@ -1,30 +1,30 @@
 #Install
-* [Composer Install](##Composer Install)
-* [Manual Install](##Manual Install)
-* [Git Install](##Git Install)
-* [Setup](##setup)
-* [Maintainance](##Maintainance)
+* [Composer Install](#composer-install)
+* [Manual Install](#manual-install)
+* [Git Install](#git-install)
+* [Setup](#setup)
+* [Maintainance](#maintainance)
 
 ## Composer Install
 
-### RECOMENDED
+### RECOMMENDED
 
 1. Go to the root folder of your Magento 2 installation and type
 
    ```shell
    composer require magento/magento-composer-installer
-   composer require tym17/mail-performance
+   composer require np6/mail-performance
+   php -f bin/magento setup:upgrade
    ```
 
-2. Run `php -f bin/magento setup:upgrade` from your Magento root folder
+2. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
 
-3. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
-
-4. Navigate in your Magento 2 backend to `Store/Configuration/Advanced/Advanced` and check if you can see MailPerformance
+3. Navigate in your Magento 2 backend to `Store/MailPerformance`
+> if the installation didn't work, you will not see the menu.
 
 ## Git Install
 
-### NOT RECOMENDED
+### NOT RECOMMENDED
 
 1. Clone this repository `git clone https://github.com/NP6/MPerf-Magento2`
 
@@ -34,11 +34,12 @@
 
 4. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
 
-5. Navigate in your Magento 2 backend to `Store/Configuration/Advanced/Advanced` and check if you can see MailPerformance
+5. Navigate in your Magento 2 backend to `Store/MailPerformance`
+> if the installation didn't work, you will not see the menu.
 
 ## Manual Install
 
-### NOT RECOMENDED
+### NOT RECOMMENDED
 
 0. Download this repository
 
@@ -57,8 +58,17 @@
 
 5. Navigate in your Magento 2 backend to `System/Cache Management` and flush Magento Cache
 
-6. Navigate in your Magento 2 backend to `Store/Configuration/Advanced/Advanced` and check if you can see MailPerformance
+6. Navigate in your Magento 2 backend to `Store/MailPerformance`
+> if the installation didn't work, you will not see the menu.
 
+
+## Setup
+
+> Since you will need to link your MailPerformpance Account to your MAgento Installation, here are the steps required to do this
+
+1. Navigate to `Store/Configuration/MailPerformance/Authentification`, enter your XKey, save and flush Magento Cache
+
+2. Navigate to `Store/MailPerformance` and click on the `Àuthenticate` button.
 
 ## Maintainance
 
@@ -72,4 +82,4 @@
 
 ### Using an other method
 
-Delete and follow again the installation of the module.
+Delete and follow again the installation steps of the module.

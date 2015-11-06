@@ -3,20 +3,16 @@
  * Copyright © 2015 NP6. All rights reserved.
  * See LICENSE.txt for license details.
  */
-namespace NP6\MailPerformance\Controller\Adminhtml\Dev;
+namespace NP6\MailPerformance\Controller\Adminhtml\Settings;
 
 use Magento\Backend\App\Action\Context;
 
-class Index extends \Magento\Backend\App\Action
+class ValueList extends \Magento\Backend\App\Action
 {
     /**
-     * @param Action\Context $context
+     * @var \NP6\MailPerformance\Model\Config
      */
-    public function __construct(
-        Context $context
-    ) {
-        parent::__construct($context);
-    }
+    protected $_config;
 
     /**
      * Save action
@@ -25,9 +21,9 @@ class Index extends \Magento\Backend\App\Action
      */
     public function execute()
     {
-        $this->_eventManager->dispatch('mperf_request', ['from' => 'Dev']);
+        $this->_config = $this->_objectManager->create('NP6\MailPerformance\Model\Config');
         $resultPageFactory = $this->_objectManager->create('Magento\Framework\View\Result\PageFactory');
         $resultPage = $resultPageFactory->create();
-        return $resultPage;
+        return $this->_config->checkLinked($resultPage, $this->resultRedirectFactory, 'Settings/valuelist');
     }
 }
