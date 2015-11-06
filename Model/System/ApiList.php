@@ -84,13 +84,4 @@ class ApiList
         }
         return $result;
     }
-
-    /**
-     * @param  string $conf
-     * @return array
-     */
-    public function getList($conf)
-    {
-        return ['generic' => 'Create generic list'];
-    }
 }

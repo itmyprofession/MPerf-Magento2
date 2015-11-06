@@ -52,7 +52,7 @@ class Save extends \Magento\Backend\App\Action
                         {
                             $unicity += 1;
                         }
-                        /* Check if chosen value is 100% valid for API calls */
+                        /* Check if chosen value is valid for API calls */
                         if ($this->checkTypeIntegrity($field, $key))
                         {
                             $type += 1;
