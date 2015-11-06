@@ -1,7 +1,11 @@
 <?php
+/**
+ * Copyright © 2015 NP6. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 namespace NP6\MailPerformance\Model;
 
-class Quote extends \Magento\Framework\Model\AbstractModel
+class Order extends \Magento\Framework\Model\AbstractModel
 {
     /**
      * @var \NP6\MailPerformance\Model\Config
@@ -18,7 +22,7 @@ class Quote extends \Magento\Framework\Model\AbstractModel
      */
     protected function _construct()
     {
-        $this->_init('NP6\MailPerformance\Model\Resource\Quote');
+        $this->_init('NP6\MailPerformance\Model\Resource\Order');
     }
 
     /**
@@ -92,8 +96,30 @@ class Quote extends \Magento\Framework\Model\AbstractModel
             else if ($field['type'] == 'multipleSelectList')
             {
                 $value = explode(',', $value);
+                if ($value[0] == "")
+                {
+                    $value[0] = "none";
+                }
+            }
+            else if ($field['type'] == 'singleSelectList')
+            {
+                if ($value == "")
+                {
+                    $value = "none";
+                }
             }
         }
+    }
+
+    /**
+     * @param  int $adressId
+     * @return array
+     */
+    protected function getGuestName($adressId)
+    {
+        $result = $this->getSqlLine('sales_order_address', 'entity_id', $adressId);
+        $guestName = ['firstname' => $result[0]['firstname'], 'lastname' => $result[0]['lastname']];
+        return $guestName;
     }
 
     /**
@@ -124,6 +150,13 @@ class Quote extends \Magento\Framework\Model\AbstractModel
             'customer_group_id');
 
         $tabToFields = array();
+
+        if ($tabFromSql[0]['customer_is_guest'] == 1)
+        {
+            $guestInfos = $this->getGuestName($tabFromSql[0]['billing_address_id']);
+            $tabFromSql[0]['customer_firstname'] = $guestInfos['firstname'];
+            $tabFromSql[0]['customer_lastname'] = $guestInfos['lastname'];
+        }
 
         /* Retrieve chosen fields IDs */
         foreach ($nameTab as $key)

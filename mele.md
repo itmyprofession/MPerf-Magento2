@@ -1,1 +1,0 @@
-fc -> api mapping auto

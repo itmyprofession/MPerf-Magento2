@@ -1,4 +1,10 @@
 <?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 NP6. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/system_file.xsd">
     <system>
         <tab id="mailperformance" translate="label" sortOrder="200">
@@ -13,17 +19,6 @@
                 <label>Authentification</label>
                 <field id="xkey" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>XKey</label>
-                </field>
-            </group>
-            <group id="cfg" translate="label" type="text" sortOder="20" showInDefault="1" showInWebsite="0" showInStore="0">
-                <label>Feature configuration</label>
-                <field id="auto_add_subscriber" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Automatically add subsriber on subscription</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
-                </field>
-                <field id="cart_abandon" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
-                    <label>Activate cart abondonment</label>
-                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
             </group>
         </section>

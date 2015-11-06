@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2015 NP6. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 namespace NP6\MailPerformance\Block\Adminhtml\Settings;
 
 use Magento\Backend\Block\Template;
@@ -30,12 +34,10 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
-        \Magento\Store\Model\System\Store $systemStore,
         \Magento\Framework\ObjectManagerInterface $objectManager,
         \NP6\MailPerformance\Model\System\ApiList $list,
         array $data = []
     ) {
-        $this->_systemStore = $systemStore;
         $this->list = $list;
         $this->_config = $objectManager->create('NP6\MailPerformance\Model\Config');
         parent::__construct($context, $registry, $formFactory, $data);
@@ -61,7 +63,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
             'select',
             [
                 'label' => __($label),
-                'required' => true,
+                'required' => false,
                 'name' => $name,
                 'options' => $options,
                 'disabled' => false

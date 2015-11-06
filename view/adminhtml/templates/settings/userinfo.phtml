@@ -1,3 +1,9 @@
+<!--
+/**
+ * Copyright © 2015 NP6. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
+ -->
 <div>
     <div class="admin__page-section-title">
         <span class="title"><?php echo __("Account Informations") ?></span>
@@ -36,18 +42,6 @@
                 </td>
             </tr>
         <?php endif; ?>
-            <tr>
-                <th><?php echo __('Auto add subscriber') ?></th>
-                <td>
-                    <?php echo $block->isFeatureEnabled('auto_add_subscriber'); ?>
-                </td>
-            </tr>
-            <tr>
-                <th><?php echo __('Cart Abandon') ?></th>
-                <td>
-                    <?php echo $block->isFeatureEnabled('cart_abandon'); ?>
-                </td>
-            </tr>
         </tbody>
     </table>
     <?php else: ?>

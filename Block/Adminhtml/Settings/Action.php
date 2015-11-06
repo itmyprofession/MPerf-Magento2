@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2015 NP6. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 namespace NP6\MailPerformance\Block\Adminhtml\Settings;
 
 use Magento\Backend\Block\Template;
@@ -16,14 +20,6 @@ class Action extends Template
         array $data = []
     ) {
         parent::__construct($context, $data);
-    }
-
-    /**
-     * @return string
-     */
-    public function getDevUrl()
-    {
-        return $this->_urlBuilder->getUrl('*/Dev');
     }
 
     /**

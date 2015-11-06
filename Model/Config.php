@@ -1,4 +1,8 @@
 <?php
+/**
+ * Copyright © 2015 NP6. All rights reserved.
+ * See LICENSE.txt for license details.
+ */
 namespace NP6\MailPerformance\Model;
 
 class Config extends \Magento\Framework\Model\AbstractModel
