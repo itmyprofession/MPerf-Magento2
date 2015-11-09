@@ -31,6 +31,7 @@ class ApiList
     }
 
     /**
+     * @param string
      * @return array
      */
     public function getSegments($special = 'none')
@@ -54,6 +55,7 @@ class ApiList
     }
 
     /**
+     * @param string
      * @return array
      */
     public function getFields($special = 'none')

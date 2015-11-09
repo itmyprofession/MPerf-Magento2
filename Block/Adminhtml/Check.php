@@ -22,6 +22,7 @@ class Check extends Template
 
     /**
     * @param Context $context
+    * @param \Magento\Framework\ObjectManagerInterface $objectManager
     * @param array $data
     */
     public function __construct(

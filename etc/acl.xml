@@ -13,16 +13,6 @@
                     <resource id="Magento_Backend::stores_other_settings">
                         <resource id="NP6_MailPerformance::mailperformance" title="MailPerformance">
                             <resource id="NP6_MailPerformance::settings" title="Settings" sortOrder="50">
-                                <!--
-                                    Acl rights starting with "Acl" are "abstract" rights, they don't have any menu/pages directly related.
-                                -->
-                                <resource id="NP6_MailPerformance::Acl_AccountInfo" title="Account information" sortOrder="20">
-                                    <resource id="NP6_MailPerformance::Acl_AccName" title="Name" sortOrder="10"/>
-                                    <resource id="NP6_MailPerformance::Acl_AccOwner" title="Owner name" sortOrder="20"/>
-                                    <resource id="NP6_MailPerformance::Acl_AccEmail" title="Email" sortOrder="30"/>
-                                    <resource id="NP6_MailPerformance::Acl_AccExpiration" title="Expiration date" sortOrder="40"/>
-                                    <resource id="NP6_MailPerformance::Acl_AccXKey" title="XKey" sortOrder="50"/>
-                                </resource>
                             </resource>
                         </resource>
                     </resource>

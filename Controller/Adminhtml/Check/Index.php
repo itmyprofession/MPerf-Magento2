@@ -25,7 +25,7 @@ class Index extends \Magento\Backend\App\Action
     }
 
     /**
-     * Save action
+     * If plugin is locked, will return this page
      *
      * @return \Magento\Framework\Controller\ResultInterface
      */

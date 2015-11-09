@@ -22,8 +22,10 @@ class Index extends \Magento\Backend\App\Action
     protected $_config;
 
     /**
-     * @param Context $context
-     * @param PageFactory $resultPageFactory
+     * @param  Context $context
+     * @param  ScopeConfigInterface $scopeConfig
+     * @param  PageFactory $resultPageFactory
+     * @return void
      */
     public function __construct(
         Context $context,

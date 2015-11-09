@@ -7,6 +7,7 @@
 * [Maintenance](#maintenance)
 * [Liens](#liens)
 
+Ce plugin vous permet de créer ou mettre à jour des cibles MailPerformance et de les placer dans un segment MailPerformance à chaque fois qu'un de vos client effectue un achat.
 ## Installation
 > Vous trouverez les différentes méthodes d'installation dans le fichier  `Ìnstall_fr.md` . Voici la méthode recommendée.
 

@@ -24,6 +24,13 @@ class SuccessfulOrder
      */
     protected $_msgManager;
 
+    /**
+     * @param  \Magento\Framework\Message\ManagerInterface $msgManager
+     * @param  \NP6\MailPerformance\Model\Config $cfg
+     * @param  \NP6\MailPerformance\Model\Order $quote
+     * @param  Helper\RestHelper $rest
+     * @return void
+     */
     public function __construct(
         \Magento\Framework\Message\ManagerInterface $msgManager,
         \NP6\MailPerformance\Model\Config $cfg,
@@ -36,6 +43,10 @@ class SuccessfulOrder
         $this->_restHelper = $rest;
     }
 
+    /**
+     * @param  mixed $observer
+     * @return void
+     */
     public function execute($observer)
     {
         $data = $observer->getData();

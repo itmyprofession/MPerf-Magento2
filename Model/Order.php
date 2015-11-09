@@ -56,6 +56,9 @@ class Order extends \Magento\Framework\Model\AbstractModel
 
     /**
      * @param string
+     * @param string
+     * @param string
+     * @param string
      * @return array
      */
     public function getSqlColumn($nameTable, $namePrimaryKey, $valuePrimaryKey, $nameColumn)
@@ -66,6 +69,8 @@ class Order extends \Magento\Framework\Model\AbstractModel
     }
 
     /**
+     * @param string
+     * @param string
      * @param string
      * @return array
      */

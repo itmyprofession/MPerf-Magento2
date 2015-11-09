@@ -65,7 +65,7 @@ class Authenticate extends \Magento\Backend\App\Action
     }
 
     /**
-     * Save action
+     * Authenticate Action
      *
      * @return \Magento\Framework\Controller\ResultInterface
      */

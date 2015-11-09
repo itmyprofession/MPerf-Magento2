@@ -26,6 +26,7 @@ class RestHelper extends App\Helper\AbstractHelper
 
     /**
      * @param  \Magento\Framework\App\Helper\Context $Context
+     * @param  \Magento\Framework\Message\ManagerInterface $msgManager
      * @return void
      */
     public function __construct(
@@ -39,7 +40,7 @@ class RestHelper extends App\Helper\AbstractHelper
 
     /**
      * @param string
-     * @return curl request
+     * @return mixed
      */
     protected function init($url)
     {
@@ -140,6 +141,7 @@ class RestHelper extends App\Helper\AbstractHelper
 
     /**
      * @param  string
+     * @param  int
      * @return string|array
      */
     public function get($endUrl, $notice = 0)
@@ -150,6 +152,7 @@ class RestHelper extends App\Helper\AbstractHelper
     /**
      * @param  string
      * @param  array
+     * @param  int
      * @return string|array
      */
     public function post($endUrl, $data, $notice = 0)
@@ -160,6 +163,7 @@ class RestHelper extends App\Helper\AbstractHelper
     /**
      * @param  string
      * @param  array
+     * @param  int
      * @return string|array
      */
     public function put($endUrl, $data, $notice = 0)

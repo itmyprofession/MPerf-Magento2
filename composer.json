@@ -1,8 +1,8 @@
 {
-  "name": "tym17/mailperformance",
+  "name": "np6/mailperformance",
   "type": "magento2-module",
   "description": "MailPerformance module for Magento 2",
-  "keywords": ["Magento2", "MPerf"],
+  "keywords": ["Magento2", "MailPerformance"],
   "homepage": "https://github.com/NP6/MPerf-Magento2",
   "license": "AFL - Academic Free License (AFL 3.0)",
   "authors": [

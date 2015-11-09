@@ -7,6 +7,7 @@
 * [Maintainance](#maintainance)
 * [Links](#links)
 
+This plugin allows you to create or update MailPerformance targets and place them in a MailPerformance segment each time your customers make a successful order.
 ## Install
 > You will find more installation methods in the `Ìnstall.md` file. however this is the recomended one.
 

@@ -15,6 +15,13 @@ class Order extends \Magento\Framework\Model\Resource\Db\AbstractDb
         $this->_init('quote', NULL);
     }
 
+    /**
+    * @param  string
+    * @param  string
+    * @param  string
+    * @param  string
+    * @return array
+    */
     public function getSqlColumn($nameTable, $namePrimaryKey, $valuePrimaryKey, $nameColumn)
     {
         $pathQuery = $namePrimaryKey . ' = \'' . $valuePrimaryKey . '\'';
@@ -26,6 +33,12 @@ class Order extends \Magento\Framework\Model\Resource\Db\AbstractDb
         return ($result);
     }
 
+    /**
+    * @param  string
+    * @param  string
+    * @param  string
+    * @return array
+    */
     public function getSqlLine($nameTable, $namePrimaryKey, $valuePrimaryKey)
     {
         $pathQuery = $namePrimaryKey . ' = \'' . $valuePrimaryKey . '\'';

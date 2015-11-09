@@ -58,7 +58,8 @@ class Config extends \Magento\Framework\Model\AbstractModel
     }
 
     /**
-     * @param  string $path
+    * @param  string $path
+    * @param  string $default
      * @return string $value
      */
     public function getConfig($path, $default)

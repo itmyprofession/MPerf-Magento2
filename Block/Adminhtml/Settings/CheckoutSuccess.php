@@ -14,6 +14,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
      * @var string
      */
     const NAME = 'checkoutSuccess';
+
     /**
      * @var \NP6\MailPerformance\Model\Config
      */
@@ -28,6 +29,8 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
      * @param \Magento\Backend\Block\Template\Context $context
      * @param \Magento\Framework\Registry $registry
      * @param \Magento\Framework\Data\FormFactory $formFactory
+     * @param \Magento\Framework\ObjectManagerInterface $objectManager
+     * @param \NP6\MailPerformance\Model\System\ApiList $list
      * @param array $data
      */
     public function __construct(
@@ -44,8 +47,10 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
     }
 
     /**
+     * @param  mixed
      * @param  string
      * @param  string
+     * @param  bool
      * @return void
      */
     protected function addField($fieldset, $name, $label, $isField = true)

@@ -95,6 +95,7 @@ class Fields extends \Magento\Framework\Model\AbstractModel
 
     /**
      * @param  string $path
+     * @param  string $default
      * @return string $value
      */
     public function getFields($path, $default)

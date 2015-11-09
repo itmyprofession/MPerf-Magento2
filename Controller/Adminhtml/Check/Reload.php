@@ -15,7 +15,8 @@ class Reload extends \Magento\Backend\App\Action
     protected $_config;
 
     /**
-     * @param Action\Context $context
+     * @param  Action\Context $context
+     * @return void
      */
     public function __construct(
         Context $context
@@ -25,7 +26,7 @@ class Reload extends \Magento\Backend\App\Action
     }
 
     /**
-     * Save action
+     * Reload components
      *
      * @return \Magento\Framework\Controller\ResultInterface
      */
