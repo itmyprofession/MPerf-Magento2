@@ -7,11 +7,11 @@
 * [Maintenance](#maintenance)
 * [Liens](#liens)
 
-Ce plugin vous permet de créer ou mettre à jour des cibles MailPerformance et de les placer dans un segment MailPerformance à chaque fois qu'un de vos client effectue un achat.
+Ce plugin vous permet de créer ou mettre à jour des cibles MailPerformance et de les placer dans un segment MailPerformance à chaque fois qu'un de vos clients effectue un achat.
 ## Installation
-> Vous trouverez les différentes méthodes d'installation dans le fichier  `Ìnstall_fr.md` . Voici la méthode recommendée.
+> Vous trouverez les différentes méthodes d'installation dans le fichier  `Ìnstall_fr.md` . Voici la méthode recommandée.
 
-1. Naviguez jusqu'au dossier racine de votre installation Magento 2 et entrez ces commandes
+1. Naviguez jusqu'au dossier racine de l'installation Magento 2 et entrez ces commandes
 
    ```shell
    composer require magento/magento-composer-installer
@@ -30,7 +30,7 @@ Ce plugin vous permet de créer ou mettre à jour des cibles MailPerformance et 
 
 2. Sauvegardez puis rafraîchissez le cache de Magento.
 
-3. Accédez au menu `Store/MailPerformance` et cliquez sur le boutton  `Activer`.
+3. Accédez au menu `Store/MailPerformance` et cliquez sur le bouton  `Activer`.
 
 ## Maintenance
 

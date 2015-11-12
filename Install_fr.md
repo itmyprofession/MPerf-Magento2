@@ -9,9 +9,9 @@
 
 ### RECOMMANDEE
 
-> Vous trouverez les différentes méthodes d'installation dans le fichier  `Ìnstall_fr.md` . Voici la méthode recommendée.
+> Vous trouverez les différentes méthodes d'installation dans le fichier  `Ìnstall_fr.md` . Voici la méthode recommandée.
 
-1. Naviguez jusqu'au dossier racine de votre installation Magento 2 et entrez ces commandes
+1. Naviguez jusqu'au dossier racine de l'installation Magento 2 et entrez ces commandes
 
    ```shell
    composer require magento/magento-composer-installer
@@ -45,16 +45,16 @@
 
 0. Téléchargez ce repository
 
-1. Naviguez depuis votre dossier racine Magento à `app/code`
+1. Naviguez depuis le dossier racine de Magento à `app/code`
 
-2. Créez deux dossier suivant ce schéma: `NP6/MailPerformance`
+2. Créez deux dossiers suivant ce schéma: `NP6/MailPerformance`
 
    ```shell
    mkdir NP6 && cd NP6
    mkdir MailPerformance
    ```
 
-3. Utilisez votre client FTP favoris pour transférer le contenu du repository dans le dossier `MailPerformance`
+3. Utilisez votre client FTP favori pour transférer le contenu du repository dans le dossier `MailPerformance`
 
 4. Lancez cette commande `php -f bin/magento setup:upgrade` depuis votre dossier racine Magento
 
@@ -69,7 +69,7 @@
 
 2. Sauvegardez puis rafraîchissez le cache de Magento.
 
-3. Accédez au menu `Store/MailPerformance` et cliquez sur le boutton  `Activer`.
+3. Accédez au menu `Store/MailPerformance` et cliquez sur le bouton  `Activer`.
 
 ## Maintenance
 
@@ -83,4 +83,4 @@
 
 ### Utilisant une autre méthode
 
-Suprimez le contenu du fichier `{Magento}/app/code/NP6/MailPerformance` et recommencez le processus d'installation.
+Supprimez le contenu du fichier `{Magento}/app/code/NP6/MailPerformance` et recommencez le processus d'installation.
