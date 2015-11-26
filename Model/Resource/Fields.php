@@ -5,7 +5,7 @@
  */
 namespace NP6\MailPerformance\Model\Resource;
 
-class Fields extends \Magento\Framework\Model\Resource\Db\AbstractDb
+class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
     /**
      * @return void

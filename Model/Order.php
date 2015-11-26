@@ -39,7 +39,7 @@ class Order extends \Magento\Framework\Model\AbstractModel
         \Magento\Framework\Registry $registry,
         \NP6\MailPerformance\Model\Config $cfg,
         \NP6\MailPerformance\Model\Fields $fields,
-        \Magento\Framework\Model\Resource\AbstractResource $resource = null,
+        \Magento\Framework\Model\ResourceModel\AbstractResource $resource = null,
         \Magento\Framework\Data\Collection\AbstractDb $resourceCollection = null,
         array $data = []
     ) {

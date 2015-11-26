@@ -5,7 +5,7 @@
  */
 namespace NP6\MailPerformance\Model\Resource\Order;
 
-class Collection extends \Magento\Framework\Model\Resource\Db\Collection\AbstractCollection
+class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
 {
     /**
      * @return void

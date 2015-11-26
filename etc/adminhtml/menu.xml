@@ -5,7 +5,7 @@
  * See LICENSE.txt for license details.
  */
  -->
-<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../Magento/Backend/etc/menu.xsd">
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
     <menu>
         <add id="NP6_MailPerformance::settings" title="MailPerformance" module="NP6_MailPerformance" sortOrder="100" parent="Magento_Backend::other_settings" action="MailPerformance/Check/index/path/Settings" resource="NP6_MailPerformance::settings"/>
     </menu>

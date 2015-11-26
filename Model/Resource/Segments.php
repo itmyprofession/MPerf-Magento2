@@ -5,7 +5,7 @@
  */
 namespace NP6\MailPerformance\Model\Resource;
 
-class Segments extends \Magento\Framework\Model\Resource\Db\AbstractDb
+class Segments extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
     /**
      * @return void

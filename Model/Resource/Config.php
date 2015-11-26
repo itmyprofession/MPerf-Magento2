@@ -5,7 +5,7 @@
  */
 namespace NP6\MailPerformance\Model\Resource;
 
-class Config extends \Magento\Framework\Model\Resource\Db\AbstractDb
+class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
 {
     /**
      * @return void
