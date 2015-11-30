@@ -47,6 +47,7 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function getAllFields()
     {
+        $this->createTableFields();
         $connection = $this->getConnection();
         $select = $connection->select()
             ->from($this->getMainTable());
@@ -60,6 +61,7 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function getFields($id)
     {
+        $this->createTableFields();
         $pathQuery = 'id = \'' . $id . '\'';
         $connection = $this->getConnection();
         $select = $connection->select()
@@ -99,7 +101,11 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function createTableFields()
     {
-        $table = 'CREATE TABLE IF NOT EXISTS mailperf_fields (id INT(11) PRIMARY KEY NOT NULL COMMENT \'Fields Id\', name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Fields Name\', isUnicity BOOLEAN NOT NULL COMMENT \'Fields Unicity\');';
+        $table = 'CREATE TABLE IF NOT EXISTS mailperf_fields
+            (id INT(11) PRIMARY KEY NOT NULL COMMENT \'Fields Id\',
+            name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Fields Name\',
+            type VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Fields Type\',
+            isUnicity BOOLEAN NOT NULL COMMENT \'Fields Unicity\');';
         $this->getConnection()->query($table);
     }
 }

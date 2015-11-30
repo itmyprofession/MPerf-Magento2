@@ -61,10 +61,9 @@ class Order extends \Magento\Framework\Model\AbstractModel
      * @param string
      * @return array
      */
-    public function getSqlColumn($nameTable, $namePrimaryKey, $valuePrimaryKey, $nameColumn)
+    private function getSqlColumn($nameTable, $namePrimaryKey, $valuePrimaryKey, $nameColumn)
     {
         $Column = $this->_getResource()->getSqlColumn($nameTable, $namePrimaryKey, $valuePrimaryKey, $nameColumn);
-
         return ($Column);
     }
 
@@ -74,10 +73,9 @@ class Order extends \Magento\Framework\Model\AbstractModel
      * @param string
      * @return array
      */
-    public function getSqlLine($nameTable, $namePrimaryKey, $valuePrimaryKey)
+    private function getSqlLine($nameTable, $namePrimaryKey, $valuePrimaryKey)
     {
         $Line = $this->_getResource()->getSqlLine($nameTable, $namePrimaryKey, $valuePrimaryKey);
-
         return ($Line);
     }
 
@@ -131,10 +129,11 @@ class Order extends \Magento\Framework\Model\AbstractModel
      * @param  string
      * @return array
      */
-    public function getDataFromSqlToFields($valuePrimaryKey)
+    public function getOrderData($valuePrimaryKey)
     {
         $tabFromSql = $this->getSqlLine('sales_order', 'entity_id', $valuePrimaryKey);
 
+        /* Data that needs to be harvested */
         $nameTab = array(
             'coupon_code',
             'store_id',
@@ -152,10 +151,13 @@ class Order extends \Magento\Framework\Model\AbstractModel
             'customer_email',
             'weight',
             'shipping_address_id',
-            'customer_group_id');
+            'customer_group_id'
+        );
 
-        $tabToFields = array();
+        /* Future json to be sent */
+        $tabToFields = [];
 
+        /* Get customer name if he is a guest */
         if ($tabFromSql[0]['customer_is_guest'] == 1)
         {
             $guestInfos = $this->getGuestName($tabFromSql[0]['billing_address_id']);
@@ -173,7 +175,7 @@ class Order extends \Magento\Framework\Model\AbstractModel
             }
         }
 
-        /* Put fields in right formart */
+        /* Put fields in right format acording field type */
         $fieldTab = $this->fields->getAllFields();
         foreach ($fieldTab as $field)
         {

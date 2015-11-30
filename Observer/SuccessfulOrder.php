@@ -54,43 +54,21 @@ class SuccessfulOrder implements ObserverInterface
         $data = $observer->getData();
         $orderId = $data['order_ids'][0];
 
-        // FLO
-        $dataJson = $this->_quote->getDataFromSqlToFields($orderId);
-        $endUrl = 'targets?unicity=';
+        $orderData = $this->_quote->getOrderData($orderId);
 
-        foreach ($dataJson as $key => $value)
-        {
-            $result = $this->_quote->getSqlLine('mailperf_fields', 'id', $key);
-            if ($result[0]['isUnicity'] == 1)
-            {
-                $endUrl .= $value;
-            }
-        }
+        /* Now, lets update/create a target */
+        $getResponseApi = $this->_restHelper->put('targets', $orderData);
 
-        /* Check if target exists */
-        $getResponseApi = $this->_restHelper->get($endUrl);
-
-        /* perform a POST or PUT action depending on the previous result */
-        if ($getResponseApi['info']['http_code'] == 200)
+        if (!isset($getResponseApi['result']['id']))
         {
-            $endUrl = 'targets/' . $getResponseApi['result']['id'];
-            $getResponseApi = $this->_restHelper->put($endUrl, $dataJson);
-        }
-        else if ($getResponseApi['info']['http_code'] == 404)
-        {
-            $endUrl = 'targets/';
-            $getResponseApi = $this->_restHelper->post($endUrl, $dataJson);
-        }
-        else
-        {
-            /* An error message should be there, the API call failed. However no need to show it to the customer*/
+            /* Target creation/update failed */
+            return 0;
         }
 
         $idSegement = $this->cfg->getConfig('checkoutSuccess/segment', 'none');
         if ($idSegement != 'none')
         {
             $endUrl = 'targets/' . $getResponseApi['result']['id'] . '/segments/' . $idSegement;
-
             $getResponseApi = $this->_restHelper->post($endUrl, NULL);
         }
     }

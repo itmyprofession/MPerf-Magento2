@@ -48,6 +48,7 @@ class Segments extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function getAllSegments()
     {
+        $this->createTableSegments();
         $connection =$this->getConnection();
         $select = $connection->select()
             ->from($this->getMainTable());
@@ -61,6 +62,7 @@ class Segments extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function getSegments($id)
     {
+        $this->createTableSegments();
         $pathQuery = 'id = \'' . $id . '\'';
         $connection =$this->getConnection();
         $select = $connection->select()
@@ -77,6 +79,7 @@ class Segments extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function saveSegments($id, $name)
     {
+        $this->createTableSegments();
         $data = ['id' => $id, 'name' => $name];
         if (!empty($this->getSegments($id)))
         {
@@ -101,7 +104,9 @@ class Segments extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function createTableSegments()
     {
-        $table = 'CREATE TABLE IF NOT EXISTS mailperf_segments (id INT(11) PRIMARY KEY NOT NULL COMMENT \'Segments Id\', name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Segments Name\');';
+        $table = 'CREATE TABLE IF NOT EXISTS mailperf_segments
+            (id INT(11) PRIMARY KEY NOT NULL COMMENT \'Segments Id\',
+            name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Segments Name\');';
         $this->getConnection()->query($table);
     }
 }
