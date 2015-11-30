@@ -23,12 +23,8 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     {
         $nameQuery = 'id = \'' . $data['id'] . '\'';
 
-        /*
-        **   Connect to Db then update Fields
-        **   ->getConnection() in Magento2/dev branch
-        */
-        $writeAdapter = $this->_getWriteAdapter();
-        $writeAdapter->update($this->getMainTable(), $data, $nameQuery);
+        $connection = $this->getConnection();
+        $connection->update($this->getMainTable(), $data, $nameQuery);
     }
 
     /**
@@ -37,15 +33,13 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     protected function _createFields($data)
     {
-        $readAdapter = $this->_getReadAdapter();
-        $select = $readAdapter->select()
+        $connection = $this->getConnection();
+        $select = $connection->select()
             ->from($this->getMainTable(),
             new \Zend_Db_Expr("MAX(id)"));
 
-        $result = $readAdapter->fetchAll($select);
-
-        $writeAdapter = $this->_getWriteAdapter();
-        $writeAdapter->insertForce($this->getMainTable(), $data);
+        $result = $connection->fetchAll($select);
+        $connection->insertForce($this->getMainTable(), $data);
     }
 
     /**
@@ -53,10 +47,10 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function getAllFields()
     {
-        $readAdapter = $this->_getReadAdapter();
-        $select = $readAdapter->select()
+        $connection = $this->getConnection();
+        $select = $connection->select()
             ->from($this->getMainTable());
-        $result = $readAdapter->fetchAll($select);
+        $result = $connection->fetchAll($select);
         return ($result);
     }
 
@@ -67,11 +61,11 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     public function getFields($id)
     {
         $pathQuery = 'id = \'' . $id . '\'';
-        $readAdapter = $this->_getReadAdapter();
-        $select = $readAdapter->select()
+        $connection = $this->getConnection();
+        $select = $connection->select()
             ->from($this->getMainTable())
             ->where($pathQuery);
-        $result = $readAdapter->fetchAll($select);
+        $result = $connection->fetchAll($select);
         return ($result);
     }
 
@@ -97,7 +91,7 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function flushFields()
     {
-        $this->_getReadAdapter()->query('TRUNCATE TABLE ' . $this->getMainTable());
+        $this->getConnection()->query('TRUNCATE TABLE ' . $this->getMainTable());
     }
 
     /**
@@ -106,6 +100,6 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     public function createTableFields()
     {
         $table = 'CREATE TABLE IF NOT EXISTS mailperf_fields (id INT(11) PRIMARY KEY NOT NULL COMMENT \'Fields Id\', name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Fields Name\', isUnicity BOOLEAN NOT NULL COMMENT \'Fields Unicity\');';
-        $this->_getReadAdapter()->query($table);
+        $this->getConnection()->query($table);
     }
 }

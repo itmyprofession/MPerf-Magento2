@@ -43,6 +43,6 @@ class Reload extends \Magento\Backend\App\Action
             $this->messageManager->addSuccess(__('Succesfully reloaded your MailPerformance components'));
         }
         $resultRedirect = $this->resultRedirectFactory->create();
-        return $resultRedirect->setPath('*/Check/Index', [ 'path' => $this->getRequest()->getParam('path')]);
+        return $this->_redirect('*/Check/Index', [ 'path' => $this->getRequest()->getParam('path')]);
     }
 }

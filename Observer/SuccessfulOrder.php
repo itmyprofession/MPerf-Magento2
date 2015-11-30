@@ -3,11 +3,13 @@
  * Copyright © 2015 NP6. All rights reserved.
  * See LICENSE.txt for license details.
  */
-namespace NP6\MailPerformance\Model\Observer;
+namespace NP6\MailPerformance\Observer;
 
 use NP6\MailPerformance\Helper;
+use Magento\Framework\Event\Observer as EventObserver;
+use Magento\Framework\Event\ObserverInterface;
 
-class SuccessfulOrder
+class SuccessfulOrder implements ObserverInterface
 {
     /**
      * @var \NP6\MailPerformance\Helper\RestHelper
@@ -44,17 +46,16 @@ class SuccessfulOrder
     }
 
     /**
-     * @param  mixed $observer
+     * @param  EventObserver $observer
      * @return void
      */
-    public function execute($observer)
+    public function execute(EventObserver $observer)
     {
         $data = $observer->getData();
         $orderId = $data['order_ids'][0];
 
         // FLO
         $dataJson = $this->_quote->getDataFromSqlToFields($orderId);
-
         $endUrl = 'targets?unicity=';
 
         foreach ($dataJson as $key => $value)
@@ -82,7 +83,7 @@ class SuccessfulOrder
         }
         else
         {
-            /* An error message should be there, the API call failed. */
+            /* An error message should be there, the API call failed. However no need to show it to the customer*/
         }
 
         $idSegement = $this->cfg->getConfig('checkoutSuccess/segment', 'none');

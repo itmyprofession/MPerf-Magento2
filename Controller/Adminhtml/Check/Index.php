@@ -35,7 +35,7 @@ class Index extends \Magento\Backend\App\Action
         if ($this->_config->isReady())
         {
             $resultRedirect = $this->resultRedirectFactory->create();
-            return $resultRedirect->setPath('*/' . $this->getRequest()->getParam('path'));
+            return $this->_redirect('*/' . $this->getRequest()->getParam('path'));
         }
         else
         {

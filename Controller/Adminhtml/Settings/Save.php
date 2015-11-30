@@ -107,6 +107,6 @@ class Save extends \Magento\Backend\App\Action
         $this->checkAndSave();
         /* Since we're only sending a message to tell if save attempt went fine or not */
         $resultRedirect = $this->resultRedirectFactory->create();
-        return $resultRedirect->setPath('*/Settings');
+        return $this->_redirect('*/Settings');
     }
 }

@@ -12,7 +12,7 @@ class RestHelper extends App\Helper\AbstractHelper
     const REST_GET = 'GET';
     const REST_PUT = 'PUT';
     const REST_POST = 'POST';
-    const MPERF_URL = 'http://v8.mailperformance.com/';
+    const MPERF_URL = 'http://backoffice.mailperformance.dev/';
 
     /**
      * @var string

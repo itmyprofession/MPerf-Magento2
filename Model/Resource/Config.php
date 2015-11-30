@@ -23,12 +23,8 @@ class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     {
         $pathQuery = 'path = \'' . $data['path'] . '\'';
 
-        /*
-        **   Connect to Db then update config
-        **   ->getConnection() in Magento2/dev branch
-        */
-        $writeAdapter = $this->_getWriteAdapter();
-        $writeAdapter->update($this->getMainTable(), $data, $pathQuery);
+        $connection = $this->getConnection();
+        $connection->update($this->getMainTable(), $data, $pathQuery);
     }
 
     /**
@@ -37,14 +33,13 @@ class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     protected function _createConfig($data)
     {
-        $readAdapter =$this->_getReadAdapter();
-        $select = $readAdapter->select()
+        $connection = $this->getConnection();
+        $select = $connection->select()
             ->from($this->getMainTable(),
             new \Zend_Db_Expr("MAX(config_id)"));
-        $result = $readAdapter->fetchAll($select);
+        $result = $connection->fetchAll($select);
         $data['config_id'] = $result[0]['MAX(config_id)'] + 1;
-        $writeAdapter = $this->_getWriteAdapter();
-        $writeAdapter->insertForce($this->getMainTable(), $data);
+        $connection->insertForce($this->getMainTable(), $data);
     }
 
     /**
@@ -54,11 +49,11 @@ class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     public function getConfig($path)
     {
         $pathQuery = 'path = \'' . $path . '\'';
-        $readAdapter =$this->_getReadAdapter();
-        $select = $readAdapter->select()
+        $connection =$this->getConnection();
+        $select = $connection->select()
             ->from($this->getMainTable())
             ->where($pathQuery);
-        $result = $readAdapter->fetchAll($select);
+        $result = $connection->fetchAll($select);
         return $result;
     }
 

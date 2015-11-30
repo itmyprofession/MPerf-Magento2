@@ -40,7 +40,7 @@ class Authenticate extends \Magento\Backend\App\Action
     {
         $this->_config->saveConfig('linkstate', 'fail');
         $this->messageManager->addError(__($error));
-        return $resultRedirect->setPath('*/*/');
+        return $this->_redirect('*/*/');
     }
 
     /**
@@ -98,7 +98,7 @@ class Authenticate extends \Magento\Backend\App\Action
         {
             $this->messageManager->addSuccess(__('You succesfully linked your XKey to Magento2'));
             /* Since we just auth, we now need to generate the mailperformance pre-stored bindings */
-            return $resultRedirect->setPath('*/Check/Reload', ['path' => $this->getRequest()->getParam('path')]);
+            return $this->_redirect('*/Check/Reload', ['path' => $this->getRequest()->getParam('path')]);
         }
         return $this->redirectToError($resultRedirect, __('Unknown error, please try again later'));
     }
