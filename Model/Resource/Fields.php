@@ -101,7 +101,7 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function createTableFields()
     {
-        $table = 'CREATE TABLE IF NOT EXISTS mailperf_fields
+        $table = 'CREATE TABLE IF NOT EXISTS ' . $this->getMainTable() . '
             (id INT(11) PRIMARY KEY NOT NULL COMMENT \'Fields Id\',
             name VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Fields Name\',
             type VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Fields Type\',

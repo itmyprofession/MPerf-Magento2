@@ -83,7 +83,7 @@ class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function createTableFields()
     {
-        $table = 'CREATE TABLE IF NOT EXISTS mailperf_config
+        $table = 'CREATE TABLE IF NOT EXISTS ' . $this->getMainTable() . '
             (config_id INT(11) PRIMARY KEY NOT NULL COMMENT \'Config Id\',
             path VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Config path\',
             value VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT \'Config value\');';

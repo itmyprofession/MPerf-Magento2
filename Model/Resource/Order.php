@@ -27,7 +27,7 @@ class Order extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         $pathQuery = $namePrimaryKey . ' = \'' . $valuePrimaryKey . '\'';
         $connection = $this->getConnection();
         $select = $connection->select($nameColumn)
-            ->from($nameTable)
+            ->from($this->getTable($nameTable))
             ->where($pathQuery);
         $result = $connection->fetchAll($select);
         return ($result);
@@ -44,7 +44,7 @@ class Order extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         $pathQuery = $namePrimaryKey . ' = \'' . $valuePrimaryKey . '\'';
         $connection = $this->getConnection();
         $select = $connection->select()
-            ->from($nameTable)
+            ->from($this->getTable($nameTable))
             ->where($pathQuery);
         $result = $connection->fetchAll($select);
         return ($result);
