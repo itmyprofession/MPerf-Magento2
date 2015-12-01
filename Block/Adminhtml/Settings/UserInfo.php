@@ -80,8 +80,7 @@ class UserInfo extends Template
      */
     public function isFeatureEnabled($feature)
     {
-        if ($this->_config->getStoreConfig('cfg/' . $feature) == 0)
-        {
+        if ($this->_config->getStoreConfig('cfg/' . $feature) == 0) {
             return __('Disabled');
         }
         return __('Enabled');

@@ -68,17 +68,15 @@ class Config extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
         $this->createTableFields();
         $data = ['path' => $path, 'value' => $value];
         /* if config already exists, update it or create it */
-        if (!empty($this->getConfig($path)))
-        {
+        if (!empty($this->getConfig($path))) {
             $this->_updateConfig($data);
-        }
-        else
-        {
+        } else {
             $this->_createConfig($data);
         }
     }
 
     /**
+    * if by anyway the table has been deleted or flushed
      * @return void
      */
     public function createTableFields()

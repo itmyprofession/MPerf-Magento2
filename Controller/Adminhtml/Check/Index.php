@@ -32,13 +32,10 @@ class Index extends \Magento\Backend\App\Action
     public function execute()
     {
         $this->_eventManager->dispatch('mperf_request', ['from' => 'Check']);
-        if ($this->_config->isReady())
-        {
+        if ($this->_config->isReady()) {
             $resultRedirect = $this->resultRedirectFactory->create();
             return $this->_redirect('*/' . $this->getRequest()->getParam('path'));
-        }
-        else
-        {
+        } else {
             $this->messageManager->addWarning(__('Your MailPerformance XKey hasn\'t been validated yet or is not valid anymore'));
             $resultPageFactory = $this->_objectManager->create('Magento\Framework\View\Result\PageFactory');
             $resultPage = $resultPageFactory->create();

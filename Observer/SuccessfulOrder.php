@@ -59,15 +59,13 @@ class SuccessfulOrder implements ObserverInterface
         /* Now, lets update/create a target */
         $getResponseApi = $this->_restHelper->put('targets', $orderData);
 
-        if (!isset($getResponseApi['result']['id']))
-        {
+        if (!isset($getResponseApi['result']['id'])) {
             /* Target creation/update failed */
             return 0;
         }
 
         $idSegement = $this->cfg->getConfig('checkoutSuccess/segment', 'none');
-        if ($idSegement != 'none')
-        {
+        if ($idSegement != 'none') {
             $endUrl = 'targets/' . $getResponseApi['result']['id'] . '/segments/' . $idSegement;
             $getResponseApi = $this->_restHelper->post($endUrl, NULL);
         }

@@ -55,12 +55,9 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
      */
     protected function addField($fieldset, $name, $label, $isField = true)
     {
-        if ($isField)
-        {
+        if ($isField) {
             $options = $this->list->getFields($this->_config->getConfig(self::NAME . '/' . $name, 'none'));
-        }
-        else
-        {
+        } else {
             $options = $this->list->getSegments($this->_config->getConfig(self::NAME . '/' . $name, 'none'));
         }
         $fieldset->addField(
@@ -122,8 +119,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
      */
     public function getFormHtml()
     {
-        if (is_object($this->getForm()))
-        {
+        if (is_object($this->getForm())) {
             $html = $this->getForm()->getHtml();
             $html = substr($html, 0, -24);
             $html .= '
@@ -134,6 +130,7 @@ class CheckoutSuccess extends \Magento\Backend\Block\Widget\Form\Generic
                         </div>
                     </div>';
             $html .= '</fieldset></form>';
+            /* Need to hightlight Unicity field */
             $html .= '
                 <style>
                     .redText{ color:red!Important; }

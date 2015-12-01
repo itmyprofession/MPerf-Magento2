@@ -64,13 +64,10 @@ class Config extends \Magento\Framework\Model\AbstractModel
      */
     public function getConfig($path, $default)
     {
-        if ($this->isConfig($path))
-        {
+        if ($this->isConfig($path)) {
             $result = $this->_getResource()->getConfig($path);
             return $result[0]['value'];
-        }
-        else
-        {
+        } else {
             return $default;
         }
     }
@@ -91,8 +88,7 @@ class Config extends \Magento\Framework\Model\AbstractModel
      */
     public function saveConfig($path, $value)
     {
-        if ($this->getConfig($path, 'NoConfigDefined') != $value)
-        {
+        if ($this->getConfig($path, 'NoConfigDefined') != $value) {
             $this->_getResource()->saveConfig($path, $value);
         }
     }
@@ -110,12 +106,9 @@ class Config extends \Magento\Framework\Model\AbstractModel
      */
     public function isReady()
     {
-        if ($this->getReadyState() == 'linked')
-        {
+        if ($this->getReadyState() == 'linked') {
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
@@ -159,8 +152,7 @@ class Config extends \Magento\Framework\Model\AbstractModel
      */
      public function checkLinked($result, $redirectFactory, $calledUrl)
      {
-        if (!$this->isReady())
-        {
+        if (!$this->isReady()) {
             /* Since XKey is not linked, we redirect to the Auth Page */
             $result = $redirectFactory->create();
             $result = $result->setPath('*/Check', ['path' => $calledUrl]);

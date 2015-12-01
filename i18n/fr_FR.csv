@@ -1,4 +1,5 @@
 "Checkout Success", "Achat réussi"
+"Actions", "Actions"
 "Called after successful checkout", "Appelé après achat réussi"
 "Adds the customer in a segment", "Ajoute le client au segment"
 "Fields to update on event.", "Champs à mettre à jour"

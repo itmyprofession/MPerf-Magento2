@@ -66,18 +66,15 @@ class Segments extends \Magento\Framework\Model\AbstractModel
         $result = $this->_rest->get('segments/');
 
         /* Check if everything went fine or lock down the module*/
-        if ($result['info']['http_code'] < 200 || $result['info']['http_code'] > 299)
-        {
+        if ($result['info']['http_code'] < 200 || $result['info']['http_code'] > 299) {
             $this->cfg->saveConfig('linkstate', 'unvalid');
             return false;
         }
 
         /* Populate DB */
         $tab = $result['result'];
-        foreach ($tab as $elem)
-        {
-            if ($elem['type'] == 'static')
-            {
+        foreach ($tab as $elem) {
+            if ($elem['type'] == 'static') {
                 $this->saveSegments($elem['id'], $elem['name']);
             }
         }
@@ -98,13 +95,10 @@ class Segments extends \Magento\Framework\Model\AbstractModel
      */
     public function getSegments($path, $default)
     {
-        if ($this->isSegments($path))
-        {
+        if ($this->isSegments($path)) {
             $result = $this->_getResource()->getSegments($path);
             return $result[0];
-        }
-        else
-        {
+        } else {
             return $default;
         }
     }

@@ -81,12 +81,9 @@ class Segments extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     {
         $this->createTableSegments();
         $data = ['id' => $id, 'name' => $name];
-        if (!empty($this->getSegments($id)))
-        {
+        if (!empty($this->getSegments($id))) {
             $this->_updateSegments($data);
-        }
-        else
-        {
+        } else {
             $this->_createSegments($data);
         }
     }
@@ -100,6 +97,7 @@ class Segments extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
 
     /**
+    * if by anyway the table has been deleted or flushed
      * @return void
      */
     public function createTableSegments()

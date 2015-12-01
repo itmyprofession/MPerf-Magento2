@@ -91,23 +91,16 @@ class Order extends \Magento\Framework\Model\AbstractModel
         if ($field['id'] == $key)
         {
             /* if field is a special type, make it compatible with the API call */
-            if ($field['type'] == 'numeric')
-            {
+            if ($field['type'] == 'numeric') {
                 /* Tricky cast working with floats and ints */
                 $value = 0 + $value;
-            }
-            else if ($field['type'] == 'multipleSelectList')
-            {
+            } else if ($field['type'] == 'multipleSelectList') {
                 $value = explode(',', $value);
-                if ($value[0] == "")
-                {
+                if ($value[0] == "") {
                     $value[0] = "none";
                 }
-            }
-            else if ($field['type'] == 'singleSelectList')
-            {
-                if ($value == "")
-                {
+            } else if ($field['type'] == 'singleSelectList') {
+                if ($value == "") {
                     $value = "none";
                 }
             }
@@ -158,29 +151,24 @@ class Order extends \Magento\Framework\Model\AbstractModel
         $tabToFields = [];
 
         /* Get customer name if he is a guest */
-        if ($tabFromSql[0]['customer_is_guest'] == 1)
-        {
+        if ($tabFromSql[0]['customer_is_guest'] == 1) {
             $guestInfos = $this->getGuestName($tabFromSql[0]['billing_address_id']);
             $tabFromSql[0]['customer_firstname'] = $guestInfos['firstname'];
             $tabFromSql[0]['customer_lastname'] = $guestInfos['lastname'];
         }
 
         /* Retrieve chosen fields IDs */
-        foreach ($nameTab as $key)
-        {
+        foreach ($nameTab as $key) {
             $fieldId = $this->cfg->getConfig('checkoutSuccess/' . $key, 'none');
-            if ($fieldId != 'none')
-            {
+            if ($fieldId != 'none') {
                 $tabToFields[$fieldId] = $tabFromSql[0][$key];
             }
         }
 
         /* Put fields in right format acording field type */
         $fieldTab = $this->fields->getAllFields();
-        foreach ($fieldTab as $field)
-        {
-            foreach ($tabToFields as $key => &$value)
-            {
+        foreach ($fieldTab as $field) {
+            foreach ($tabToFields as $key => &$value) {
                 $this->reformat($field, $key, $value);
             }
         }

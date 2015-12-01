@@ -58,7 +58,7 @@ class RestHelper extends App\Helper\AbstractHelper
         /* == Legacy login parameters == */
         /* You might occasionally see "status :" "failure" but don't worry,
         ** if you check the Json output you'll see it is because you are
-        ** trying to login multiples times */
+        ** trying to login multiples times while you are already logged */
         $post_content = array(
             'method' => array(
                 'name' => 'authenticateFromAutoLoginKey',
@@ -82,7 +82,7 @@ class RestHelper extends App\Helper\AbstractHelper
      * @param  bool $notice
      * @return array
      */
-    protected function act($kind, $url, $dataJson = [], $notice = 0)
+    protected function act($kind, $url, $dataJson = [])
     {
         /* Prepairing request and it's header */
         $request = $this->init($url);
@@ -92,14 +92,12 @@ class RestHelper extends App\Helper\AbstractHelper
         curl_setopt($request, CURLOPT_CUSTOMREQUEST, $kind);
 
         /* if POST/PUT request, add Json parameters */
-        if (!empty($dataJson))
-        {
+        if (!empty($dataJson)) {
             $data = json_encode($dataJson);
             curl_setopt($request, CURLOPT_POSTFIELDS, $data);
             $headerArray[] = 'Content-Length: ' . strlen($data);
         }
-        if (empty($dataJson) && ($kind == self::REST_POST || $kind == self::REST_PUT))
-        {
+        if (empty($dataJson) && ($kind == self::REST_POST || $kind == self::REST_PUT)) {
             $headerArray[] = 'Content-Length: 0';
         }
 
@@ -115,26 +113,7 @@ class RestHelper extends App\Helper\AbstractHelper
         $resultArray = array('result' => $result, 'info' => $info);
 
         curl_close($request);
-        /* Notice user about the error and return json array of result or null if error */
-        if ($notice > 0)
-        {
-            if ($resultArray['info']['http_code'] != 200 && $resultArray['info']['http_code'] != 204 && $notice > 0)
-            {
-                $text = '<p>Error ' . $tab['info']['http_code'] . ' : ""' . $kind . '"" on ' . $endUrl . ' failed.</p>';
-                if ($notive == 2)
-                {
-                    /* shows up a fancy message on the [next] loading[/ed] page */
-                    $this->messageManager->addWarning($text);
-                }
-                else if ($notice == 1)
-                {
-                    /* Directly echo the error on the page */
-                    echo $text;
-                }
-                return (null);
-            }
-            return json_encode($resultArray['result']);
-        }
+
         /* Returns an array with all the details, including error results */
         return $resultArray;
     }
@@ -144,9 +123,9 @@ class RestHelper extends App\Helper\AbstractHelper
      * @param  int
      * @return string|array
      */
-    public function get($endUrl, $notice = 0)
+    public function get($endUrl)
     {
-      return $this->act(self::REST_GET, self::MPERF_URL . $endUrl, [ ], $notice);
+      return $this->act(self::REST_GET, self::MPERF_URL . $endUrl, [ ]);
     }
 
     /**
@@ -155,9 +134,9 @@ class RestHelper extends App\Helper\AbstractHelper
      * @param  int
      * @return string|array
      */
-    public function post($endUrl, $data, $notice = 0)
+    public function post($endUrl, $data)
     {
-        return $this->act(self::REST_POST, self::MPERF_URL . $endUrl, $data, $notice);
+        return $this->act(self::REST_POST, self::MPERF_URL . $endUrl, $data);
     }
 
     /**
@@ -166,9 +145,9 @@ class RestHelper extends App\Helper\AbstractHelper
      * @param  int
      * @return string|array
      */
-    public function put($endUrl, $data, $notice = 0)
+    public function put($endUrl, $data)
     {
-        return $this->act(self::REST_PUT, self::MPERF_URL . $endUrl, $data, $notice);
+        return $this->act(self::REST_PUT, self::MPERF_URL . $endUrl, $data);
     }
 
     /**
@@ -177,7 +156,7 @@ class RestHelper extends App\Helper\AbstractHelper
      */
     public function convertFromJson($json)
     {
-        /* clean the json string to make a valid json */
+        /* clean the json string to make a valid json out of Legacy API call */
         $json = preg_replace('/new\ Date\(([0-9]+)\)/', '$1', $json);
         return json_decode($json, true);
     }

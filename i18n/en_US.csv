@@ -1,4 +1,5 @@
 "Checkout Success", "Checkout Success"
+"Actions", "Actions"
 "Called after successful checkout", "Called after successful checkout"
 "Adds the customer in a segment", "Adds the customer in a segment"
 "Fields to update on event.", "Fields to update on event."

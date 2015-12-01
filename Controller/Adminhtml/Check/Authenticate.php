@@ -58,8 +58,7 @@ class Authenticate extends \Magento\Backend\App\Action
         $this->_config->saveConfig('accountName', $data['customer']['name']);
         $this->_config->saveConfig('lastAuth', date('d.n.Y'));
         $this->_config->saveConfig('accountEmail', $details['email']);
-        if ($details['expire']['isdefined'])
-        {
+        if ($details['expire']['isdefined']) {
             $this->_config->saveConfig('accountExpire', $details['expire']['value']);
         }
     }
@@ -76,8 +75,7 @@ class Authenticate extends \Magento\Backend\App\Action
 
         /* Get my own infos */
         $result = $this->_restHelper->get('me');
-        if ($result['info']['http_code'] < 200 || $result['info']['http_code'] > 299)
-        {
+        if ($result['info']['http_code'] < 200 || $result['info']['http_code'] > 299) {
             return $this->redirectToError($resultRedirect,
                 'API ' . __('Call') . ' : \'GET\' ' . __('on') . ' \'/me\' ' . __('failed. Please check your XKey'));
         }
@@ -85,8 +83,7 @@ class Authenticate extends \Magento\Backend\App\Action
 
         /* Get more infos about me */
         $contactResult = $this->_restHelper->get('contacts/' . $result['id']);
-        if ($contactResult['info']['http_code'] < 200 || $contactResult['info']['http_code'] > 299)
-        {
+        if ($contactResult['info']['http_code'] < 200 || $contactResult['info']['http_code'] > 299) {
             return $this->redirectToError($resultRedirect,
                 'API ' . __('Call') . ' : \'GET\' ' . __('on') . ' \'/contacts/' . $result['id'] . '\' ' . __('failed. Please check your XKey'));
         }
@@ -94,8 +91,7 @@ class Authenticate extends \Magento\Backend\App\Action
         $this->saveContactInfos($result, $contactResult);
 
         /* Final step: Redirect to param page */
-        if ($this->_config->isReady())
-        {
+        if ($this->_config->isReady()) {
             $this->messageManager->addSuccess(__('You succesfully linked your XKey to Magento2'));
             /* Since we just auth, we now need to generate the mailperformance pre-stored bindings */
             return $this->_redirect('*/Check/Reload', ['path' => $this->getRequest()->getParam('path')]);

@@ -78,12 +78,9 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
      */
     public function saveFields($data)
     {
-        if (!empty($this->getFields($data['id'])))
-        {
+        if (!empty($this->getFields($data['id']))) {
             $this->_updateFields($data);
-        }
-        else
-        {
+        } else {
             $this->_createFields($data);
         }
     }
@@ -97,6 +94,7 @@ class Fields extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     }
 
     /**
+    * if by anyway the table has been deleted or flushed
      * @return void
      */
     public function createTableFields()

@@ -34,12 +34,10 @@ class Reload extends \Magento\Backend\App\Action
     {
         $fields = $this->_objectManager->create('\NP6\MailPerformance\Model\Fields');
         $segments = $this->_objectManager->create('\NP6\MailPerformance\Model\Segments');
-        if (!$fields->populateFields() || !$segments->populateSegments())
-        {
+        if (!$fields->populateFields() || !$segments->populateSegments()) {
             $this->messageManager->addWarning(__('Failed reloading your MailPerformance components'));
         }
-        else
-        {
+        else {
             $this->messageManager->addSuccess(__('Succesfully reloaded your MailPerformance components'));
         }
         $resultRedirect = $this->resultRedirectFactory->create();

@@ -44,10 +44,8 @@ class ApiList
         $specialKey = array_search($special, array_column($segTab, 'id'));
         /* We put the item as first in the list */
         $result[$special] = $segTab[$specialKey]['name'];
-        foreach ($segTab as $segment)
-        {
-            if ($segment['id'] != $special)
-            {
+        foreach ($segTab as $segment) {
+            if ($segment['id'] != $special) {
                 $result[$segment['id']] = $segment['name'];
             }
         }
@@ -68,19 +66,14 @@ class ApiList
         $specialKey = array_search($special, array_column($fieldTab, 'id'));
         /* We put the item as first in the list */
         $result[$special] = $fieldTab[$specialKey]['name'];
-        foreach ($fieldTab as $field)
-        {
-            if ($field['id'] != $special)
-            {
+        foreach ($fieldTab as $field) {
+            if ($field['id'] != $special) {
                 $txt = $field['name'];
-                if ($field['isUnicity'] == 1)
-                {
+                if ($field['isUnicity'] == 1) {
                     $txt = '<isUnicity>' . $txt . ' (Unicity)';
                 }
                 $result[$field['id']] = $txt;
-            }
-            else if ($field['isUnicity'] == 1)
-            {
+            } else if ($field['isUnicity'] == 1) {
                 $result[$field['id']] = '<isUnicity>' . $result[$field['id']] . ' (Unicity)';
             }
         }

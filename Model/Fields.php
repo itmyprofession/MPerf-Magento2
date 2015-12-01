@@ -66,16 +66,14 @@ class Fields extends \Magento\Framework\Model\AbstractModel
         $result = $this->_rest->get('fields/');
 
         /* Check if everything went fine or lock down the module*/
-        if ($result['info']['http_code'] < 200 || $result['info']['http_code'] > 299)
-        {
+        if ($result['info']['http_code'] < 200 || $result['info']['http_code'] > 299) {
             $this->cfg->saveConfig('linkstate', 'unvalid');
             return false;
         }
 
         /* Populate DB */
         $tab = $result['result'];
-        foreach ($tab as $elem)
-        {
+        foreach ($tab as $elem) {
             $this->saveFields([
                 'id' => $elem['id'],
                 'name' => $elem['name'],
@@ -100,13 +98,10 @@ class Fields extends \Magento\Framework\Model\AbstractModel
      */
     public function getFields($path, $default)
     {
-        if ($this->isFields($path))
-        {
+        if ($this->isFields($path)) {
             $result = $this->_getResource()->getFields($path);
             return $result[0];
-        }
-        else
-        {
+        } else {
             return $default;
         }
     }
