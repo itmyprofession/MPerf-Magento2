@@ -67,7 +67,7 @@ class SuccessfulOrder implements ObserverInterface
         $idSegement = $this->cfg->getConfig('checkoutSuccess/segment', 'none');
         if ($idSegement != 'none') {
             $endUrl = 'targets/' . $getResponseApi['result']['id'] . '/segments/' . $idSegement;
-            $getResponseApi = $this->_restHelper->post($endUrl, NULL);
+            $getResponseApi = $this->_restHelper->post($endUrl, null);
         }
     }
 }
