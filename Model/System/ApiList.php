@@ -70,11 +70,11 @@ class ApiList
             if ($field['id'] != $special) {
                 $txt = $field['name'];
                 if ($field['isUnicity'] == 1) {
-                    $txt = '<isUnicity>' . $txt . ' (Unicity)';
+                    $txt = '<isUnicity>' . $txt . ' (' . __('Unicity') . ')';
                 }
                 $result[$field['id']] = $txt;
             } else if ($field['isUnicity'] == 1) {
-                $result[$field['id']] = '<isUnicity>' . $result[$field['id']] . ' (Unicity)';
+                $result[$field['id']] = '<isUnicity>' . $result[$field['id']] . ' (' . __('Unicity') . ')';
             }
         }
         return $result;
